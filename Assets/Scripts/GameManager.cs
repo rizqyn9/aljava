@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Properties")]
     public SaveData saveData;
+    public GameObject resourceManagerPrefab;
 
     [Header("Debug")]
     public UserData userData;
@@ -21,6 +22,11 @@ public class GameManager : Singleton<GameManager>
     {
         saveData.init();
         userData = saveData.userData;
+
+        if (!FindObjectOfType<ResourceManager>())
+        {
+            Instantiate(resourceManagerPrefab);
+        }
     }
 
     #region Scene Handler

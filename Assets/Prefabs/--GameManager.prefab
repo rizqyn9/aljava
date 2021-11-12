@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDDOL: 1
   saveData: {fileID: 7778553825983226544}
+  resourceManagerPrefab: {fileID: 2822159598412850809, guid: 2f590896794f04e58afc8dd4860ede9d, type: 3}
   userData:
     userName: 
     point: 0

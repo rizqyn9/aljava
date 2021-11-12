@@ -538,6 +538,8 @@ MonoBehaviour:
   devMode: 1
   gameManagerPrefab: {fileID: 5381684141763385465, guid: ade772c88b1ae453ea13f4d1c5084c34, type: 3}
   resourcePrefab: {fileID: 0}
+  useLevelTest: 1
+  levelTest: {fileID: 11400000, guid: 656c1b546e35e417cb1912dd43dc1b1b, type: 2}
   useCustomUserData: 0
   customUserData:
     userName: Rizqy
@@ -565,6 +567,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1614822881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614822883}
+  - component: {fileID: 1614822882}
+  m_Layer: 0
+  m_Name: --ResourcesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1614822882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614822881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f279a1c485b545f5838aeff54f1be7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDDOL: 0
+  ListLevel:
+  - {fileID: 11400000, guid: 9ac257d6e965f486cbfd405f9822297b, type: 2}
+--- !u!4 &1614822883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614822881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.951317, y: 22.493149, z: -11.242037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660349700
 GameObject:
