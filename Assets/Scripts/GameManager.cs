@@ -1,4 +1,5 @@
 using System;
+using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,31 +11,31 @@ public static class SceneValid
 
 public class GameManager : Singleton<GameManager>
 {
-    //[Header("Scene")]
+    [Header("Properties")]
+    public SaveData saveData;
 
-    //[Header("Debug")]
+    [Header("Debug")]
+    public UserData userData;
 
-    private void OnEnable()
+    private void Start()
     {
-        isDDOL = true;
-        SceneManager.sceneLoaded += handleSceneLoaded;
+        saveData.init();
+        userData = saveData.userData;
     }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= handleSceneLoaded;
-    }
+    #region Scene Handler
+    private void OnEnable() => SceneManager.sceneLoaded += handleSceneLoaded;
+    private void OnDisable() => SceneManager.sceneLoaded -= handleSceneLoaded;
 
     [SerializeField] string sceneNow;
     [SerializeField] bool isInit;
     public void handleSceneLoaded(Scene _scene, LoadSceneMode arg1)
     {
-
-        Scene getScene = SceneManager.GetActiveScene();
-        if(getScene.name == SceneValid.GAME)
+        sceneNow = _scene.name;
+        if(sceneNow == SceneValid.GAME)
         {
             GameController.Instance.init();
-        } else if (getScene.name == SceneValid.MAIN_MENU)
+        } else if (sceneNow == SceneValid.MAIN_MENU)
         {
             MainMenuController.Instance.init();
         }
@@ -44,4 +45,5 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(_target);
     }
+    #endregion
 }

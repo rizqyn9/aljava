@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5381684141763385467}
   - component: {fileID: 5381684141763385464}
+  - component: {fileID: 7778553825983226544}
   m_Layer: 0
   m_Name: --GameManager
   m_TagString: Untagged
@@ -44,5 +45,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDDOL: 1
+  saveData: {fileID: 7778553825983226544}
+  userData:
+    userName: 
+    point: 0
+    levelUserDatas:
+      machineIgrendient: 0
+      level: 0
+    listLevels: []
   sceneNow: 
   isInit: 0
+--- !u!114 &7778553825983226544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381684141763385465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68477ea6cbbcb4bf0878858bf7ed13af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveFilePath: 
+  userData:
+    userName: 
+    point: 0
+    levelUserDatas:
+      machineIgrendient: 0
+      level: 0
+    listLevels: []
+  levelModel:
+    isOpen: 0
+    level: 0
+    stars: 0
+    playerInstance: 0
+    point: 0
+    isWin: 0

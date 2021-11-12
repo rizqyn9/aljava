@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : Singleton<GameController>
+namespace Game
 {
-    public void init()
+    public class GameController : Singleton<GameController>
     {
-        print("Game Initialize");
-    }
+        public void init()
+        {
+            print("Game Initialize");
+        }
 
-    public void Btn_Home()
-    {
-        GameManager.LoadScene(SceneValid.MAIN_MENU);
+        public void Btn_Home()
+        {
+            GameManager.LoadScene(SceneValid.MAIN_MENU);
+        }
     }
 }

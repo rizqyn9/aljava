@@ -8,17 +8,12 @@ public class Dev : Singleton<Dev>
     public bool devMode = true;
     public GameObject gameManagerPrefab;
     public GameObject resourcePrefab;
-
+    public bool useCustomUserData = true;
+    public UserData customUserData;
 
     private void Start()
     {
-        if (!FindObjectOfType<GameManager>())
-        {
-            Instantiate(gameManagerPrefab);
-        }
-        if (!FindObjectOfType<ResourceController>())
-        {
-            Instantiate(resourcePrefab);
-        }
+        if (!FindObjectOfType<GameManager>()) Instantiate(gameManagerPrefab);
+        //if (!FindObjectOfType<ResourceController>()) Instantiate(resourcePrefab);
     }
 }
