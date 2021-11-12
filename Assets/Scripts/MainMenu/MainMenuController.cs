@@ -14,6 +14,6 @@ public class MainMenuController : Singleton<MainMenuController>
 
     public void Btn_Play()
     {
-        GameManager.LoadScene(SceneValid.GAME);
+        GameManager.LoadScene(SceneValid.LEVEL_STAGE, UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public static class SceneValid
 {
     public const string MAIN_MENU = "MainMenu";
+    public const string LEVEL_STAGE = "LevelStage";
     public const string GAME = "Game";
 }
 
@@ -44,12 +45,20 @@ public class GameManager : Singleton<GameManager>
         } else if (sceneNow == SceneValid.MAIN_MENU)
         {
             MainMenuController.Instance.init();
+        } else if(sceneNow == SceneValid.LEVEL_STAGE)
+        {
+            LevelStageController.Instance.init();
         }
     }
 
-    public static void LoadScene(string _target)
+    public static void LoadScene(string _target, LoadSceneMode _loadSceneMode = LoadSceneMode.Single)
     {
-        SceneManager.LoadScene(_target);
+        SceneManager.LoadScene(_target, _loadSceneMode);
+    }
+
+    public static void UnLoadScene(string _target)
+    {
+        SceneManager.UnloadSceneAsync(_target);
     }
     #endregion
 }
