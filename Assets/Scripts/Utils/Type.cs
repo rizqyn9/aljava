@@ -4,7 +4,7 @@ using Game;
 
 public interface IGameState
 {
-    public void GameStateHandler(GameState _gameState);
+    public void GameStateHandler();
     GameObject GetGameObject();
     public void OnGameInit();
     public void OnGameIddle();
@@ -14,6 +14,7 @@ public interface IGameState
     public void OnGameClearance();
     public void OnGameFinish();
 }
+
 /// <summary>
 /// Behaviour for class manager
 /// <list type="bullet">
@@ -82,6 +83,7 @@ public enum MenuClassification
 
 public enum GameState
 {
+    NULL,
     INIT,          // STATE BEFORE INITIALIZE GAME
     BEFORE_START,
     START,           // GAME ALREADY TO PLAYING

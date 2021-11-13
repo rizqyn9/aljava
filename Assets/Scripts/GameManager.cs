@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
         saveData.init();
         userData = saveData.userData;
 
+        // Ensure that resource manager instance on hierarchy
         if (!FindObjectOfType<ResourceManager>())
         {
             Instantiate(resourceManagerPrefab);
