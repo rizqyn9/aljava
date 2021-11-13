@@ -2,8 +2,19 @@ using UnityEngine;
 using System.Collections.Generic;
 using Game;
 
+/// <summary>
+/// Default handler game state, handle from GameController
+/// </summary>
 public interface IGameState
 {
+    /// <summary>
+    /// This script has default flow.
+    /// <list type="bullet">
+    /// <item>Shit for native macos cant support override in interface</item>
+    /// <item>Copy this</item>
+    /// </list>
+    /// <code>GameStateController.UpdateGameState(this)</code>
+    /// </summary>
     public void GameStateHandler();
     GameObject GetGameObject();
     public void OnGameInit();
