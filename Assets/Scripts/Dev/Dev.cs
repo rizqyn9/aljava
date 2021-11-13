@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Game;
+
 
 public class Dev : Singleton<Dev>
 {
@@ -16,5 +19,10 @@ public class Dev : Singleton<Dev>
     private void Start()
     {
         if (!FindObjectOfType<GameManager>()) Instantiate(gameManagerPrefab);
+
+        if (SceneManager.GetActiveScene().name == SceneValid.GAME)
+        {
+            GameController.Instance.init(levelTest);
+        }
     }
 }

@@ -12,7 +12,7 @@ using Game;
 /// Create levelling Machine
 /// Dynamic value for duration long time
 /// </summary>
-[CreateAssetMenu(fileName = "MachineData", menuName = "ScriptableObject/MachineData")]
+[CreateAssetMenu(fileName = "MachineBase", menuName = "ScriptableObject/MachineBase")]
 public class MachineBase : ScriptableObject
 {
     public MachineClass machineClass;

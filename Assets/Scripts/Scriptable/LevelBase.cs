@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(fileName = "Level Base", menuName = "ScriptableObject/LevelType")]
+[CreateAssetMenu(fileName = "Level Base", menuName = "ScriptableObject/LevelBase")]
 public class LevelBase : ScriptableObject
 {
     public int level;
