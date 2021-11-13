@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,34 +8,33 @@ namespace Game
         [Header("Debug")]
         public EnvManager envManager;
         public List<Machine> machines = new List<Machine>();
-        public List<MachineBase> machineBases = new List<MachineBase>();
 
         public void init(EnvManager _envManager)
         {
             envManager = _envManager;
-            validateMachineWillInstance();
-            envManager.listMachines = machineBases;
-
+            instanceMachine();
         }
 
-        [SerializeField] List<MachineIgrendient> machineTypes;
-        public void validateMachineWillInstance()
+        void instanceMachine()
         {
-            machineTypes = new List<MachineIgrendient>();
-            // Get all menu
-            // Get all machine
-            // get different machine
-            foreach (MenuBase _menu in envManager.listMenus)
+            foreach(MachineBase _machineBase in envManager.listMachines)
             {
-                foreach(MachineIgrendient _machineType in _menu.Igrendients)
-                {
-                    if (!machineTypes.Contains(_machineType))
-                    {
-                        machineTypes.Add(_machineType);
-                        machineBases.Add(ResourceManager.ListMachines.Find(val => val.machineType == _machineType));
-                    }
-                }
+                if (!_machineBase.basePrefab) return;
+                Machine _machine = Instantiate(_machineBase.basePrefab, transform).GetComponent<Machine>();
+                _machine.init(_machineBase, getLevelMachine(_machineBase));
+                machines.Add(_machine);
             }
+        }
+
+        int getLevelMachine(MachineBase _machineBase)
+        {
+            int res = GameManager.Instance.userData.userEnvDatas.Find(val => val.machineType == _machineBase.machineType).level;
+            if(res > _machineBase.properties.Count)
+            {
+                Debug.LogWarning($"{_machineBase.machineType.ToString()} to much level value");
+                return 1;
+            }
+            return res;
         }
     }
 }

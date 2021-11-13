@@ -27,10 +27,15 @@ namespace Game
         public void OnGameInit()
         {
             getAllResources();
+
             machineManager.init(this);
         }
 
-        public void OnGameBeforeStart() { }
+        public void OnGameBeforeStart()
+        {
+
+        }
+
         public void OnGameStart() { }
         public void OnGameClearance() { }
         public void OnGameFinish() { }
@@ -38,10 +43,31 @@ namespace Game
         public void OnGamePause() { }
         #endregion
 
-        private void getAllResources()
+        void getAllResources()
         {
             listMenus = ResourceManager.ListMenus.FindAll(val => GameController.Instance.levelBase.MenuTypeUnlock.Contains(val.menuListName));
             listBuyers = ResourceManager.ListBuyers.FindAll(val => GameController.Instance.levelBase.BuyerTypeUnlock.Contains(val.enumBuyerType));
+            listMachines = validateMachineWillInstance();
+        }
+
+        [SerializeField] List<MachineIgrendient> _machineTypes;
+        List<MachineBase> validateMachineWillInstance()
+        {
+            _machineTypes = new List<MachineIgrendient>();
+            List<MachineBase> _listMachine = new List<MachineBase>();
+
+            foreach (MenuBase _menu in listMenus)
+            {
+                foreach (MachineIgrendient _machineType in _menu.Igrendients)
+                {
+                    if (!_machineTypes.Contains(_machineType))
+                    {
+                        _machineTypes.Add(_machineType);
+                        _listMachine.Add(ResourceManager.ListMachines.Find(val => val.machineType == _machineType));
+                    }
+                }
+            }
+            return _listMachine;
         }
     }
 }

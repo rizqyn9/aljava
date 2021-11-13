@@ -20,14 +20,14 @@ public struct UserData
 {
     public string userName;
     public int point;
-    public UserMachineState levelUserDatas;
+    public List<UserMachineState> userEnvDatas;
     public List<LevelModel> listLevels;
 }
 
 [System.Serializable]
 public struct UserMachineState
 {
-    public MachineIgrendient machineIgrendient;
+    public MachineIgrendient machineType;
     public int level;
 }
 
