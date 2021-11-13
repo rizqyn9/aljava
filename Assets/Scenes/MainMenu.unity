@@ -709,6 +709,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: isDDOL
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: devMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: useLevelTest
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272515, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: m_Name
       value: --Dev

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
-  m_Name: Level2
+  m_Name: Level_1
   m_EditorClassIdentifier: 
-  level: 2
-  gameMode: 1
-  MenuClassifications: 
-  MenuTypeUnlock: 
+  isLevelTest: 0
+  level: 1
+  gameMode: 0
+  MenuClassifications: 0000000004000000
+  MenuTypeUnlock: 03
   BuyerTypeUnlock: 
   delayPerCustomer: 10
   healthTotal: 3

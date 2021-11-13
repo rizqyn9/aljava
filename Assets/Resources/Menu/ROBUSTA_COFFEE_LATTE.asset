@@ -15,7 +15,7 @@ MonoBehaviour:
   menuName: 
   menuListName: 2
   menuPrefab: {fileID: 0}
-  Igrendients: 030410
+  Igrendients: 030411
   menuDesc: 
   menuSprite: {fileID: 0}
   pointInGame: 0
