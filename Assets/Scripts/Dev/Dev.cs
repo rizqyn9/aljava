@@ -16,6 +16,5 @@ public class Dev : Singleton<Dev>
     private void Start()
     {
         if (!FindObjectOfType<GameManager>()) Instantiate(gameManagerPrefab);
-        if (!FindObjectOfType<ResourceManager>()) Instantiate(resourcePrefab);
     }
 }

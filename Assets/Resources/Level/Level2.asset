@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
-  level: 0
+  level: 2
   gameMode: 1
   MenuClassifications: 
   MenuTypeUnlock: 
