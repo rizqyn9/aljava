@@ -6,13 +6,23 @@ namespace Game
 {
     public class UIGameManager : Singleton<UIGameManager>, IGameState
     {
+        [Header("Properties")]
+        [SerializeField] UIMachineManager machineManager;
+
+        public static UIMachineManager MachineManager => Instance.machineManager;
 
         #region Game State Handler
-        public GameState gameState => GameController.GameState;
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
         void OnDisable() => GameController.OnGameStateChanged -= GameStateHandler;
+
+        public GameState gameState => GameController.GameState;
         public void GameStateHandler() => GameStateController.UpdateGameState(this);
         public GameObject GetGameObject() => gameObject;
+
+        public void OnGameInit()
+        {
+            
+        }
 
         public void OnGameBeforeStart()
         {
@@ -23,7 +33,6 @@ namespace Game
         public void OnGameClearance() { }
         public void OnGameFinish() { }
         public void OnGameIddle() { }
-        public void OnGameInit() { }
         public void OnGamePause() { }
         #endregion
 
