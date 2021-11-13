@@ -7,9 +7,11 @@ namespace Game
 {
     public class GameController : Singleton<GameController>
     {
-        public void init()
+        public LevelBase levelBase;
+        public void init(LevelBase _levelbase)
         {
             print("Game Initialize");
+            levelBase = _levelbase;
         }
 
         public void Btn_Home()

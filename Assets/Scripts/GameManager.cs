@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
         sceneNow = _scene.name;
         if(sceneNow == SceneValid.GAME)
         {
-            GameController.Instance.init();
+            GameController.Instance.init(levelBase);
         } else if (sceneNow == SceneValid.MAIN_MENU)
         {
             MainMenuController.Instance.init();
@@ -54,6 +54,13 @@ public class GameManager : Singleton<GameManager>
     public static void LoadScene(string _target, LoadSceneMode _loadSceneMode = LoadSceneMode.Single)
     {
         SceneManager.LoadScene(_target, _loadSceneMode);
+    }
+
+    [SerializeField] LevelBase levelBase;
+    public static void LoadLevel(LevelBase _levelBase)
+    {
+        Instance.levelBase = _levelBase;
+        LoadScene(SceneValid.GAME);
     }
 
     public static void UnLoadScene(string _target)

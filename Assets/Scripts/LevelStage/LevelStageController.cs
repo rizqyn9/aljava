@@ -12,6 +12,7 @@ public class LevelStageController : Singleton<LevelStageController>
     [Header("Debug")]
     public int resCount = 0;
     public List<UI_Level> levels = new List<UI_Level>();
+    public bool isAcceptable = true; // Prevent Brute Force 
 
     public void init()
     {
@@ -39,6 +40,14 @@ public class LevelStageController : Singleton<LevelStageController>
     {
         if (_index >= resCount) return null;
         return ResourceManager.Instance.ListLevel[_index];
+    }
+
+
+    public void reqFromChild(LevelBase _levelBase)
+    {
+        isAcceptable = false;
+        print($"req from child {_levelBase.level}");
+        GameManager.LoadLevel(_levelBase);
     }
 
     public void Btn_Close()
