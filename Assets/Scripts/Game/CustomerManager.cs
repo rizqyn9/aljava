@@ -4,25 +4,18 @@ using UnityEngine;
 
 namespace Game
 {
-    public class EnvManager : Singleton<EnvManager>, IGameState
+    public class CustomerManager : Singleton<CustomerManager>, IGameState
     {
-        [Header("Properties")]
-        public GameObject animCharBackground;
-
-        [Header("Debug")]
-        public List<Machine> machines = new List<Machine>();
-
         #region Game State Handler
+        public GameState gameState => GameController.GameState;
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
         void OnDisable() => GameController.OnGameStateChanged -= GameStateHandler;
-
-        public GameState gameState => GameController.GameState;
         public void GameStateHandler() => GameStateController.UpdateGameState(this);
         public GameObject GetGameObject() => gameObject;
 
         public void OnGameBeforeStart()
         {
-            print("Env before start");
+
         }
 
         public void OnGameStart() { }
