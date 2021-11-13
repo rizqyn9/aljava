@@ -19,10 +19,16 @@ public class Dev : Singleton<Dev>
     private void Start()
     {
         if (!FindObjectOfType<GameManager>()) Instantiate(gameManagerPrefab);
-
         if (SceneManager.GetActiveScene().name == SceneValid.GAME)
         {
-            GameController.Instance.init(levelTest);
+            StartCoroutine(IStartGame());
         }
+    }
+
+    IEnumerator IStartGame()
+    {
+        yield return new WaitUntil(() => GameManager.Instance.isResourceManagerReady);
+        GameController.Instance.init(levelTest);
+        yield break;
     }
 }

@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Debug")]
     public UserData userData;
+    public bool isResourceManagerReady = false;
 
     private void Start()
     {

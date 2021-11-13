@@ -8,7 +8,6 @@ namespace Game
     {
         public static void UpdateGameState(IGameState _)
         {
-            Debug.Log(GameController.GameState);
             switch (GameController.GameState)
             {
                 case GameState.INIT:

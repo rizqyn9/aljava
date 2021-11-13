@@ -11,22 +11,32 @@ namespace Game
         public List<Machine> machines = new List<Machine>();
         public List<MachineBase> machineBases = new List<MachineBase>();
 
-        public void init()
+        public void init(EnvManager _envManager)
         {
-            envManager = gameObject.GetComponentInParent<EnvManager>();
+            envManager = _envManager;
+            validateMachineWillInstance();
+            envManager.listMachines = machineBases;
 
         }
 
+        [SerializeField] List<MachineIgrendient> machineTypes;
         public void validateMachineWillInstance()
         {
+            machineTypes = new List<MachineIgrendient>();
             // Get all menu
             // Get all machine
             // get different machine
-            //GameController.Instance.levelBase.MenuTypeUnlock.ForEach(val =>
-            //{
-            //    ResourceManager.Instance.ListMenus.Find(val => )
-            //})
-
+            foreach (MenuBase _menu in envManager.listMenus)
+            {
+                foreach(MachineIgrendient _machineType in _menu.Igrendients)
+                {
+                    if (!machineTypes.Contains(_machineType))
+                    {
+                        machineTypes.Add(_machineType);
+                        machineBases.Add(ResourceManager.ListMachines.Find(val => val.machineType == _machineType));
+                    }
+                }
+            }
         }
     }
 }
