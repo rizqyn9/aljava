@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a21487ea85a9949d6bc39018de391545, type: 3}
-  m_Name: ROBUSTA_COFFEE_LATTE
+  m_Name: ROBUSTA_ORIGINAL
   m_EditorClassIdentifier: 
   menuName: 
-  menuListName: 2
+  menuListName: 3
   menuPrefab: {fileID: 0}
-  Igrendients: 030410
+  Igrendients: 0304
   menuDesc: 
   menuSprite: {fileID: 0}
   pointInGame: 0

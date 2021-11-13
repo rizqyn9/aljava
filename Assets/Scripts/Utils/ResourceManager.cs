@@ -9,7 +9,10 @@ using UnityEditor;
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-    public List<LevelBase> ListLevel = new List<LevelBase>();
+    public List<LevelBase> ListLevels;
+    public List<MachineBase> ListMachines;
+    public List<BuyerBase> ListBuyers;
+    public List<MenuBase> ListMenus;
 }
 
 #if UNITY_EDITOR
@@ -24,14 +27,18 @@ public class ResourceManagerEditor: Editor
         DrawDefaultInspector();
         resourceManager = (ResourceManager)target;
 
+        getAllResources();
         if (GUILayout.Button("Get all reources"))
         {
+        }
+    }
 
-        }
-        if (GUILayout.Button("Get all Level"))
-        {
-            resourceManager.ListLevel = Resources.LoadAll<LevelBase>("Level").ToList();
-        }
+    public void getAllResources()
+    {
+        resourceManager.ListBuyers = Resources.LoadAll<BuyerBase>("Buyer").ToList();
+        resourceManager.ListMenus = Resources.LoadAll<MenuBase>("Menu").ToList();
+        resourceManager.ListLevels = Resources.LoadAll<LevelBase>("Level").ToList();
+        resourceManager.ListMachines = Resources.LoadAll<MachineBase>("Machine").ToList();
     }
 }
 #endif

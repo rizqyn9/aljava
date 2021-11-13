@@ -16,7 +16,7 @@ public class LevelStageController : Singleton<LevelStageController>
 
     public void init()
     {
-        resCount = ResourceManager.Instance.ListLevel.Count;
+        resCount = ResourceManager.Instance.ListLevels.Count;
         int render = resCount > minShowLevel ? resCount : minShowLevel;
 
         for(int i = 0; i < render; i++)
@@ -39,7 +39,7 @@ public class LevelStageController : Singleton<LevelStageController>
     LevelBase getLevelBase(int _index)
     {
         if (_index >= resCount) return null;
-        return ResourceManager.Instance.ListLevel[_index];
+        return ResourceManager.Instance.ListLevels[_index];
     }
 
 

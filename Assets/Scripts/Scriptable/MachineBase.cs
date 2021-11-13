@@ -42,6 +42,7 @@ public class editScript : Editor
 {
     public MachineBase machineData;
     public Machine machine;
+    public string msg = "";
 
     public override void OnInspectorGUI()
     {
@@ -52,8 +53,17 @@ public class editScript : Editor
         EditorGUILayout.LabelField("Validate");
         if (GUILayout.Button("Validate " + target.name))
         {
+            renameFile();
             validateData();
         }
+        GUILayout.TextArea(msg);
+    }
+
+    public void renameFile()
+    {
+        string name = machineData.machineClass.ToString() + "_"+ machineData.machineType.ToString();
+        string assetPath = AssetDatabase.GetAssetPath(target.GetInstanceID());
+        AssetDatabase.RenameAsset(assetPath, name);
     }
 
     private bool validateData()
