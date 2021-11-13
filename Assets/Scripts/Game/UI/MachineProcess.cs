@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MachineProcess : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MachineProcess : MonoBehaviour
     {
-        
-    }
+        [Header("Properties")]
+        public Image bar;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Debug")]
+        public Machine machine;
+
+        private void Start() => bar.fillAmount = 0;
+
+        public void init(Machine _machine)
+        {
+            machine = _machine;
+            transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
+        }
     }
 }

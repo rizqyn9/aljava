@@ -27,8 +27,8 @@ public class MachineBase : ScriptableObject
 
     [Header("Component")]
     public bool isUseRadiusBar = false;
-    public bool isUseBarCapacity = false;
     public bool isUseOverCook = false;
+    public bool isUseBarCapacity = false;
 
     [Header("Machine Properties")]
     public bool isUpgradeable = true;

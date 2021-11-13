@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Game
 {
@@ -7,6 +8,7 @@ namespace Game
     {
         [Header("Properties")]
         public GameObject prefabPlace;
+        public Transform capacityPos, processPos;
 
         [Header("Debug")]
         public MachineIgrendient machineType;
@@ -15,6 +17,10 @@ namespace Game
         public BoxCollider2D boxCollider2D;
         public Animator animator;
         public MachineProperties properties;
+
+        [Header("Component")]
+        public MachineCapacity machineCapacity;
+        public MachineProcess machineProcess;
 
         #region Machine State
         [SerializeField] MachineState _machineState = MachineState.OFF;
@@ -89,6 +95,7 @@ namespace Game
             machinePrefab = Instantiate(properties.prefab, prefabPlace.transform);
             animator = machinePrefab.GetComponent<Animator>();
             animator.enabled = false;
+            setUpComponent();
         }
         #endregion
 
@@ -96,6 +103,7 @@ namespace Game
         public virtual void OnGameBeforeStart() => StartCoroutine(beforeStart());
         public virtual void OnGameStart() { }
         #endregion
+
         #region Handle On State
         public virtual void OnMachineNeedRepair() { }
 
@@ -125,6 +133,16 @@ namespace Game
         #endregion
 
         #region Dependencies
+        void setUpComponent()
+        {
+            UIGameManager.MachineManager.instanceMachineProcess(this, out machineProcess);
+            if (machineBase.isUseBarCapacity)
+            {
+                UIGameManager.MachineManager.instanceMachineCapacity(this, out machineCapacity);
+            }
+            if (machineBase.isUseMachineOverlay) { }
+        }
+
         void checkPrefabSpawn()
         {
             if(prefabPlace.transform.childCount > 0)
