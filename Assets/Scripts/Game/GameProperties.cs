@@ -6,6 +6,7 @@ namespace Game
 {
     public class GameProperties : MonoBehaviour
     {
-        public float delayStart = 3f;
+        public float delayStart = 1f;
+        public float animMachineBeforeStart = .5f;
     }
 }

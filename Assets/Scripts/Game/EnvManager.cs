@@ -33,7 +33,7 @@ namespace Game
 
         public void OnGameBeforeStart()
         {
-
+            machineManager.OnGameBeforeStart();
         }
 
         public void OnGameStart() { }
