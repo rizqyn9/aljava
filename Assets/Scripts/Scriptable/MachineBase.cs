@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 #if UNITY_EDITOR
+using System;
 using UnityEditor;
 using Game;
 #endif
@@ -71,40 +71,53 @@ public class editScript : Editor
         // Validate use case component
         try
         {
-            Debug.Log($"<color=yellow> Validating {target.name} </color>");
+            msg = $"Validating {target.name}";
 
-            machine = machineData.basePrefab.GetComponent<Machine>();
+            //machine = machineData.basePrefab.GetComponent<Machine>();
 
-            if (machineData.properties.Count <= 0) throw new Exception("Properties cant be empty");
-            if (machineData.isUseMachineOverlay && machineData.prefabUIOverlay == null) throw new Exception("Will use overlay, but dont have overlay prefab");
-            if (!machineData.isUpgradeable && machineData.properties.Count > 1) throw new Exception("Not Upgradeable have multiple Properties");
-            if (machineData.isUpgradeable && machineData.properties.Count == 1) throw new Exception("Upgradeable but only one Properties");
+            //if (machineData.properties.Count <= 0) throw new Exception("Properties cant be empty");
+            //if (machineData.isUseMachineOverlay && machineData.prefabUIOverlay == null) throw new Exception("Will use overlay, but dont have overlay prefab");
+            //if (!machineData.isUpgradeable && machineData.properties.Count > 1) throw new Exception("Not Upgradeable have multiple Properties");
+            //if (machineData.isUpgradeable && machineData.properties.Count == 1) throw new Exception("Upgradeable but only one Properties");
 
-            //for (int i = 0; i < machineData.properties.Count; i++)
-            //{
-            //    if (machineData.properties[i].level != i + 1)
-            //        throw new Exception("Wrong format level");
-            //    if (
-            //        machineData.isUseBarCapacity
-            //        && machineData.properties[i].maxCapacity == 0
-            //        || !machine.capacityBarPos
-            //        )
-            //        throw new Exception("Max Capacity");
-            //    if (
-            //        machineData.isUseRadiusBar
-            //        && machineData.properties[i].processDuration == 0
-            //        || !machine.radiusBarPos
-            //        )
-            //        throw new Exception("Processing time error Capacity");
-            //}
+            for (int i = 0; i < machineData.properties.Count; i++)
+            {
+                MachineProperties props = machineData.properties[i];
 
-            Debug.Log($"<color=green> Validate success {target.name} </color>");
+                GameObject prefab = props.prefab;
+                if (!prefab)
+                    throw new Exception("Props dont have prefab");
+
+                Animator animator = prefab.GetComponent<Animator>();
+                if(!animator)
+                    throw new Exception("Prefab dont have Animator");
+                
+                if (machineData.properties[i].level != i + 1)
+                    throw new Exception("Wrong format level");
+
+                //if (
+                //    machineData.isUseBarCapacity
+                //    && machineData.properties[i].maxCapacity == 0
+                //    || !machine.capacityBarPos
+                //    )
+                //    throw new Exception("Max Capacity");
+                //if (
+                //    machineData.isUseRadiusBar
+                //    && machineData.properties[i].processDuration == 0
+                //    || !machine.radiusBarPos
+                //    )
+                //    throw new Exception("Processing time error Capacity");
+            }
+
+            //Debug.Log($"<color=green> Validate success {target.name} </color>");
+            msg = $"Validate success {target.name}";
             return true;
 
         }
         catch (Exception e)
         {
-            Debug.LogError(e);
+            //Debug.LogError(e);
+            msg = e.Message.ToString();
             return false;
         }
 

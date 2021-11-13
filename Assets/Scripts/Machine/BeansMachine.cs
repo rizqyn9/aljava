@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Machine : MonoBehaviour
+    public class BeansMachine : Machine
     {
 
     }

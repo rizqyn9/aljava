@@ -65,7 +65,7 @@ public struct MachineProperties
     public int level;
     public int maxCapacity;
     public float processDuration;
-    public Sprite sprite;
+    public GameObject prefab;
 }
 
 [System.Serializable]
