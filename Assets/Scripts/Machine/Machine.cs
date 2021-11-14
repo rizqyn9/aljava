@@ -79,8 +79,11 @@ namespace Game
         private void Start()
         {
             machineState = MachineState.INIT;
+
             gameObject.LeanAlpha(0, 0);
             setDisableCollider();
+
+            machineState = MachineState.OFF;
         }
 
         public void init(MachineBase _machineBase, int _machineLevel)
@@ -100,34 +103,48 @@ namespace Game
 
         #region Handle from Machine Manager
         public virtual void OnGameBeforeStart() => StartCoroutine(beforeStart());
-        public virtual void OnGameStart() { }
+        public virtual void OnGameStart() => machineState = MachineState.ON_IDDLE;
         #endregion
 
         #region Handle On State
+        public virtual void OnMachineInit()
+        {
+            setDisableCollider();
+        }
+
+        public virtual void OnMachineOff() => setDisableCollider();
+
+        public virtual void OnMachineIddle()
+        {
+            setEnableCollider();
+        }
+
+        public virtual void OnMachineProcess()
+        {
+            setDisableCollider();
+            machineProcess.runProcess();
+        }
+
+        public virtual void OnMachineOverCook()
+        {
+
+        }
+
         public virtual void OnMachineNeedRepair() { }
 
         public virtual void OnMachineRepair() { }
 
-        public virtual void OnMachineOverCook() { }
-
         public virtual void OnMachineClearance() { }
 
         public virtual void OnMachineDone() { }
-
-        public virtual void OnMachineProcess() { }
-
-        public virtual void OnMachineIddle() { }
-
-        public virtual void OnMachineOff() { }
-
-        public virtual void OnMachineInit() { }
         #endregion
 
         #region Hook Machine Process
         public void OnProcessCompleted()
         {
             machineState = MachineState.ON_DONE;
-            StartCoroutine(IStartOverCook());
+            if(machineBase.isUseOverCook)
+                StartCoroutine(IStartOverCook());
         }
         public void OnProcessOvercookCompleted()
         {

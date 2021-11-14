@@ -256,6 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d33a993d7b7455b85e0fe37de5f3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overcookDuration: 1
+  delayToOverCook: 0.5
+  repairDuration: 0.5
   delayStart: 3
   animMachineBeforeStart: 0.5
 --- !u!1 &519420028
@@ -350,6 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889261551}
+  - component: {fileID: 889261552}
   m_Layer: 5
   m_Name: --MachineProcess
   m_TagString: Untagged
@@ -376,6 +380,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &889261552
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889261550}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &956711250
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1010,7 @@ MonoBehaviour:
   listMachines: []
   listMenus: []
   listBuyers: []
+  _gameState: 0
   _machineTypes: 
 --- !u!1 &1724587877
 GameObject:
@@ -1004,6 +1021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1724587878}
+  - component: {fileID: 1724587879}
   m_Layer: 5
   m_Name: --MachineCapacity
   m_TagString: Untagged
@@ -1030,6 +1048,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1724587879
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724587877}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1739329965
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ namespace Game
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
         void OnDisable() => GameController.OnGameStateChanged -= GameStateHandler;
 
+        [SerializeField] GameState _gameState;
         public GameState gameState => GameController.GameState;
         public void GameStateHandler() => GameStateController.UpdateGameState(this);
         public GameObject GetGameObject() => gameObject;
@@ -36,7 +37,11 @@ namespace Game
             machineManager.OnGameBeforeStart();
         }
 
-        public void OnGameStart() { }
+        public void OnGameStart()
+        {
+            print("start");
+            machineManager.OnGameStart();
+        }
         public void OnGameClearance() { }
         public void OnGameFinish() { }
         public void OnGameIddle() { }

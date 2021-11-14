@@ -16,6 +16,7 @@ namespace Game
         }
 
         public void OnGameBeforeStart() => machines.ForEach(val => val.OnGameBeforeStart());
+        public void OnGameStart() => machines.ForEach(val => val.OnGameStart());
 
         void instanceMachine()
         {

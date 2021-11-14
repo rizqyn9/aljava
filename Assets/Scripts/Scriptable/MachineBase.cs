@@ -26,7 +26,7 @@ public class MachineBase : ScriptableObject
     public GameObject prefabUIOverlay;
 
     [Header("Component")]
-    public bool isUseRadiusBar = false;
+    public bool isUseProcessUI = true;
     public bool isUseOverCook = false;
     public bool isUseBarCapacity = false;
 

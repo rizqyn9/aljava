@@ -43,7 +43,9 @@ namespace Game
             yield return new WaitForSeconds(gameProperties.delayStart);
 
             GameState = GameState.BEFORE_START;
-            yield return 1;
+            yield return new WaitForSeconds(gameProperties.delayStart);
+
+            GameState = GameState.START;
         }
 
         public void Btn_Home()

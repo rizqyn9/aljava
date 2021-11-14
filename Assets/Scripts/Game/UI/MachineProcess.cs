@@ -23,7 +23,7 @@ namespace Game
         [Header("Debug")]
         [SerializeField] Machine machine;
         [SerializeField] float duration;
-        [SerializeField] bool isUseOverCook, isUseCapacity;
+        [SerializeField] bool isUseProcessUI, isUseOverCook, isUseCapacity;
         [SerializeField] int leanTweenId = 0;
         [SerializeField] BarType barType;
         [SerializeField] List<Image> bars;                      // Bars image container
@@ -40,6 +40,7 @@ namespace Game
             bars = new List<Image> { barRepair, barProcess, barOvercook };
             checks = new List<GameObject> { checkList, checkRepair };
 
+            isUseProcessUI = machine.machineBase.isUseProcessUI;
             isUseOverCook = _machine.machineBase.isUseOverCook;
             isUseCapacity = _machine.machineBase.isUseBarCapacity;
             duration = _machine.properties.processDuration;
@@ -67,6 +68,10 @@ namespace Game
         {
             _bar.fillAmount = 0;
             _bar.enabled = true;
+
+            gameObject.LeanAlpha(1, .2f);
+            gameObject.LeanScale(new Vector2(1, 1), .2f).setEaseInOutBounce();
+
             leanTweenId = LeanTween.value(0, 100, _duration).setOnUpdate((val) =>
              {
                  _bar.fillAmount = val / 100;
