@@ -116,7 +116,13 @@ namespace Game
         {
             if (!MachineManager.IsMachineInteractable) return;
             if (machineState == MachineState.ON_IDDLE) machineState = MachineState.ON_PROCESS;
-            //TODO
+            if(machineState == MachineState.ON_DONE)
+            {
+                if (machineBase.isUseBarCapacity)
+                {
+                    machineCapacity.getOne();
+                }
+            }
         }
         #endregion
 
@@ -199,7 +205,7 @@ namespace Game
 
         public void OnCapacityEmpty()
         {
-
+            machineState = MachineState.ON_IDDLE;
         }
         #endregion
 

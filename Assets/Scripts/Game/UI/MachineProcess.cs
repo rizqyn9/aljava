@@ -110,11 +110,12 @@ namespace Game
         }
 
         #region Dependencies
+        void resetChecks() => checks.ForEach(val => val.SetActive(false));
         public void resetProcess(bool isInit = false)
         {
             if (leanTweenId != 0) LeanTween.cancel(leanTweenId);
 
-            checks.ForEach(val => val.SetActive(false));
+            resetChecks();
             bars.ForEach(val =>
             {
                 val.enabled = false;
@@ -122,7 +123,7 @@ namespace Game
             });
 
             LeanTween.alpha(rectTransform, 0, isInit ? 0 : .3f);
-            gameObject.LeanScale(Vector2.zero, isInit ? 0 : .5f);
+            gameObject.LeanScale(Vector2.zero, isInit ? 0 : .5f).setOnComplete(resetChecks);
 
             barType = BarType.NOT_SET;
         }

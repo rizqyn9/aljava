@@ -1,11 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game
 {
+    public enum MachineCapacityState
+    {
+        ON_EMPTY,
+        ON_CAPACITY,
+        ON_FULL
+    }
+
     public class MachineCapacity : MonoBehaviour
     {
         [Header("Properties")]
@@ -14,6 +18,7 @@ namespace Game
         [Header("Debug")]
         public Machine machine;
         public int maxCapacity = 0;
+        public MachineCapacityState machineCapacityState = MachineCapacityState.ON_EMPTY;
         [SerializeField] RectTransform rectTransform;
         [SerializeField] int _stateCapacity = 0;
         public int stateCapacity
@@ -53,6 +58,7 @@ namespace Game
 
         public void setFull()
         {
+            machineCapacityState = MachineCapacityState.ON_FULL;
             stateCapacity = maxCapacity;
             LeanTween.alpha(rectTransform, 1, 1f);
             machine.OnCapacityFull();
@@ -65,11 +71,13 @@ namespace Game
             {
                 handleEmpty();
             }
+            machineCapacityState = MachineCapacityState.ON_CAPACITY;
             machine.OnCapacityGetOne();
         }
 
         private void handleEmpty()
         {
+            machineCapacityState = MachineCapacityState.ON_EMPTY;
             LeanTween.alpha(rectTransform, 0, 1f);
             machine.OnCapacityEmpty();
         }

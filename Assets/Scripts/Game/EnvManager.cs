@@ -23,6 +23,11 @@ namespace Game
         public static GlassManager GlassManager => Instance.glassManager;
         #endregion
 
+        private void Start()
+        {
+            LeanTween.alpha(animCharBackground, 0, 0);
+        }
+
         #region Game State Handler
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
         void OnDisable() => GameController.OnGameStateChanged -= GameStateHandler;
@@ -47,7 +52,7 @@ namespace Game
 
         public void OnGameStart()
         {
-            print("start");
+            LeanTween.alpha(animCharBackground, 1, .5f).setLoopCount(2);
             machineManager.OnGameStart();
         }
         public void OnGameClearance() { }
