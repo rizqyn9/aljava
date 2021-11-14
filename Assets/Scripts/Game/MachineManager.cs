@@ -16,7 +16,11 @@ namespace Game
         }
 
         public void OnGameBeforeStart() => machines.ForEach(val => val.OnGameBeforeStart());
-        public void OnGameStart() => machines.ForEach(val => val.OnGameStart());
+        public void OnGameStart()
+        {
+            isMachineInteractable = true;
+            machines.ForEach(val => val.OnGameStart());
+        }
 
         void instanceMachine()
         {
@@ -28,6 +32,9 @@ namespace Game
                 machines.Add(_machine);
             }
         }
+
+        [SerializeField] bool isMachineInteractable = false;
+        public static bool IsMachineInteractable => EnvManager.Instance.machineManager.isMachineInteractable;
 
         int getLevelMachine(MachineBase _machineBase)
         {

@@ -20,20 +20,20 @@ MonoBehaviour:
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
   isUseProcessUI: 1
-  isUseOverCook: 1
-  isUseBarCapacity: 0
+  isUseOverCook: 0
+  isUseBarCapacity: 1
   isUpgradeable: 1
   isAutoRun: 0
   properties:
   - level: 1
-    maxCapacity: 0
+    maxCapacity: 1
     processDuration: 1
     prefab: {fileID: 8100903179190009338, guid: c33f53e8c2ac34312b40727280091308, type: 3}
   - level: 2
-    maxCapacity: 0
+    maxCapacity: 1
     processDuration: 1
     prefab: {fileID: 7077734611662682834, guid: 4bfae0a915db84f5a8ffe2070d2104a9, type: 3}
   - level: 3
-    maxCapacity: 0
+    maxCapacity: 1
     processDuration: 1
     prefab: {fileID: 7183720805882685480, guid: 129f4654ac65b4667bdddff0056dd8c2, type: 3}

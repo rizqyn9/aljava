@@ -39,7 +39,7 @@ namespace Game
         IEnumerator IStartGame()
         {
             GameState = GameState.INIT;
-            yield return new WaitForSeconds(gameProperties.delayStart);
+            yield return new WaitForSeconds(gameProperties.delayStart/2);
 
             GameState = GameState.BEFORE_START;
             yield return new WaitForSeconds(gameProperties.delayStart);

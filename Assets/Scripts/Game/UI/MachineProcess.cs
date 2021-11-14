@@ -15,7 +15,8 @@ namespace Game
     public class MachineProcess : MonoBehaviour
     {
         [Header("Properties")]
-        [SerializeField] Image barProcess, barOvercook, barRepair;
+        [SerializeField] Image barProcess;
+        [SerializeField] Image barOvercook, barRepair;
         [SerializeField] GameObject checkList, checkRepair;
 
         [Header("Debug")]

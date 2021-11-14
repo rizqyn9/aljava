@@ -111,6 +111,15 @@ namespace Game
         public virtual void OnGameStart() => machineState = MachineState.ON_IDDLE;
         #endregion
 
+        #region Trigger Default handle
+        public virtual void OnMouseDown()
+        {
+            if (!MachineManager.IsMachineInteractable) return;
+            if (machineState == MachineState.ON_IDDLE) machineState = MachineState.ON_PROCESS;
+            //TODO
+        }
+        #endregion
+
         #region Handle On State
         public virtual void OnMachineInit()
         {
@@ -157,6 +166,8 @@ namespace Game
             machineState = MachineState.ON_DONE;
             if(machineBase.isUseOverCook)
                 StartCoroutine(IStartOverCook());
+            if (machineBase.isUseBarCapacity)
+                machineCapacity.filled();
         }
         public void OnProcessOvercookCompleted()
         {

@@ -12,11 +12,17 @@ namespace Game
 
         [Header("Debug")]
         public Machine machine;
+        public int capacity = 0;
 
         public void init(Machine _machine)
         {
             machine = _machine;
             transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
+        }
+
+        public void filled()
+        {
+            
         }
     }
 }

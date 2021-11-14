@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -19,7 +20,6 @@ namespace Game
 
         public void OnGameInit()
         {
-            
         }
 
         public void OnGameBeforeStart()

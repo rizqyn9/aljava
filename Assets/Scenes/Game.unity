@@ -136,15 +136,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[0].level
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.userEnvDatas.Array.data[1].level
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[0].machineType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.userEnvDatas.Array.data[1].machineType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272515, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: m_Name
@@ -1375,6 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   envManager: {fileID: 1502572377}
   machines: []
+  isMachineInteractable: 0
 --- !u!1 &1909890345
 GameObject:
   m_ObjectHideFlags: 0
