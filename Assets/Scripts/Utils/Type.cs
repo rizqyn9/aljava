@@ -111,7 +111,7 @@ public enum GameMode
 }
 
 [System.Serializable]
-public struct transformSeatData
+public struct TransformSeatData
 {
     public bool isSeatAvaible;
     public Transform transform;

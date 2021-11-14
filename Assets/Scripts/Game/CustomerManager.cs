@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +5,21 @@ namespace Game
 {
     public class CustomerManager : Singleton<CustomerManager>, IGameState
     {
+        [Header("Properties")]
+        public GameObject seat;
+
+        [Header("Debug")]
+        public List<TransformSeatData> transformSeatDatas;
+
+
+        void OnValidate()
+        {
+            foreach (Transform to in seat.GetComponentsInChildren<Transform>())
+                if (to.CompareTag("seat")) transformSeatDatas.Add(new TransformSeatData() { isSeatAvaible = false, transform = to });
+        }
+
+
         #region Game State Handler
-        public GameState gameState => GameController.GameState;
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
         void OnDisable() => GameController.OnGameStateChanged -= GameStateHandler;
         public void GameStateHandler() => GameStateController.UpdateGameState(this);
