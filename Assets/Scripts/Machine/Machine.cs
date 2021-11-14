@@ -9,8 +9,8 @@ namespace Game
         //[Header("Properties")]
 
         [Header("Debug")]
-        public Transform capacityPos, processPos, prefabPlace;
         public MachineIgrendient machineType;
+        public Transform capacityPos, processPos, prefabPlace;
         public MachineBase machineBase;
         public GameObject machinePrefab;
         public BoxCollider2D boxCollider2D;
@@ -86,9 +86,13 @@ namespace Game
             machineState = MachineState.OFF;
         }
 
-        public void init(MachineBase _machineBase, int _machineLevel)
+        private void OnValidate()
         {
             getDependencies();
+        }
+
+        public void init(MachineBase _machineBase, int _machineLevel)
+        {
             machineBase = _machineBase;
             machineType = machineBase.machineType;
 

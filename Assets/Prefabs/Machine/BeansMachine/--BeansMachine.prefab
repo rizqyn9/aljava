@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4102914688120191146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.22, y: -1.62, z: 0}
+  m_LocalPosition: {x: -4.52, y: -1.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4102914688194098280}
@@ -77,9 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9da797b305641cf899a9e2ba8dd3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPlace: {fileID: 4102914688194098281}
   capacityPos: {fileID: 1642905874988812444}
   processPos: {fileID: 980599721074043847}
+  prefabPlace: {fileID: 4102914688194098281}
   machineType: 0
   machineBase: {fileID: 0}
   machinePrefab: {fileID: 0}
