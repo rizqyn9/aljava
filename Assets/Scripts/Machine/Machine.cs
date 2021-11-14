@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System;
 
 namespace Game
 {
@@ -122,6 +121,29 @@ namespace Game
         public virtual void OnMachineOff() { }
 
         public virtual void OnMachineInit() { }
+        #endregion
+
+        #region Hook Machine Process
+        public void OnProcessCompleted()
+        {
+            machineState = MachineState.ON_DONE;
+            StartCoroutine(IStartOverCook());
+        }
+        public void OnProcessOvercookCompleted()
+        {
+
+        }
+        public void OnProcessRepairCompleted()
+        {
+
+        }
+
+        IEnumerator IStartOverCook()
+        {
+            yield return new WaitForSeconds(GameController.GameProperties.delayToOverCook);
+            machineProcess.runOverCook();
+            yield break;
+        }
         #endregion
 
         #region IEnumurator
