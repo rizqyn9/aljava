@@ -44,3 +44,6 @@ TagManager:
   - name: Machine
     uniqueID: 1048203561
     locked: 0
+  - name: Glass
+    uniqueID: 3621514299
+    locked: 0

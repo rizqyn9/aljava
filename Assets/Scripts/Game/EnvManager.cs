@@ -10,11 +10,18 @@ namespace Game
         [Header("Properties")]
         public GameObject animCharBackground;
         public MachineManager machineManager;
+        public Trash trash;
+        public GlassManager glassManager;
 
         [Header("Debug")]
         public List<MachineBase> listMachines = new List<MachineBase>(); 
         public List<MenuBase> listMenus = new List<MenuBase>(); 
-        public List<BuyerBase> listBuyers = new List<BuyerBase>(); 
+        public List<BuyerBase> listBuyers = new List<BuyerBase>();
+
+        #region Accessor
+        public static Trash Trash => Instance.trash;
+        public static GlassManager GlassManager => Instance.glassManager;
+        #endregion
 
         #region Game State Handler
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
@@ -34,6 +41,7 @@ namespace Game
 
         public void OnGameBeforeStart()
         {
+            glassManager.init();
             machineManager.OnGameBeforeStart();
         }
 

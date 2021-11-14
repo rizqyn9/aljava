@@ -19,8 +19,8 @@ MonoBehaviour:
   PrefabResult: {fileID: 0}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
-  isUseProcessUI: 0
-  isUseOverCook: 0
+  isUseProcessUI: 1
+  isUseOverCook: 1
   isUseBarCapacity: 0
   isUpgradeable: 1
   isAutoRun: 0
