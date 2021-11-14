@@ -132,11 +132,18 @@ namespace Game
 
         public virtual void OnMachineNeedRepair() { }
 
-        public virtual void OnMachineRepair() { }
+        public virtual void OnMachineRepair()
+        {
+            setDisableCollider();
+            machineProcess.runRepair();
+        }
 
         public virtual void OnMachineClearance() { }
 
-        public virtual void OnMachineDone() { }
+        public virtual void OnMachineDone()
+        {
+            setEnableCollider();
+        }
         #endregion
 
         #region Hook Machine Process
@@ -148,11 +155,11 @@ namespace Game
         }
         public void OnProcessOvercookCompleted()
         {
-
+            machineState = MachineState.ON_NEEDREPAIR;
         }
         public void OnProcessRepairCompleted()
         {
-
+            machineState = MachineState.ON_IDDLE;
         }
 
         IEnumerator IStartOverCook()

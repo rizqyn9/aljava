@@ -510,7 +510,7 @@ MonoBehaviour:
   barOvercook: {fileID: 3072507067510340259}
   barRepair: {fileID: 4784346438501237203}
   checkList: {fileID: 7031099521672505635}
-  checkRepair: {fileID: 7031099521672505635}
+  checkRepair: {fileID: 7031099521022118626}
   machine: {fileID: 0}
   duration: 0
   isUseProcessUI: 0

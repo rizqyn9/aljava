@@ -8,7 +8,9 @@ namespace Game
     {
         private void OnMouseDown()
         {
-            machineState = MachineState.ON_PROCESS;
+            if (machineState == MachineState.ON_IDDLE) machineState = MachineState.ON_PROCESS;
+            if (machineState == MachineState.ON_NEEDREPAIR) machineState = MachineState.ON_REPAIR;
+
         }
     }
 }

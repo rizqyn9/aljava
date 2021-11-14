@@ -61,7 +61,9 @@ namespace Game
         public void runRepair()
         {
             barType = BarType.REPAIR;
-            runDefault(barOvercook, GameController.GameProperties.repairDuration);
+            float dur = GameController.GameProperties.repairDuration;
+            simulateRepair(dur);
+            runDefault(barOvercook, dur);
         }
 
         void runDefault(Image _bar, float _duration)
@@ -87,6 +89,7 @@ namespace Game
                 machine.OnProcessCompleted();
             } else if(barType == BarType.OVERCOOK)
             {
+                print("Overcook");
                 spawnCheck(checkRepair);
                 machine.OnProcessOvercookCompleted();
             } else if(barType == BarType.REPAIR)
@@ -118,6 +121,11 @@ namespace Game
             gameObject.LeanScale(Vector2.zero, isInit ? 0 : .5f);
 
             barType = BarType.NOT_SET;
+        }
+
+        void simulateRepair(float _dur)
+        {
+            LeanTween.rotateZ(checkRepair, 30f, _dur / 5).setLoopPingPong(5);
         }
         #endregion
     }
