@@ -28,7 +28,6 @@ namespace Game
             }
         }
 
-        void checkMenu() { }
         public void init(GlassRegistered _glassRegistered)
         {
             glassRegistered = _glassRegistered;
@@ -47,19 +46,21 @@ namespace Game
 
         public void addIgrendients(MachineIgrendient _igrendient, Sprite _sprite)
         {
-            lastIgrendients = _igrendient;
             igrendients.Add(_igrendient);
             igrendientSprite.sprite = _sprite;
             onFillIgrendients();
+            lastIgrendients = _igrendient;
         }
+
+        void checkMenu() => isValidMenu = GlassManager.MenuChecker(igrendients, out menuResult);
 
         public void addIgrendients(List<MachineIgrendient> _igrendients, Sprite _sprite)
         {
-            lastIgrendients = _igrendients[_igrendients.Count - 1];
             igrendients.AddRange(_igrendients);
             if(_sprite != null)
                 igrendientSprite.sprite = _sprite;
             onFillIgrendients();
+            lastIgrendients = _igrendients[_igrendients.Count - 1];
         }
 
         void onFillIgrendients()

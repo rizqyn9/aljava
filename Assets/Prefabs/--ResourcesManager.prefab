@@ -44,5 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDDOL: 1
-  ListLevel:
+  listLevels:
   - {fileID: 11400000, guid: 9ac257d6e965f486cbfd405f9822297b, type: 2}
+  - {fileID: 11400000, guid: 3a74d0b7d4ea6406f80c599df0ec934a, type: 2}
+  listMachines:
+  - {fileID: 11400000, guid: 9c878c2012a454dc38e5f207876505e5, type: 2}
+  - {fileID: 11400000, guid: 2e76d78c3ba294269b8853f76214913a, type: 2}
+  - {fileID: 11400000, guid: fa94b2371f62c4f86b44e377f1ae6fb6, type: 2}
+  listBuyers: []
+  listMenus:
+  - {fileID: 11400000, guid: 46194858d1b2e4a97ad6816808df8f03, type: 2}
+  - {fileID: 11400000, guid: 953a7bbfea70542d19eb9735ca694aeb, type: 2}
+  notValidMenu: {fileID: 11400000, guid: 236d4fcf7392a401daafe2b0c4b626fb, type: 2}

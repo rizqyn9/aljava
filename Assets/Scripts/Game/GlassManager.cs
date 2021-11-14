@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game
@@ -79,5 +80,21 @@ namespace Game
             yield break;
         }
         #endregion
+
+        public static bool MenuChecker(List<MachineIgrendient> _igrendients, out MenuBase _menubase)
+        {
+            bool res = false;
+            _menubase = ResourceManager.NotValidMenu;
+            for (int i = 0; i < ResourceManager.MenuCount; i++)
+            {
+                if (res = ResourceManager.ListMenus[i].Igrendients.SequenceEqual(_igrendients))
+                {
+                    _menubase = ResourceManager.ListMenus[i];
+                    break;
+                }
+            }
+            if (!res) { }
+            return res;
+        }
     }
 }

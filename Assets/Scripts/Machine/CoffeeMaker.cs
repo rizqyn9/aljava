@@ -24,6 +24,7 @@ namespace Game
             if (GlassManager.IsGlassTargetAvaible(MachineIgrendient.NULL, out glassTarget))
             {
                 machineProcess.resetProcess();
+                listIgrendients.Add(machineType);
                 glassTarget.glass.addIgrendients(
                     listIgrendients,
                     spriteGlassStates.Find(val => val.igrendient == listIgrendients[0]).sprite
