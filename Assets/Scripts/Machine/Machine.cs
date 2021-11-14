@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
-using System;
 
 namespace Game
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public abstract class Machine : MonoBehaviour
     {
         //[Header("Properties")]

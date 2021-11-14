@@ -15,13 +15,25 @@ MonoBehaviour:
   machineClass: 2
   machineType: 17
   targetMachine: 0
-  basePrefab: {fileID: 0}
+  basePrefab: {fileID: 6826961090936221966, guid: 797c7b9155b9b4ba5b6eb9f1e5cccc53, type: 3}
   PrefabResult: {fileID: 0}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
-  isUseRadiusBar: 0
-  isUseBarCapacity: 0
+  isUseProcessUI: 0
   isUseOverCook: 0
+  isUseBarCapacity: 0
   isUpgradeable: 1
   isAutoRun: 0
-  properties: []
+  properties:
+  - level: 1
+    maxCapacity: 0
+    processDuration: 0
+    prefab: {fileID: 8305343421721946736, guid: 0a0e5f45faf2940b6a419246617110c9, type: 3}
+  - level: 2
+    maxCapacity: 0
+    processDuration: 0
+    prefab: {fileID: 1441373011865069878, guid: b5d12c624a6dd4121b7cd2897db43b72, type: 3}
+  - level: 3
+    maxCapacity: 0
+    processDuration: 0
+    prefab: {fileID: 1089437481023693858, guid: 6caec309ad3e9415ab8298cd7a4e3800, type: 3}
