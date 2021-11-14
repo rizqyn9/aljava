@@ -19,6 +19,9 @@ namespace Game
         #region Accessor
         public static Trash Trash => Instance.trash;
         public static GlassManager GlassManager => Instance.glassManager;
+        public static List<MachineBase> ListMachines => Instance.listMachines;
+        public static List<MenuBase> ListMenus => Instance.listMenus;
+        public static List<BuyerBase> ListBuyers => Instance.listBuyers;
         #endregion
 
         private void Start()
@@ -62,7 +65,7 @@ namespace Game
         void getAllResources()
         {
             listMenus = ResourceManager.ListMenus.FindAll(val => GameController.Instance.levelBase.MenuTypeUnlock.Contains(val.menuListName));
-            listBuyers = ResourceManager.ListBuyers.FindAll(val => GameController.Instance.levelBase.BuyerTypeUnlock.Contains(val.enumBuyerType));
+            listBuyers = ResourceManager.ListBuyers.FindAll(val => GameController.Instance.levelBase.BuyerTypeUnlock.Contains(val.buyerType));
             listMachines = validateMachineWillInstance();
         }
 

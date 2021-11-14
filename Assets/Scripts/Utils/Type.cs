@@ -113,6 +113,7 @@ public enum GameMode
 [System.Serializable]
 public struct TransformSeatData
 {
+    public int index;
     public bool isSeatAvaible;
     public Transform transform;
 }
@@ -130,13 +131,13 @@ public enum SpawnerState
 public struct BuyerPrototype
 {
     public string customerCode;
-    //public BuyerType buyerType;
+    public BuyerBase buyerType;
     public BuyerState buyerState;
-    public int seatIndex;
+    public TransformSeatData seatData;
     public Vector2 spawnPos;
     public Vector2 seatPos;
-    //public List<MenuType> menuListNames;
-    //public CustomerHandler customerHandler;
+    public List<MenuBase> menuListNames;
+    public CustomerHandler customerHandler;
 }
 
 [System.Serializable]
