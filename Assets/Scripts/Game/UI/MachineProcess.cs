@@ -20,6 +20,7 @@ namespace Game
         [SerializeField] GameObject checkList, checkRepair;
 
         [Header("Debug")]
+        [SerializeField] RectTransform rectTransform;
         [SerializeField] Machine machine;
         [SerializeField] float duration;
         [SerializeField] bool isUseProcessUI, isUseOverCook, isUseCapacity;
@@ -30,6 +31,10 @@ namespace Game
 
 
         private void Start() => resetProcess(true);
+        private void Awake()
+        {
+            rectTransform = gameObject.GetComponent<RectTransform>();
+        }
 
         public void init(Machine _machine)
         {
@@ -70,7 +75,7 @@ namespace Game
             _bar.fillAmount = 0;
             _bar.enabled = true;
 
-            gameObject.LeanAlpha(1, .2f);
+            LeanTween.alpha(rectTransform, 1, .2f);
             gameObject.LeanScale(new Vector2(1, 1), .2f).setEaseInOutBounce();
 
             leanTweenId = LeanTween.value(0, 100, _duration).setOnUpdate((val) =>
@@ -116,7 +121,7 @@ namespace Game
                 val.fillAmount = 0;
             });
 
-            gameObject.LeanAlpha(0, isInit ? 0 : .3f);
+            LeanTween.alpha(rectTransform, 0, isInit ? 0 : .3f);
             gameObject.LeanScale(Vector2.zero, isInit ? 0 : .5f);
 
             barType = BarType.NOT_SET;

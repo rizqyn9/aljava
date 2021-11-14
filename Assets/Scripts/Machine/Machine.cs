@@ -167,7 +167,7 @@ namespace Game
             if(machineBase.isUseOverCook)
                 StartCoroutine(IStartOverCook());
             if (machineBase.isUseBarCapacity)
-                machineCapacity.filled();
+                machineCapacity.setFull();
         }
         public void OnProcessOvercookCompleted()
         {
@@ -183,6 +183,23 @@ namespace Game
             yield return new WaitForSeconds(GameController.GameProperties.delayToOverCook);
             machineProcess.runOverCook();
             yield break;
+        }
+        #endregion
+
+        #region Hook machine capacity
+        public void OnCapacityGetOne()
+        {
+
+        }
+
+        public void OnCapacityFull()
+        {
+
+        }
+
+        public void OnCapacityEmpty()
+        {
+
         }
         #endregion
 
