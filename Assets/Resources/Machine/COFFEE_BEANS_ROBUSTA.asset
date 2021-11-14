@@ -35,5 +35,5 @@ MonoBehaviour:
     prefab: {fileID: 7077734611662682834, guid: 4bfae0a915db84f5a8ffe2070d2104a9, type: 3}
   - level: 3
     maxCapacity: 4
-    processDuration: 5
+    processDuration: 1
     prefab: {fileID: 7183720805882685480, guid: 129f4654ac65b4667bdddff0056dd8c2, type: 3}
