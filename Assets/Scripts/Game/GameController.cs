@@ -34,7 +34,6 @@ namespace Game
             levelBase = _levelbase;
 
             StartCoroutine(IStartGame());
-            
         }
 
         IEnumerator IStartGame()

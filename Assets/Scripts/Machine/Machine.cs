@@ -1,15 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Game
 {
     public abstract class Machine : MonoBehaviour
     {
-        [Header("Properties")]
-        public GameObject prefabPlace;
-        public Transform capacityPos, processPos;
+        //[Header("Properties")]
 
         [Header("Debug")]
+        public Transform capacityPos, processPos, prefabPlace;
         public MachineIgrendient machineType;
         public MachineBase machineBase;
         public GameObject machinePrefab;
@@ -88,6 +88,7 @@ namespace Game
 
         public void init(MachineBase _machineBase, int _machineLevel)
         {
+            getDependencies();
             machineBase = _machineBase;
             machineType = machineBase.machineType;
 
@@ -189,9 +190,19 @@ namespace Game
             if (machineBase.isUseMachineOverlay) { }
         }
 
+        void getDependencies()
+        {
+            foreach(Transform to in gameObject.GetComponent<Transform>())
+            {
+                if (to.gameObject.name == "--prefab") prefabPlace = to; 
+                if (to.gameObject.name == "-capacity") capacityPos = to; 
+                if (to.gameObject.name == "-process") processPos = to; 
+            }
+        }
+
         void checkPrefabSpawn()
         {
-            if(prefabPlace.transform.childCount > 0)
+            if(prefabPlace.childCount > 0)
                 foreach(SpriteRenderer go in prefabPlace.GetComponentsInChildren<SpriteRenderer>())
                     Destroy(go.gameObject);
         }

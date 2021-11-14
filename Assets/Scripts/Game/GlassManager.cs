@@ -31,11 +31,26 @@ namespace Game
         public int glassCodeCache = 0;
         [SerializeField] List<GlassRegistered> glassRegistereds = new List<GlassRegistered>();
 
-        public void init()
+        public void init() // Hook from Env Manager
         {
             for (int i = 0; i < listPosSpawn.Count; i++) reqGlassSpawn(i);
         }
 
+        /// <summary>
+        /// Find from last Igrendients 
+        /// </summary>
+        /// <param name="_igrendient"></param>
+        /// <returns>Glass Registered Struct</returns>
+        public static GlassRegistered FindGlass(MachineIgrendient _igrendient) =>
+            EnvManager.GlassManager.glassRegistereds.Find(val => val.glass.lastIgrendients == _igrendient && val.glass.glassState != GlassState.PROCESS);
+
+        public static bool IsGlassTargetAvaible(MachineIgrendient _lastIgrendient, out GlassRegistered _glassRegistered)
+        {
+            _glassRegistered = FindGlass(_lastIgrendient);
+            return _glassRegistered.glassCode != null;
+        }
+
+        #region Glass Spawn
         public void reqGlassSpawn(int _seat)
         {
             Glass _spawn = Instantiate(glassPrefab, listPosSpawn[_seat]).GetComponent<Glass>();
@@ -63,5 +78,6 @@ namespace Game
             });
             yield break;
         }
+        #endregion
     }
 }
