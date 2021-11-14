@@ -22,6 +22,16 @@ namespace Game
             machines.ForEach(val => val.OnGameStart());
         }
 
+        [SerializeField] bool isMachineInteractable = false;
+        public static bool IsMachineInteractable => EnvManager.Instance.machineManager.isMachineInteractable;
+
+        public static bool IsMachineTargetAvaible(MachineIgrendient _machineTarget, out Machine _machine)
+        {
+            _machine = EnvManager.Instance.machineManager.machines.Find(val => val.machineType == _machineTarget && val.machineState == MachineState.ON_IDDLE);
+            return _machine;
+        }
+
+        #region SetUp Machine
         void instanceMachine()
         {
             foreach(MachineBase _machineBase in envManager.listMachines)
@@ -33,9 +43,6 @@ namespace Game
             }
         }
 
-        [SerializeField] bool isMachineInteractable = false;
-        public static bool IsMachineInteractable => EnvManager.Instance.machineManager.isMachineInteractable;
-
         int getLevelMachine(MachineBase _machineBase)
         {
             int res = GameManager.Instance.userData.userEnvDatas.Find(val => val.machineType == _machineBase.machineType).level;
@@ -46,5 +53,6 @@ namespace Game
             } 
             return res;
         }
+        #endregion
     }
 }

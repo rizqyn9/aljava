@@ -41,7 +41,7 @@ namespace Game
         /// </summary>
         /// <param name="_igrendient"></param>
         /// <returns>Glass Registered Struct</returns>
-        public static GlassRegistered FindGlass(MachineIgrendient _igrendient) =>
+        private static GlassRegistered FindGlass(MachineIgrendient _igrendient) =>
             EnvManager.GlassManager.glassRegistereds.Find(val => val.glass.lastIgrendients == _igrendient && val.glass.glassState != GlassState.PROCESS);
 
         public static bool IsGlassTargetAvaible(MachineIgrendient _lastIgrendient, out GlassRegistered _glassRegistered)

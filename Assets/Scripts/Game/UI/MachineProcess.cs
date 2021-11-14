@@ -56,6 +56,8 @@ namespace Game
             runDefault(barProcess, duration);
         }
 
+        public void forceStop() => LeanTween.cancel(leanTweenId);
+
         public void runOverCook()
         {
             barType = BarType.OVERCOOK;
@@ -88,7 +90,7 @@ namespace Game
         {
             if(barType == BarType.PROCESS)
             {
-                if (machine.machineBase.isUseBarCapacity) resetProcess();
+                if (isUseCapacity) resetProcess();
                 spawnCheck(checkList);
                 machine.OnProcessCompleted();
             } else if(barType == BarType.OVERCOOK)
@@ -113,7 +115,8 @@ namespace Game
         void resetChecks() => checks.ForEach(val => val.SetActive(false));
         public void resetProcess(bool isInit = false)
         {
-            if (leanTweenId != 0) LeanTween.cancel(leanTweenId);
+            //if (leanTweenId != 0) LeanTween.cancel(leanTweenId);
+            forceStop();
 
             resetChecks();
             bars.ForEach(val =>

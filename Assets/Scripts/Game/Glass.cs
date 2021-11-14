@@ -32,7 +32,6 @@ namespace Game
         public void init(GlassRegistered _glassRegistered)
         {
             glassRegistered = _glassRegistered;
-
         }
 
         private void OnDoubleClick()
@@ -44,6 +43,29 @@ namespace Game
         void OnSingleClick()
         {
 
+        }
+
+        public void addIgrendients(MachineIgrendient _igrendient, Sprite _sprite)
+        {
+            lastIgrendients = _igrendient;
+            igrendients.Add(_igrendient);
+            igrendientSprite.sprite = _sprite;
+            onFillIgrendients();
+        }
+
+        public void addIgrendients(List<MachineIgrendient> _igrendients, Sprite _sprite)
+        {
+            lastIgrendients = _igrendients[_igrendients.Count - 1];
+            igrendients.AddRange(_igrendients);
+            if(_sprite != null)
+                igrendientSprite.sprite = _sprite;
+            onFillIgrendients();
+        }
+
+        void onFillIgrendients()
+        {
+            glassState = GlassState.PROCESS;
+            LeanTween.scale(gameObject, new Vector2(.3f, .3f), .2f).setLoopPingPong(2).setOnComplete(() => glassState = GlassState.FILLED);
         }
 
         #region Handle Tap

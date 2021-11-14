@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Game
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class Machine : MonoBehaviour
     {
-        //[Header("Properties")]
+        [Header("Properties")]
+        public List<SpriteGlassState> spriteGlassStates;
 
         [Header("Debug")]
         public MachineIgrendient machineType;
@@ -76,7 +78,7 @@ namespace Game
         public void setEnableCollider() => boxCollider2D.enabled = true;
         public void setDisableCollider() => boxCollider2D.enabled = false;
 
-        private void Start()
+        public virtual void Start()
         {
             machineState = MachineState.INIT;
 
@@ -112,17 +114,38 @@ namespace Game
         #endregion
 
         #region Trigger Default handle
+        public GlassRegistered glassTarget;
+        public Machine machineTarget;
         public virtual void OnMouseDown()
         {
             if (!MachineManager.IsMachineInteractable) return;
-            if (machineState == MachineState.ON_IDDLE) machineState = MachineState.ON_PROCESS;
-            if(machineState == MachineState.ON_DONE)
-            {
-                if (machineBase.isUseBarCapacity)
-                {
-                    machineCapacity.getOne();
-                }
-            }
+            if (machineState == MachineState.ON_IDDLE) OnValidateMachineIddle();
+            if (machineState == MachineState.ON_DONE || machineState == MachineState.ON_OVERCOOK)
+                OnValidateMachineDone();
+            if (machineState == MachineState.ON_NEEDREPAIR) machineState = MachineState.ON_REPAIR;
+        }
+
+        public virtual void OnValidateMachineDone() { }
+        public virtual void OnValidateMachineIddle()
+        {
+            machineState = MachineState.ON_PROCESS;
+        }
+        public virtual void OnMachineServe() { }
+        #endregion
+
+        #region Hook Machine Receiver
+        public bool isMachineReceiver = false;
+        public List<MachineIgrendient> listIgrendients = new List<MachineIgrendient>();
+        public void reqInput(MachineIgrendient _igrendient)
+        {
+            listIgrendients.Add(_igrendient);
+            OnMachineReceive();
+        }
+
+        public virtual void OnMachineReceive()
+        {
+            if (isMachineReceiver)
+                machineState = MachineState.ON_PROCESS;
         }
         #endregion
 
@@ -137,6 +160,7 @@ namespace Game
         public virtual void OnMachineIddle()
         {
             setEnableCollider();
+            machineProcess.resetProcess();
         }
 
         public virtual void OnMachineProcess()
