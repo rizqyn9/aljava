@@ -52,6 +52,7 @@ namespace Game
 
         public void runProcess()
         {
+            forceStop();
             barType = BarType.PROCESS;
             runDefault(barProcess, duration);
         }
@@ -61,6 +62,7 @@ namespace Game
         public void runOverCook()
         {
             barType = BarType.OVERCOOK;
+            if (machine.machineState == MachineState.ON_IDDLE) return;
             runDefault(barOvercook, GameController.GameProperties.overcookDuration);
         }
 
@@ -77,8 +79,11 @@ namespace Game
             _bar.fillAmount = 0;
             _bar.enabled = true;
 
-            LeanTween.alpha(rectTransform, 1, .2f);
-            gameObject.LeanScale(new Vector2(1, 1), .2f).setEaseInOutBounce();
+            if(barType == BarType.PROCESS)
+            {
+                LeanTween.alpha(rectTransform, 1, .2f);
+                gameObject.LeanScale(new Vector2(1, 1), .2f).setEaseInOutBounce();
+            }
 
             leanTweenId = LeanTween.value(0, 100, _duration).setOnUpdate((val) =>
              {
@@ -115,6 +120,8 @@ namespace Game
         void resetChecks() => checks.ForEach(val => val.SetActive(false));
         public void resetProcess(bool isInit = false)
         {
+            //BUG code :1
+            //print("reset");
             //if (leanTweenId != 0) LeanTween.cancel(leanTweenId);
             forceStop();
 

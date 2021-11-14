@@ -15,6 +15,7 @@ namespace Game
         public override void OnMachineIddle()
         {
             base.OnMachineIddle();
+            machineProcess.resetProcess();
             listIgrendients = new List<MachineIgrendient>();
         }
 
@@ -22,6 +23,7 @@ namespace Game
         {
             if (GlassManager.IsGlassTargetAvaible(MachineIgrendient.NULL, out glassTarget))
             {
+                machineProcess.resetProcess();
                 glassTarget.glass.addIgrendients(
                     listIgrendients,
                     spriteGlassStates.Find(val => val.igrendient == listIgrendients[0]).sprite

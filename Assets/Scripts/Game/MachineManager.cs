@@ -18,19 +18,17 @@ namespace Game
         public void OnGameBeforeStart() => machines.ForEach(val => val.OnGameBeforeStart());
         public void OnGameStart()
         {
-            isMachineInteractable = true;
             machines.ForEach(val => val.OnGameStart());
         }
 
-        [SerializeField] bool isMachineInteractable = false;
-        public static bool IsMachineInteractable => EnvManager.Instance.machineManager.isMachineInteractable;
+        public void setInteractableMachine(bool _isInteract) => machines.ForEach(val => val.isInteractable = _isInteract);
 
         public static bool IsMachineTargetAvaible(MachineIgrendient _machineTarget, out Machine _machine)
         {
             _machine = EnvManager.Instance.machineManager.machines.Find(val => val.machineType == _machineTarget && val.machineState == MachineState.ON_IDDLE);
             return _machine;
         }
-
+        
         #region SetUp Machine
         void instanceMachine()
         {

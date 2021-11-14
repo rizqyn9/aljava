@@ -19,21 +19,21 @@ MonoBehaviour:
   PrefabResult: {fileID: 0}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
-  isUseProcessUI: 0
-  isUseOverCook: 0
+  isUseProcessUI: 1
+  isUseOverCook: 1
   isUseBarCapacity: 0
   isUpgradeable: 1
   isAutoRun: 0
   properties:
   - level: 1
     maxCapacity: 0
-    processDuration: 0
+    processDuration: 1
     prefab: {fileID: 1750299975057209778, guid: 1fc120627fe0945868c3adc58c7f4044, type: 3}
   - level: 2
     maxCapacity: 0
-    processDuration: 0
+    processDuration: 1
     prefab: {fileID: 4326245141259370996, guid: 90c5d1d92f48749eea92382163491204, type: 3}
   - level: 3
     maxCapacity: 0
-    processDuration: 0
+    processDuration: 1
     prefab: {fileID: 6959594727657560747, guid: c57686c49c509404bb93b749e0c8263f, type: 3}

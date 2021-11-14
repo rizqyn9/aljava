@@ -31,6 +31,7 @@ namespace Game
             set
             {
                 if (_machineState == value) return;
+                //print($"{value} : {_machineState}");
                 _machineState = value;
                 OnMachineStateChanged(_machineState, value);
             }
@@ -110,15 +111,24 @@ namespace Game
 
         #region Handle from Machine Manager
         public virtual void OnGameBeforeStart() => StartCoroutine(beforeStart());
-        public virtual void OnGameStart() => machineState = MachineState.ON_IDDLE;
+        public virtual void OnGameStart()
+        {
+            //print($"Start : {machineState}");
+            machineState = MachineState.ON_IDDLE;
+            isInteractable = true;
+        }
         #endregion
 
         #region Trigger Default handle
         public GlassRegistered glassTarget;
         public Machine machineTarget;
+        public bool isInteractable = false;
+        //BUG code:1
+        [SerializeField] int bruteForce;
         public virtual void OnMouseDown()
         {
-            if (!MachineManager.IsMachineInteractable) return;
+            if (!isInteractable) return;
+            bruteForce += 1;
             if (machineState == MachineState.ON_IDDLE) OnValidateMachineIddle();
             if (machineState == MachineState.ON_DONE || machineState == MachineState.ON_OVERCOOK)
                 OnValidateMachineDone();
@@ -128,6 +138,7 @@ namespace Game
         public virtual void OnValidateMachineDone() { }
         public virtual void OnValidateMachineIddle()
         {
+            if (isMachineReceiver) return;
             machineState = MachineState.ON_PROCESS;
         }
         public virtual void OnMachineServe() { }
@@ -159,13 +170,15 @@ namespace Game
 
         public virtual void OnMachineIddle()
         {
-            setEnableCollider();
+            //print($"{bruteForce} ");
             machineProcess.resetProcess();
+            setEnableCollider();
         }
 
         public virtual void OnMachineProcess()
         {
             setDisableCollider();
+            if (!isInteractable) return;
             machineProcess.runProcess();
         }
 
@@ -174,7 +187,10 @@ namespace Game
 
         }
 
-        public virtual void OnMachineNeedRepair() { }
+        public virtual void OnMachineNeedRepair()
+        {
+            setEnableCollider();
+        }
 
         public virtual void OnMachineRepair()
         {

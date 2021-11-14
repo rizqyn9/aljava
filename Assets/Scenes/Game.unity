@@ -267,7 +267,7 @@ MonoBehaviour:
   overcookDuration: 1
   delayToOverCook: 0.5
   repairDuration: 0.5
-  delayStart: 3
+  delayStart: 1
   animMachineBeforeStart: 0.5
 --- !u!1 &293519947
 GameObject:
@@ -1383,7 +1383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   envManager: {fileID: 1502572377}
   machines: []
-  isMachineInteractable: 0
 --- !u!1 &1909890345
 GameObject:
   m_ObjectHideFlags: 0

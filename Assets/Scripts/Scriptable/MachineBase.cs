@@ -7,11 +7,6 @@ using UnityEditor;
 using Game;
 #endif
 
-/// <summary>
-/// TODO
-/// Create levelling Machine
-/// Dynamic value for duration long time
-/// </summary>
 [CreateAssetMenu(fileName = "MachineBase", menuName = "ScriptableObject/MachineBase")]
 public class MachineBase : ScriptableObject
 {
