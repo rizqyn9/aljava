@@ -56,7 +56,7 @@ namespace Game
             spriteRenderer.sortingOrder = 1;
             bubbles.show();
 
-            yield return new WaitForSeconds(1);     // TODO code: 2 value on seat must sync wih tweening menu item
+            yield return new WaitForSeconds(1);     // FIXME code: 2 value on seat must sync wih tweening menu item
             GameController.OrderController.reqOrder(buyerPrototype);
         }
 
