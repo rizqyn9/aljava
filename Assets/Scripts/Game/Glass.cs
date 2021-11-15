@@ -17,6 +17,7 @@ namespace Game
         public MenuBase menuResult;
         public bool isValidMenu = false;
         public GlassRegistered glassRegistered;
+        [SerializeField] BoxCollider2D boxCollider2D;
         [SerializeField] BuyerPrototype buyerPrototype;
         [SerializeField] MachineIgrendient _lastIgrendients = MachineIgrendient.NULL;
         public MachineIgrendient lastIgrendients
@@ -28,6 +29,8 @@ namespace Game
                 _lastIgrendients = value;
             }
         }
+
+        private void Awake() => boxCollider2D = GetComponent<BoxCollider2D>();
 
         public void init(GlassRegistered _glassRegistered)
         {
@@ -42,9 +45,22 @@ namespace Game
 
         void OnSingleClick()
         {
+            boxCollider2D.enabled = false;
             if (isValidMenu)
                 if (GameController.OrderController.isMenuInQueue(menuResult, out buyerPrototype))
+                {
                     buyerPrototype.customerHandler.OnMenuServe(menuResult);
+                    //LeanTween.move(gameObject, new LTSpline(new Vector3[] { Vector3.zero, new Vector3(100, 100) }), 2f);
+                    LeanTween.scale(gameObject, Vector3.zero, 1f).setOnComplete(handleOnServe);
+                }
+            else
+                boxCollider2D.enabled = true;
+        }
+
+        public void handleOnServe()
+        {
+            EnvManager.GlassManager.reqGlassSpawn(glassRegistered.seatIndex);
+            Destroy(gameObject);
         }
 
         public void addIgrendients(MachineIgrendient _igrendient, Sprite _sprite)
