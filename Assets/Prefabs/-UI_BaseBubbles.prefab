@@ -50,8 +50,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsPos: {fileID: 6264957173726559649}
-  itemGO: []
-  customerHandler: {fileID: 0}
+  baseBubbleItem: {fileID: 1765732883276469351, guid: 846be07f7b548415280b794e9ea625e2, type: 3}
+  buyerPrototype:
+    customerCode: 
+    buyerBase: {fileID: 0}
+    buyerState: 0
+    seatData:
+      index: 0
+      isSeatAvaible: 0
+      transform: {fileID: 0}
+    spawnPos: {x: 0, y: 0}
+    seatPos: {x: 0, y: 0}
+    menuListNames: []
+    customerHandler: {fileID: 0}
+  listItem: []
+  rectTransform: {fileID: 0}
 --- !u!1 &6264957173726559648
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ namespace Game
 
         public void runProcess()
         {
-            forceStop();
+            forceStop();                // Prevent double tweening in single process
             barType = BarType.PROCESS;
             runDefault(barProcess, duration);
         }
