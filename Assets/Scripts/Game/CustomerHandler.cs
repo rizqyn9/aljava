@@ -45,12 +45,11 @@ namespace Game
             direction = direction < 0 ? direction * -1 : direction;
             duration = direction / 5;
 
-            LeanTween.moveX(gameObject, buyerPrototype.seatPos.x, duration).setOnComplete(handleOnSeat);
+            LeanTween.moveX(gameObject, buyerPrototype.seatPos.x, duration)
+                .setOnComplete(() => StartCoroutine(IHandleOnSeat()));
 
             yield return 1;
         }
-
-        void handleOnSeat() => StartCoroutine(IHandleOnSeat());
 
         IEnumerator IHandleOnSeat()
         {

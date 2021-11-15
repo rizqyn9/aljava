@@ -83,7 +83,6 @@ namespace Game
         #region Depends
         List<TransformSeatData> findAvaibleSeat() => transformSeatDatas.FindAll(val => val.isSeatAvaible);
 
-
         IEnumerator IReactiveSpawner()
         {
             spawnerState = SpawnerState.REACTIVE;

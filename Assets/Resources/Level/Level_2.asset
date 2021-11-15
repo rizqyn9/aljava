@@ -17,7 +17,7 @@ MonoBehaviour:
   gameMode: 1
   MenuClassifications: 
   MenuTypeUnlock: 0203
-  BuyerTypeUnlock: 
+  BuyerTypeUnlock: 00000000
   delayPerCustomer: 10
   healthTotal: 3
   gameDuration: 0
