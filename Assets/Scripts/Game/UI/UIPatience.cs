@@ -13,6 +13,7 @@ namespace Game
         [Header("Debug")]
         public CustomerHandler customerHandler;
         public float duration;
+        public int leanTweenID;
 
         public void init(CustomerHandler _customerHandler)
         {
@@ -24,15 +25,20 @@ namespace Game
 
         public void run()
         {
-            LeanTween.value(0, 100, 10f).setOnUpdate(val =>
+            leanTweenID = LeanTween.value(0, 100, 10f).setOnUpdate(val =>
             {
                 image.fillAmount = 1 - (val / 100);
-            }).setOnComplete(patienceRunOut);
+            }).setOnComplete(patienceRunOut).id;
         }
 
         void patienceRunOut()
         {
             customerHandler.OnPatienceRunOut();
+        }
+
+        private void OnDestroy()
+        {
+            LeanTween.cancelAll();
         }
     }
 }
