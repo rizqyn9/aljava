@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class Glass : MonoBehaviour
     {
         [Header("Properties")]
@@ -16,7 +17,7 @@ namespace Game
         public MenuBase menuResult;
         public bool isValidMenu = false;
         public GlassRegistered glassRegistered;
-        [SerializeField] BuyerPrototype targetBuyer;
+        [SerializeField] CustomerHandler customerHandler;
         [SerializeField] MachineIgrendient _lastIgrendients = MachineIgrendient.NULL;
         public MachineIgrendient lastIgrendients
         {
@@ -41,7 +42,8 @@ namespace Game
 
         void OnSingleClick()
         {
-
+            if (isValidMenu)
+                GameController.OrderController.isMenuInQueue(menuResult, out customerHandler);
         }
 
         public void addIgrendients(MachineIgrendient _igrendient, Sprite _sprite)
@@ -70,8 +72,8 @@ namespace Game
         }
 
         #region Handle Tap
-        int tap = 0;
-        float interval = .3f;
+        [SerializeField] int tap = 0;
+        [SerializeField] float interval = .3f;
         private void OnMouseDown()
         {
             tap++;
