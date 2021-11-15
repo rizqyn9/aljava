@@ -53,6 +53,7 @@ namespace Game
         void handleOnSeat()
         {
             spriteRenderer.sortingOrder = 1;
+            bubbles.show();
 
         }
 

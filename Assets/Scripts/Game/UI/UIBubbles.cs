@@ -13,6 +13,17 @@ namespace Game
         [Header("Debug")]
         public BuyerPrototype buyerPrototype;
         public List<GameObject> itemGO;
+        public RectTransform rectTransform;
+
+        private void Awake()
+        {
+            rectTransform = gameObject.GetComponent<RectTransform>();
+        }
+
+        private void Start()
+        {
+            LeanTween.alpha(rectTransform, 0, 0);
+        }
 
         /**
          * animate on first init
@@ -30,6 +41,12 @@ namespace Game
         {
             buyerPrototype = _buyerPrototype;
             print($"req init from {_buyerPrototype.customerCode}");
+        }
+
+        public void show()
+        {
+            transform.position = Camera.main.WorldToScreenPoint(buyerPrototype.customerHandler.bublePos.position);
+            LeanTween.alpha(rectTransform, 1, .3f);
         }
     }
 }
