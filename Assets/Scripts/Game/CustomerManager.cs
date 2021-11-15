@@ -66,7 +66,7 @@ namespace Game
 
             BuyerPrototype buyerPrototype = new BuyerPrototype()
             {
-                buyerType       = EnvManager.ListBuyers[Random.Range(0, EnvManager.ListBuyers.Count)],
+                buyerBase       = EnvManager.ListBuyers[Random.Range(0, EnvManager.ListBuyers.Count)],
                 customerCode    = $"Customer-{customerCounter++}",
                 seatData        = seatData,
                 menuListNames   = getMenuTypes(Random.Range(1, 2)),

@@ -7,6 +7,7 @@ namespace Game
     {
         [Header("Properties")]
         [SerializeField] UIMachineManager machineManager;
+        [SerializeField] UIBubblesManager bubblesManager;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
 

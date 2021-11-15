@@ -131,7 +131,7 @@ public enum SpawnerState
 public struct BuyerPrototype
 {
     public string customerCode;
-    public BuyerBase buyerType;
+    public BuyerBase buyerBase;
     public BuyerState buyerState;
     public TransformSeatData seatData;
     public Vector2 spawnPos;

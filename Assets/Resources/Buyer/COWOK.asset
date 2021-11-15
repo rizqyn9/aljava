@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyerType: 0
   buyerName: 
-  buyerPrefab: {fileID: 0}
+  buyerPrefab: {fileID: 3775143352533811655, guid: 4d673e7df4c8ef5479e99a0b1ab7b1be, type: 3}
   patienceDuration: 10
