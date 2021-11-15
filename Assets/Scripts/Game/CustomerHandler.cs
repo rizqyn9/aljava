@@ -47,7 +47,19 @@ namespace Game
 
         void allMenusDone()
         {
+            StartCoroutine(IWalkOut());
+        }
 
+        IEnumerator IWalkOut()
+        {
+            yield return new WaitForSeconds(.4f);
+            LeanTween.moveX(gameObject, buyerPrototype.spawnPos.x, duration)
+                .setOnComplete(handleOut);
+        }
+
+        void handleOut()
+        {
+            Destroy(gameObject);
         }
 
         #region handle seat

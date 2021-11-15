@@ -29,10 +29,7 @@ namespace Game
             rectTransform = gameObject.GetComponent<RectTransform>();
         }
 
-        private void Start()
-        {
-            LeanTween.alpha(rectTransform, 0, 0);
-        }
+        private void Start() => LeanTween.alpha(rectTransform, 0, 0);
 
         /**
          * animate on first init
@@ -65,30 +62,24 @@ namespace Game
         public void show()
         {
             transform.position = Camera.main.WorldToScreenPoint(buyerPrototype.customerHandler.bublePos.position);
-            //LeanTween.alpha(rectTransform.GetComponentInChildren<RectTransform>(), 1, 1f).setOnComplete(animateMenu);
-            //LeanTween.scale(rectTransform, new Vector2(1.2f, 1.2f), .2f).setLoopPingPong(2);
+            LeanTween.alpha(rectTransform, 1, .3f).setOnComplete(animateMenu);
+            LeanTween.scale(rectTransform, new Vector2(1.2f, 1.2f), .2f).setLoopPingPong(2);
         }
 
         void animateMenu() =>
             listItem.ForEach(val =>
                 LeanTween.scale(val.go, new Vector2(1, 1), .5f));
 
-        public void OnMenuServe(MenuListName _menu, bool isAllServe = false)
+        public void OnMenuServe(MenuListName _menu)
         {
-            listItem.Find(val => val.menuListName == _menu);
+            ItemMenu item = listItem.Find(val => val.menuListName == _menu);
+            listItem.Remove(item);
+
+            item.go.LeanScale(new Vector2(1.2f, 1.2f), .2f).setTo(Vector2.zero).setOnComplete(() =>
+            {
+                if (listItem.Count < 1) closeBubble();
+            });
         }
-
-        public void OnMenusDone()
-        {
-
-        }
-
-        public void OnMenusFailed()
-        {
-
-        }
-
-        void closeItem(GameObject go) => LeanTween.scale(go, Vector2.zero, .5f);
 
         void closeBubble() =>
             LeanTween.scale(gameObject, Vector2.zero, .3f);
