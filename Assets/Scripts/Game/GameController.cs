@@ -8,11 +8,13 @@ namespace Game
     {
         [Header("Properties")]
         [SerializeField] GameProperties gameProperties;
+        [SerializeField] OrderController orderController;
 
         [Header("Debug")]
         public LevelBase levelBase;
 
         public static GameProperties GameProperties => Instance.gameProperties;
+        public static OrderController OrderController => Instance.orderController;
 
         #region Game State
         public static event Action OnGameStateChanged;
