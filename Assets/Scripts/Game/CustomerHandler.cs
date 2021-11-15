@@ -17,6 +17,7 @@ namespace Game
         public Animator animator;
         public SpriteRenderer spriteRenderer;
         public UIBubbles bubbles;
+        public UIPatience patience;
 
         public void init(BuyerPrototype _buyerPrototype)
         {
@@ -48,6 +49,11 @@ namespace Game
         void allMenusDone()
         {
             StartCoroutine(IWalkOut());
+        }
+
+        public void OnPatienceRunOut()
+        {
+            print("patience run out");
         }
 
         IEnumerator IWalkOut()
@@ -84,6 +90,7 @@ namespace Game
 
             yield return new WaitForSeconds(1);     // TODO code: 2 value on seat must sync wih tweening menu item
             GameController.OrderController.reqOrder(buyerPrototype);
+            patience.run();
         }
         #endregion
 

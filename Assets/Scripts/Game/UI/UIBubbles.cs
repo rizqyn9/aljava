@@ -17,6 +17,7 @@ namespace Game
         [Header("Properties")]
         public Transform itemsPos;
         public GameObject baseBubbleItem;
+        public UIPatience patience;
 
         [Header("Debug")]
         public BuyerPrototype buyerPrototype;
@@ -42,6 +43,8 @@ namespace Game
         {
             buyerPrototype = _buyerPrototype;
             print($"req init from {_buyerPrototype.customerCode}");
+
+            patience.init(buyerPrototype.customerHandler);
 
             setUpMenu();
         }
