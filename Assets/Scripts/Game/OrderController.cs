@@ -19,15 +19,15 @@ namespace Game
             listOrderQueue.Add(_buyerPrototype);
         }
 
-        public bool isMenuInQueue(MenuBase _menu, out CustomerHandler _customerHandler)
+        public bool isMenuInQueue(MenuBase _menu, out BuyerPrototype _buyerPrototype)
         {
             bool res = false;
-            _customerHandler = null;
+            _buyerPrototype = new BuyerPrototype();
             foreach(BuyerPrototype queue in listOrderQueue)
                 if(res = queue.menuListNames.Find(val => val.menuListName == _menu.menuListName))
                 {
-                    _customerHandler = queue.customerHandler;
-                    print("Found Menu");
+                    _buyerPrototype = queue;
+                    _buyerPrototype.menuListNames.Remove(_menu);        // remove from cache
                     break;
                 }
             return res;
