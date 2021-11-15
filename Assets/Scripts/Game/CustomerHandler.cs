@@ -16,7 +16,7 @@ namespace Game
         public GameObject characterGO;
         public Animator animator;
         public SpriteRenderer spriteRenderer;
-
+        public UIBubbles bubbles;
 
         public void init(BuyerPrototype _buyerPrototype)
         {
@@ -28,9 +28,11 @@ namespace Game
             animator = characterGO.GetComponentInChildren<Animator>();
             spriteRenderer = characterGO.GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sortingOrder = 0;
-            print(_buyerPrototype.customerCode);
 
             buyerPrototype.customerHandler = this;
+
+            UIGameManager.BubblesManager.reqInstance(buyerPrototype, out bubbles);
+
             StartCoroutine(IWalkSeat());
         }
 

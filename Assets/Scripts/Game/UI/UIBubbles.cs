@@ -11,8 +11,8 @@ namespace Game
         public GameObject baseBubbleItem;
 
         [Header("Debug")]
+        public BuyerPrototype buyerPrototype;
         public List<GameObject> itemGO;
-        public CustomerHandler customerHandler; // TO comunicate 
 
         /**
          * animate on first init
@@ -24,6 +24,12 @@ namespace Game
         public void istanceMenuGraph()
         {
 
+        }
+
+        public void init(BuyerPrototype _buyerPrototype)
+        {
+            buyerPrototype = _buyerPrototype;
+            print($"req init from {_buyerPrototype.customerCode}");
         }
     }
 }

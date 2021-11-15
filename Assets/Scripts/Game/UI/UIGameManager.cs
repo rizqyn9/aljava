@@ -10,6 +10,7 @@ namespace Game
         [SerializeField] UIBubblesManager bubblesManager;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
+        public static UIBubblesManager BubblesManager => Instance.bubblesManager;
 
         #region Game State Handler
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;

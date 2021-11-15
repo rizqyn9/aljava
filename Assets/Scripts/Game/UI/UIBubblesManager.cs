@@ -10,10 +10,22 @@ namespace Game
         public GameObject baseBubble;
 
         [Header("Debug")]
-        public List<UIBubbles> uIBubbles;
+        public List<UIBubbles> UIBubblesList;
+        public BuyerPrototype buyerPrototype;
 
         public void init()
         {
+
+        }
+
+        public void reqInstance(BuyerPrototype _buyerPrototype, out UIBubbles bubbles)
+        {
+            buyerPrototype = _buyerPrototype;
+
+            bubbles = Instantiate(baseBubble, transform).GetComponent<UIBubbles>();
+            bubbles.init(buyerPrototype);
+
+            UIBubblesList.Add(bubbles);
 
         }
     }
