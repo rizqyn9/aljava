@@ -36,9 +36,23 @@ namespace Game
             StartCoroutine(IWalkSeat());
         }
 
+        public void OnMenuServe(MenuBase _menu)
+        {
+            buyerPrototype.menuListNames.Remove(_menu);
+
+            bubbles.OnMenuServe(_menu.menuListName);
+            if (buyerPrototype.menuListNames.Count < 1)
+                allMenusDone();
+        }
+
+        void allMenusDone()
+        {
+
+        }
+
+        #region handle seat
         [SerializeField] float direction;
         [SerializeField] float duration;
-
         IEnumerator IWalkSeat()
         {
             direction = buyerPrototype.spawnPos.x - buyerPrototype.seatPos.x;
@@ -59,7 +73,7 @@ namespace Game
             yield return new WaitForSeconds(1);     // TODO code: 2 value on seat must sync wih tweening menu item
             GameController.OrderController.reqOrder(buyerPrototype);
         }
-
+        #endregion
 
     }
 }

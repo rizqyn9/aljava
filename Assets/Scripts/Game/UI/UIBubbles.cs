@@ -65,14 +65,32 @@ namespace Game
         public void show()
         {
             transform.position = Camera.main.WorldToScreenPoint(buyerPrototype.customerHandler.bublePos.position);
-            LeanTween.alpha(rectTransform, 1, .3f).setOnComplete(animateMenu);
-            LeanTween.scale(rectTransform, new Vector2(1.2f, 1.2f), .2f).setLoopPingPong(2);
+            //LeanTween.alpha(rectTransform.GetComponentInChildren<RectTransform>(), 1, 1f).setOnComplete(animateMenu);
+            //LeanTween.scale(rectTransform, new Vector2(1.2f, 1.2f), .2f).setLoopPingPong(2);
         }
 
         void animateMenu() =>
             listItem.ForEach(val =>
-            {
-                LeanTween.scale(val.go, new Vector2(1, 1), .5f);
-            });
+                LeanTween.scale(val.go, new Vector2(1, 1), .5f));
+
+        public void OnMenuServe(MenuListName _menu, bool isAllServe = false)
+        {
+            listItem.Find(val => val.menuListName == _menu);
+        }
+
+        public void OnMenusDone()
+        {
+
+        }
+
+        public void OnMenusFailed()
+        {
+
+        }
+
+        void closeItem(GameObject go) => LeanTween.scale(go, Vector2.zero, .5f);
+
+        void closeBubble() =>
+            LeanTween.scale(gameObject, Vector2.zero, .3f);
     }
 }

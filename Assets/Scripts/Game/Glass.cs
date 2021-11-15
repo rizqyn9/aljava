@@ -43,7 +43,8 @@ namespace Game
         void OnSingleClick()
         {
             if (isValidMenu)
-                GameController.OrderController.isMenuInQueue(menuResult, out buyerPrototype);
+                if (GameController.OrderController.isMenuInQueue(menuResult, out buyerPrototype))
+                    buyerPrototype.customerHandler.OnMenuServe(menuResult);
         }
 
         public void addIgrendients(MachineIgrendient _igrendient, Sprite _sprite)
