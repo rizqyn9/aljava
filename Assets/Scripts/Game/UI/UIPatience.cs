@@ -28,6 +28,8 @@ namespace Game
             leanTweenID = LeanTween.value(0, 100, 10f).setOnUpdate(val =>
             {
                 image.fillAmount = 1 - (val / 100);
+                if (val <= 50) image.color = Color.green;
+                if (val >= 50) image.color = Color.red;
             }).setOnComplete(patienceRunOut).id;
         }
 

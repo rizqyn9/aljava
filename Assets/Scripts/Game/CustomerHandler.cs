@@ -53,12 +53,13 @@ namespace Game
 
         public void OnPatienceRunOut()
         {
-            print("patience run out");
+            bubbles.failToServe();
         }
 
-        IEnumerator IWalkOut()
+        public IEnumerator IWalkOut()
         {
             yield return new WaitForSeconds(.4f);
+            spriteRenderer.sortingOrder = 0;
             LeanTween.moveX(gameObject, buyerPrototype.spawnPos.x, duration)
                 .setOnComplete(handleOut);
         }
