@@ -29,5 +29,10 @@ namespace Game
             buyerFailTotal += 1;
             menuFailTotal += _menuFail;
         }
+
+        public void handleHealthRunOut()
+        {
+            print("healt Run out");
+        }
     }
 }

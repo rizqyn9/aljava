@@ -36,6 +36,7 @@ namespace Game
         void patienceRunOut()
         {
             customerHandler.OnPatienceRunOut();
+            UIGameManager.HealthManager.decrement();
         }
 
         private void OnDestroy()

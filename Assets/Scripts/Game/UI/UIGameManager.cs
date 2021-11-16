@@ -11,12 +11,14 @@ namespace Game
         [Header("Properties")]
         [SerializeField] UIMachineManager machineManager;
         [SerializeField] UIBubblesManager bubblesManager;
+        [SerializeField] HealthManager healtManager;
         [SerializeField] GameObject TopBar;
         [SerializeField] TMP_Text count;
         [SerializeField] Button pauseBtn;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
+        public static HealthManager HealthManager => Instance.healtManager;
 
         private void Start()
         {
@@ -26,7 +28,7 @@ namespace Game
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
         void OnDisable() => GameController.OnGameStateChanged -= GameStateHandler;
 
-        public GameState gameState => GameController.GameState;
+        public GameState gameState => GameController.GameState; 
         public void GameStateHandler() => GameStateController.UpdateGameState(this);
         public GameObject GetGameObject() => gameObject;
 
@@ -35,7 +37,10 @@ namespace Game
             setUpComponent();
         }
 
-        public void OnGameBeforeStart() { }
+        public void OnGameBeforeStart()
+        {
+            healtManager.init(3);
+        }
 
         public void OnGameStart()
         {

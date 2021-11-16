@@ -1684,6 +1684,7 @@ RectTransform:
   - {fileID: 426841318}
   - {fileID: 390701643}
   - {fileID: 270167942}
+  - {fileID: 1511406178}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1707,6 +1708,7 @@ MonoBehaviour:
   isDDOL: 0
   machineManager: {fileID: 1338258633}
   bubblesManager: {fileID: 426841319}
+  healtManager: {fileID: 1511406179}
   TopBar: {fileID: 390701642}
   count: {fileID: 618917965}
   pauseBtn: {fileID: 270167939}
@@ -2190,6 +2192,59 @@ MonoBehaviour:
   listBuyers: []
   _gameState: 0
   _machineTypes: 
+--- !u!1 &1511406177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511406178}
+  - component: {fileID: 1511406179}
+  m_Layer: 5
+  m_Name: --HealthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1511406178
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511406177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199270028}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -15}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1511406179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511406177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc60cb791bbf849a894bc49c28caab3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePrefab: {fileID: 4283339652537756996, guid: 2ef47af2a3c88467d99a7d780e3db5d6, type: 3}
+  colorDeactive: {r: 0.509434, g: 0.38677198, b: 0.26673195, a: 1}
+  offset: {x: 80, y: 0}
+  instance: 0
+  healths: []
 --- !u!1 &1724587877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,9 +2678,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdd65d013f5644929d9abc1fdb221df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listMenuDones: []
-  menu: {fileID: 0}
-  customerHandler: {fileID: 0}
+  buyerInstance: 0
+  buyerSuccessTotal: 0
+  buyerFailTotal: 0
+  menuInstanceTotal: 0
+  menuSuccessTotal: 0
+  menuFailTotal: 0
+  earnMoneyTotal: 0
+  earnPointTotal: 0
 --- !u!1 &2068082313
 GameObject:
   m_ObjectHideFlags: 0
