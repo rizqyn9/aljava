@@ -37,8 +37,10 @@ namespace Game
             StartCoroutine(IWalkSeat());
         }
 
+        [SerializeField] int menuServeCount = 0;
         public void OnMenuServe(MenuBase _menu)
         {
+            menuServeCount += 1;
             buyerPrototype.menuListNames.Remove(_menu);
 
             bubbles.OnMenuServe(_menu.menuListName);
@@ -61,7 +63,7 @@ namespace Game
         public void walkOut()
         {
             if (bubbles.listItem.Count < 1)
-                GameController.RulesController.handleBuyerDone(buyerPrototype.menuListNames.Count);
+                GameController.RulesController.handleBuyerDone(menuServeCount);
             else
                 GameController.RulesController.handleBuyerFail(bubbles.listItem.Count);
 
@@ -69,7 +71,7 @@ namespace Game
 
             leanTweenID = LeanTween.moveX(gameObject, buyerPrototype.spawnPos.x, duration)
                 .setDelay(.4f)
-                .setOnStart(() => spriteRenderer.sortingOrder = 5)
+                .setOnStart(() => spriteRenderer.sortingOrder = 0)
                 .setOnComplete(handleOut).id;
         }
 
@@ -101,6 +103,8 @@ namespace Game
         IEnumerator IHandleOnSeat()
         {
             spriteRenderer.sortingOrder = 1;
+
+            GameController.RulesController.menuInstanceTotal += buyerPrototype.menuListNames.Count;
             bubbles.show();
 
             yield return new WaitForSeconds(1);     // TODO code: 2 value on seat must sync wih tweening menu item

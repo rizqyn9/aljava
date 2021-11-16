@@ -60,6 +60,7 @@ namespace Game
             TransformSeatData seatData = avaibleSeat[Random.Range(0, avaibleSeat.Count)];
 
             buyerNow += 1;
+            GameController.RulesController.buyerInstance += 1;
             TransformSeatData tsd = transformSeatDatas[seatData.index];         // To modify the struct, first assign it to a local variable, modify the variable, then assign the variable back to the item in the collection
             tsd.isSeatAvaible = false;
             transformSeatDatas[seatData.index] = tsd;
@@ -82,7 +83,6 @@ namespace Game
 
         public void onLeave(int _seatIndex)
         {
-            print("remove");
             TransformSeatData tsd = transformSeatDatas[_seatIndex];
             tsd.isSeatAvaible = true;
             transformSeatDatas[_seatIndex] = tsd;
