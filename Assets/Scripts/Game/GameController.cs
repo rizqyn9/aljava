@@ -9,6 +9,7 @@ namespace Game
         [Header("Properties")]
         [SerializeField] GameProperties gameProperties;
         [SerializeField] OrderController orderController;
+        [SerializeField] RulesController rulesController;
 
         [Header("Debug")]
         public LevelBase levelBase;
@@ -16,6 +17,7 @@ namespace Game
         public static LevelBase LevelBase => Instance.levelBase;
         public static GameProperties GameProperties => Instance.gameProperties;
         public static OrderController OrderController => Instance.orderController;
+        public static RulesController RulesController => Instance.rulesController;
 
         #region Game State
         public static event Action OnGameStateChanged;

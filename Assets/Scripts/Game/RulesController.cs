@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RulesController : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class RulesController : MonoBehaviour
     {
-        
-    }
+        [Header("Debug")]
+        public List<MenuBase> listMenuDones = new List<MenuBase>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        [SerializeField] MenuBase menu;
+        [SerializeField] CustomerHandler customerHandler;
+        public void handleMenuDone(MenuBase _menu, CustomerHandler _customerHandler)
+        {
+            listMenuDones.Add(_menu);
+            customerHandler = _customerHandler;
+        }
+
     }
 }

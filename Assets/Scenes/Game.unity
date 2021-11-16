@@ -342,6 +342,7 @@ MonoBehaviour:
   isDDOL: 0
   gameProperties: {fileID: 168157277}
   orderController: {fileID: 887104863}
+  rulesController: {fileID: 2062833064}
   levelBase: {fileID: 0}
   _gameState: 0
 --- !u!4 &168157276
@@ -2622,6 +2623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdd65d013f5644929d9abc1fdb221df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listMenuDones: []
+  menu: {fileID: 0}
+  customerHandler: {fileID: 0}
 --- !u!1 &2068082313
 GameObject:
   m_ObjectHideFlags: 0

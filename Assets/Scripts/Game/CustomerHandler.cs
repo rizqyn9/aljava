@@ -42,13 +42,16 @@ namespace Game
             buyerPrototype.menuListNames.Remove(_menu);
 
             bubbles.OnMenuServe(_menu.menuListName);
+
+            GameController.RulesController.handleMenuDone(_menu, this);
+
             if (buyerPrototype.menuListNames.Count < 1)
                 allMenusDone();
         }
 
         void allMenusDone()
         {
-            StartCoroutine(IWalkOut());
+            walkOut();
         }
 
         public void OnPatienceRunOut()
@@ -56,16 +59,22 @@ namespace Game
             bubbles.failToServe();
         }
 
-        public IEnumerator IWalkOut()
+        [SerializeField] int leanTweenID;
+        public void walkOut()
         {
-            yield return new WaitForSeconds(.4f);
-            spriteRenderer.sortingOrder = 0;
-            LeanTween.moveX(gameObject, buyerPrototype.spawnPos.x, duration)
-                .setOnComplete(handleOut);
+            leanTweenID = LeanTween.moveX(gameObject, buyerPrototype.spawnPos.x, duration)
+                .setDelay(.4f)
+                .setOnStart(() => spriteRenderer.sortingOrder = 5)
+                .setOnComplete(handleOut).id;
         }
 
         void handleOut()
         {
+            LeanTween.cancel(leanTweenID);
+            if (bubbles)
+                Destroy(bubbles.gameObject);
+            if (patience)
+                Destroy(patience.gameObject);
             Destroy(gameObject);
         }
 

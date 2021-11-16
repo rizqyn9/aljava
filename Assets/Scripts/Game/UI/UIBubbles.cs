@@ -87,7 +87,7 @@ namespace Game
         public void failToServe()
         {
             listItem.ForEach(val => LeanTween.scale(val.go, Vector2.zero, .5f));
-            LeanTween.scale(gameObject, Vector2.zero, .3f).setDelay(.5f).setOnComplete(()=> StartCoroutine(buyerPrototype.customerHandler.IWalkOut()));
+            LeanTween.scale(gameObject, Vector2.zero, .3f).setDelay(.5f).setOnComplete(buyerPrototype.customerHandler.walkOut);
         }
 
         void closeBubble() =>

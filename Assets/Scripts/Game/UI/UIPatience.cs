@@ -40,7 +40,7 @@ namespace Game
 
         private void OnDestroy()
         {
-            LeanTween.cancelAll();
+            LeanTween.cancel(leanTweenID);
         }
     }
 }
