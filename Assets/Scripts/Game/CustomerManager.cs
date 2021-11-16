@@ -80,6 +80,14 @@ namespace Game
             StartCoroutine(IReactiveSpawner());
         }
 
+        public void onLeave(int _seatIndex)
+        {
+            print("remove");
+            TransformSeatData tsd = transformSeatDatas[_seatIndex];
+            tsd.isSeatAvaible = true;
+            transformSeatDatas[_seatIndex] = tsd;
+        }
+
         #region Depends
         List<TransformSeatData> findAvaibleSeat() => transformSeatDatas.FindAll(val => val.isSeatAvaible);
 

@@ -43,8 +43,6 @@ namespace Game
 
             bubbles.OnMenuServe(_menu.menuListName);
 
-            GameController.RulesController.handleMenuDone(_menu, this);
-
             if (buyerPrototype.menuListNames.Count < 1)
                 allMenusDone();
         }
@@ -62,6 +60,13 @@ namespace Game
         [SerializeField] int leanTweenID;
         public void walkOut()
         {
+            if (bubbles.listItem.Count < 1)
+                GameController.RulesController.handleBuyerDone(buyerPrototype.menuListNames.Count);
+            else
+                GameController.RulesController.handleBuyerFail(bubbles.listItem.Count);
+
+            CustomerManager.Instance.onLeave(buyerPrototype.seatData.index);
+
             leanTweenID = LeanTween.moveX(gameObject, buyerPrototype.spawnPos.x, duration)
                 .setDelay(.4f)
                 .setOnStart(() => spriteRenderer.sortingOrder = 5)
