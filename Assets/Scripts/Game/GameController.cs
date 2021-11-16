@@ -13,6 +13,7 @@ namespace Game
         [Header("Debug")]
         public LevelBase levelBase;
 
+        public static LevelBase LevelBase => Instance.levelBase;
         public static GameProperties GameProperties => Instance.gameProperties;
         public static OrderController OrderController => Instance.orderController;
 
@@ -53,6 +54,11 @@ namespace Game
         {
             print("TOuched");
             GameManager.LoadScene(SceneValid.MAIN_MENU);
+        }
+
+        internal void handleGameTimeOut()
+        {
+            print("Game was time out");
         }
     }
 }
