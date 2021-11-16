@@ -13,7 +13,7 @@ namespace Game
         [SerializeField] UIBubblesManager bubblesManager;
         [SerializeField] GameObject TopBar;
         [SerializeField] TMP_Text count;
-
+        [SerializeField] Button pauseBtn;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
@@ -40,6 +40,7 @@ namespace Game
         public void OnGameStart()
         {
             LeanTween.moveY(TopBar.GetComponent<RectTransform>(), 0, .5f).setEaseInBounce().setOnComplete(() => StartCoroutine(ICountDown()));
+            LeanTween.moveX(pauseBtn.GetComponent<RectTransform>(), -20, .5f).setEaseInBounce();
         }
         public void OnGameClearance() { }
         public void OnGameFinish() { }
