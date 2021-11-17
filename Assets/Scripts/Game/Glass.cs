@@ -40,7 +40,8 @@ namespace Game
         private void OnDoubleClick()
         {
             if (lastIgrendients == MachineIgrendient.NULL) return;
-            //OnTrash();
+            EnvManager.Trash.throwTrash();
+            glassDestroyed();
         }
 
         void OnSingleClick()
@@ -59,6 +60,11 @@ namespace Game
         }
 
         public void handleOnServe()
+        {
+            glassDestroyed();
+        }
+
+        public void glassDestroyed()
         {
             EnvManager.GlassManager.reqGlassSpawn(glassRegistered.seatIndex);
             Destroy(gameObject);

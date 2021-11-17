@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trash : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Trash : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int countTrashed = 0;
+        public void throwTrash()
+        {
+            countTrashed += 1;
+            LeanTween.scale(gameObject, new Vector2(1.1f, 1.1f), .1f).setLoopPingPong(2);
+        }
     }
 }
