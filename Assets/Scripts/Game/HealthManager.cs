@@ -12,7 +12,7 @@ namespace Game
         public Vector2 offset;
 
         [Header("Debug")]
-        [SerializeField] int instance;
+        public int instance;
         public List<Image> healths;
 
         public void init(int _total)

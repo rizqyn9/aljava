@@ -11,6 +11,8 @@ namespace Game
         [SerializeField] UIMachineManager machineManager;
         [SerializeField] UIBubblesManager bubblesManager;
         [SerializeField] HealthManager healtManager;
+        [SerializeField] UI_Win win;
+        [SerializeField] UI_Lose lose;
         [SerializeField] GameObject TopBar;
         [SerializeField] TMP_Text count;
         [SerializeField] Button pauseBtn;
@@ -18,6 +20,8 @@ namespace Game
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
         public static HealthManager HealthManager => Instance.healtManager;
+        public static UI_Lose Lose => Instance.lose;
+        public static UI_Win Win => Instance.win;
 
         private void Start()
         {
@@ -79,7 +83,7 @@ namespace Game
                 countDown -= 1;
             }
             timerIsRunning = false;
-            if (countDown <= 0) GameController.Instance.handleGameTimeOut();
+            if (countDown <= 0) GameController.RulesController.handleGameTimeOut();
             yield break;
         }
 

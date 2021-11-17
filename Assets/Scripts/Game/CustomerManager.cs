@@ -15,6 +15,7 @@ namespace Game
         [Header("Debug")]
         public SpawnerState spawnerState = SpawnerState.IDDLE;
         public int seatCount, buyerNow = 0;
+        public bool gameTimeOut = false;
 
 
         #region Game State Handler
@@ -35,7 +36,10 @@ namespace Game
             spawnerState = SpawnerState.CAN_CREATE;
         }
 
-        public void OnGameClearance() { }
+        public void OnGameClearance()
+        {
+            spawnerState = SpawnerState.MAX_ORDER;
+        }
         public void OnGameFinish() { }
         public void OnGameIddle() { }
         public void OnGamePause() { }
@@ -86,7 +90,12 @@ namespace Game
             TransformSeatData tsd = transformSeatDatas[_seatIndex];
             tsd.isSeatAvaible = true;
             transformSeatDatas[_seatIndex] = tsd;
+
+            if (gameTimeOut)
+                if (findAvaibleSeat().Count == 3)
+                    GameController.RulesController.handleCustomerGameManagerTimeOut();
         }
+
 
         #region Depends
         List<TransformSeatData> findAvaibleSeat() => transformSeatDatas.FindAll(val => val.isSeatAvaible);
@@ -95,6 +104,7 @@ namespace Game
         {
             spawnerState = SpawnerState.REACTIVE;
             yield return new WaitForSeconds(GameController.Instance.levelBase.delayPerCustomer);
+            if (spawnerState != SpawnerState.REACTIVE) yield break;
             spawnerState = SpawnerState.CAN_CREATE;
             yield break;
         }

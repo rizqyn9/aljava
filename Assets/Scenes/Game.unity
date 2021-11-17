@@ -476,7 +476,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1771,6 +1771,7 @@ MonoBehaviour:
   spawnerState: 0
   seatCount: 0
   buyerNow: 0
+  gameTimeOut: 0
   avaibleSeat: []
   customerCounter: 0
 --- !u!4 &986044988
@@ -2026,6 +2027,8 @@ MonoBehaviour:
   machineManager: {fileID: 1338258633}
   bubblesManager: {fileID: 426841319}
   healtManager: {fileID: 1511406179}
+  win: {fileID: 2058828342}
+  lose: {fileID: 2035404822}
   TopBar: {fileID: 390701642}
   count: {fileID: 618917965}
   pauseBtn: {fileID: 270167939}

@@ -6,7 +6,7 @@ namespace Game
     {
         [Header("Debug")]
         public int buyerInstance = 0;
-        public int buyerSuccessTotal = 0;
+        [SerializeField] int buyerSuccessTotal = 0;
         public int buyerFailTotal = 0;
 
         public int menuInstanceTotal = 0;
@@ -19,6 +19,7 @@ namespace Game
         public void handleBuyerDone(int _menuSuccess)
         {
             buyerSuccessTotal += 1;
+            print("Trigger");
             menuSuccessTotal += _menuSuccess;
         }
 
@@ -31,6 +32,35 @@ namespace Game
         public void handleHealthRunOut()
         {
             print("healt Run out");
+            initializeLose();
+        }
+
+        public void handleGameTimeOut()
+        {
+            print("Game Time out");
+            GameController.GameState = GameState.CLEARANCE;
+            CustomerManager.Instance.gameTimeOut = true;
+        }
+
+        public void handleCustomerGameManagerTimeOut()
+        {
+            initializeWin();
+        }
+
+
+        public void initializeWin()
+        {
+            //int star = 0;
+            //if (buyerInstance == buyerSuccessTotal) star = 3;
+            //else if (buyerSuccessTotal / buyerInstance * 10 >= 5) star = 2;
+            //else if (buyerSuccessTotal / buyerInstance * 10 <= 5) star = 1;
+            UIGameManager.Win.init(UIGameManager.HealthManager.instance);
+        }
+
+        public void initializeLose()
+        {
+            print("Lose");
+
         }
     }
 }

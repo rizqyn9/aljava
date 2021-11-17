@@ -54,13 +54,7 @@ namespace Game
 
         public void Btn_Home()
         {
-            print("TOuched");
             GameManager.LoadScene(SceneValid.MAIN_MENU);
-        }
-
-        internal void handleGameTimeOut()
-        {
-            print("Game was time out");
         }
     }
 }

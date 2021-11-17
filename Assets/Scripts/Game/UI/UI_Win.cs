@@ -14,19 +14,16 @@ namespace Game
         private void Start()
         {
             text.text = "";
-            stars.ForEach(val =>
-            {
-                val.gameObject.transform.localScale = Vector2.zero;
-            });
+            stars.ForEach(val => val.gameObject.transform.localScale = Vector2.zero);
         }
 
         [ContextMenu("test")]
         public void test()
         {
-            spawn(3);
+            init(3);
         }
 
-        public void spawn(int _total)
+        public void init(int _total)
         {
             LeanTween.moveY(gameObject.GetComponent<RectTransform>(), 0,2f).setEaseInBounce().setOnComplete(() =>
             {
