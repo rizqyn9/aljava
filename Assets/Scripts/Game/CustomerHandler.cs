@@ -113,5 +113,14 @@ namespace Game
         }
         #endregion
 
+        #region Animator
+        [SerializeField] string curentState = "";
+        public void changeAnimation(string newState)
+        {
+            if (curentState == newState) return;
+            animator.Play(newState);
+            curentState = newState;
+        }
+        #endregion
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,11 @@ namespace Game
         public float duration;
         public int leanTweenID;
 
+        public string BUYER_TALK = "BUYER_TALK",
+            BUYER_IDDLE = "BUYER_IDDLE",
+            BUYER_ANGRY = "BUYER_ANGRY",
+            BUYER_HAPPY = "BUYER_HAPPY";
+
         public void init(CustomerHandler _customerHandler)
         {
             customerHandler = _customerHandler;
@@ -26,9 +32,19 @@ namespace Game
             leanTweenID = LeanTween.value(0, 100, 10f).setOnUpdate(val =>
             {
                 image.fillAmount = 1 - (val / 100);
-                if (val <= 50) image.color = Color.green;
-                if (val >= 50) image.color = Color.red;
+                handlePatience(val);
             }).setOnComplete(patienceRunOut).id;
+        }
+
+        private void handlePatience(float val)
+        {
+
+            if(val < 10)
+                customerHandler.changeAnimation(BUYER_TALK);
+            else if(val < 20)
+                customerHandler.changeAnimation(BUYER_IDDLE);
+            else if(val > 80)
+                customerHandler.changeAnimation(BUYER_ANGRY);
         }
 
         void patienceRunOut()
