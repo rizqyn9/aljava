@@ -16,15 +16,21 @@ namespace Game
         [SerializeField] GameObject TopBar;
         [SerializeField] TMP_Text count;
         [SerializeField] Button pauseBtn;
+        [SerializeField] GameObject noClickArea;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
         public static HealthManager HealthManager => Instance.healtManager;
         public static UI_Lose Lose => Instance.lose;
         public static UI_Win Win => Instance.win;
+        public static bool IsActiveUI => Instance.isActiveUI;
+
+        [Header("Debug")]
+        public bool isActiveUI = false;
 
         private void Start()
         {
+            noClickSetActive(false);
         }
 
         #region Game State Handler
@@ -93,5 +99,9 @@ namespace Game
         {
 
         }
+
+        #region Handle NoClickArea
+        public void noClickSetActive(bool active) => noClickArea.SetActive(active);
+        #endregion
     }
 }

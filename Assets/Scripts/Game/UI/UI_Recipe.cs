@@ -16,7 +16,10 @@ namespace Game
         public void Btn_Recipe()
         {
             LeanTween.moveX(gameObject.GetComponent<RectTransform>(), isActive ? 0 : offsetX, .7f)
-                .setOnStart(() => btnRecipe.interactable = false)
+                .setOnStart(() => {
+                    btnRecipe.interactable = false;
+                    UIGameManager.Instance.noClickSetActive(isActive);
+                    })
                 .setOnComplete(() => btnRecipe.interactable = true)
                 .setEase(animationCurve);
             isActive = !isActive;
