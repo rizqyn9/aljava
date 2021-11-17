@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -17,6 +18,7 @@ namespace Game
         [SerializeField] TMP_Text count;
         [SerializeField] Button pauseBtn;
         [SerializeField] GameObject noClickArea;
+        [SerializeField] List<CanvasGroup> canvasGroups;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
@@ -101,7 +103,20 @@ namespace Game
         }
 
         #region Handle NoClickArea
-        public void noClickSetActive(bool active) => noClickArea.SetActive(active);
+        public void noClickSetActive(bool active)
+        {
+            canvasGroups.ForEach(val => val.alpha = active ? 0 : 1);
+            noClickArea.SetActive(active);
+        }
         #endregion
+
+        [SerializeField] bool isPaused = false;
+        public void Btn_Pause()
+        {
+            isPaused = !isPaused;
+            noClickSetActive(isPaused);
+
+            Time.timeScale = isPaused ? 0 : 1;
+        }
     }
 }

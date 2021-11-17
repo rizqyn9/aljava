@@ -500,7 +500,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270167940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1199270029}
+        m_TargetAssemblyTypeName: Game.UIGameManager, Assembly-CSharp
+        m_MethodName: Btn_Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &270167940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426841318}
   - component: {fileID: 426841319}
+  - component: {fileID: 426841320}
   m_Layer: 5
   m_Name: -UI_BubblesOrder
   m_TagString: Untagged
@@ -916,6 +929,18 @@ MonoBehaviour:
     seatPos: {x: 0, y: 0}
     menuListNames: []
     customerHandler: {fileID: 0}
+--- !u!225 &426841320
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426841317}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,9 +2234,13 @@ MonoBehaviour:
   count: {fileID: 618917965}
   pauseBtn: {fileID: 270167939}
   noClickArea: {fileID: 1102585652}
+  canvasGroups:
+  - {fileID: 426841320}
+  - {fileID: 1338258635}
   isActiveUI: 0
   timerIsRunning: 0
   _countDown: 0
+  isPaused: 0
 --- !u!1 &1280192659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338258634}
   - component: {fileID: 1338258633}
+  - component: {fileID: 1338258635}
   m_Layer: 5
   m_Name: -UI_MachineManager
   m_TagString: Untagged
@@ -2376,6 +2406,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1338258635
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338258632}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1354133597
 GameObject:
   m_ObjectHideFlags: 0
