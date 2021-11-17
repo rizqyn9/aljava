@@ -69,5 +69,10 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.UnloadSceneAsync(_target);
     }
+
+    public static void LoadNextLevel(LevelBase levelNow)
+    {
+        LoadLevel(ResourceManager.ListLevels.Find(val => val.level == (levelNow.level + 1)));
+    }
     #endregion
 }

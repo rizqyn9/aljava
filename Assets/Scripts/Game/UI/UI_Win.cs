@@ -34,17 +34,17 @@ namespace Game
 
         public void Btn_Restart()
         {
-
+            GameManager.LoadLevel(GameController.LevelBase);
         }
 
         public void Btn_Home()
         {
-
+            GameManager.LoadScene(SceneValid.MAIN_MENU);
         }
 
         public void Btn_Next()
         {
-
+            GameManager.LoadNextLevel(GameController.LevelBase);
         }
     }
 }
