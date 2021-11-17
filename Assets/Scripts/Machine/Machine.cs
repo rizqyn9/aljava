@@ -7,6 +7,14 @@ namespace Game
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class Machine : MonoBehaviour
     {
+        [Header("Animation State")]
+        public string ANIM_EMPTY = "ANIM_EMPTY";
+        public string ANIM_FIRST_INIT = "ANIM_FIRST_INIT",
+            ANIM_PROCESS = "ANIM_PROCESS",
+            ANIM_FULL = "ANIM_FULL",
+            ANIM_GET_ONE = "ANIM_GET_ONE",
+            ANIM_LAST_INIT = "ANIM_LAST_INIT";
+
         [Header("Properties")]
         public List<SpriteGlassState> spriteGlassStates;
 
@@ -163,6 +171,7 @@ namespace Game
         #region Handle On State
         public virtual void OnMachineInit()
         {
+            animator.enabled = true;
             setDisableCollider();
         }
 
@@ -173,10 +182,13 @@ namespace Game
             //print($"{bruteForce} ");
             machineProcess.resetProcess();
             setEnableCollider();
+            changeAnimation(ANIM_EMPTY);
         }
 
         public virtual void OnMachineProcess()
         {
+            changeAnimation(ANIM_PROCESS);
+
             setDisableCollider();
             if (!isInteractable) return;
             machineProcess.runProcess();
@@ -213,7 +225,10 @@ namespace Game
             if(machineBase.isUseOverCook)
                 StartCoroutine(IStartOverCook());
             if (machineBase.isUseBarCapacity)
+            {
                 machineCapacity.setFull();
+                changeAnimation(ANIM_FULL);
+            }
         }
         public void OnProcessOvercookCompleted()
         {
@@ -232,10 +247,23 @@ namespace Game
         }
         #endregion
 
+        #region Animator
+        [SerializeField] string currentAnimState = "";
+        public void changeAnimation(string newAnimState)
+        {
+            if (currentAnimState == newAnimState) return;
+            animator.Play(newAnimState);
+            currentAnimState = newAnimState;
+        }
+        #endregion
+
         #region Hook machine capacity
         public void OnCapacityGetOne()
         {
-
+            if (machineCapacity.stateCapacity == 0)
+                changeAnimation(ANIM_EMPTY);
+            else
+                changeAnimation(ANIM_GET_ONE);
         }
 
         public void OnCapacityFull()
