@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1109 &-8057041282974174328
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6511067791050989538}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1102 &-6511067791050989538
 AnimatorState:
   serializedVersion: 6
@@ -7,7 +21,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: isilv3
+  m_Name: ANIM_FULL
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -26,6 +40,20 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1109 &-5443088937472999169
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -4967027388195021435}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1102 &-4967027388195021435
 AnimatorState:
   serializedVersion: 6
@@ -33,7 +61,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: setengahLv3
+  m_Name: ANIM_GET_ONE
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -59,7 +87,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: animloopLv3
+  m_Name: ANIM_PROCESS
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -111,32 +139,64 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 2892084024721323864}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 130, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3020744476166285513}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: 300, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7967024758811272998}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 30, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6511067791050989538}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 540, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4967027388195021435}
-    m_Position: {x: 340, y: 260, z: 0}
+    m_Position: {x: 550, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9213229547947642634}
-    m_Position: {x: 375, y: 325, z: 0}
+    m_Position: {x: 280, y: 50, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
-  m_EntryTransitions: []
+  m_EntryTransitions:
+  - {fileID: 1755720518722540841}
+  - {fileID: 1729293235864410867}
+  - {fileID: -8057041282974174328}
+  - {fileID: -5443088937472999169}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_EntryPosition: {x: 370, y: 140, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 2892084024721323864}
+  m_DefaultState: {fileID: 9213229547947642634}
+--- !u!1109 &1729293235864410867
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -3020744476166285513}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
+--- !u!1109 &1755720518722540841
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 2892084024721323864}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1102 &2892084024721323864
 AnimatorState:
   serializedVersion: 6
@@ -144,7 +204,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: coffeegrinderlv3
+  m_Name: ANIM_FIRST_INIT
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -196,7 +256,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: kosongLv3
+  m_Name: ANIM_EMPTY
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

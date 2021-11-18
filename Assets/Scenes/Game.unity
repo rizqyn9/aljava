@@ -240,8 +240,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.listLevels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.listLevels.Array.data[1].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.listLevels.Array.data[1].isOpen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[0].level
