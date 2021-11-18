@@ -9,13 +9,14 @@ namespace Game
     {
         [Header("Properties")]
         public float offsetX;
+        public float startX;
         public Button btnRecipe;
         public AnimationCurve animationCurve; 
 
         [SerializeField] bool isActive;
         public void Btn_Recipe()
         {
-            LeanTween.moveX(gameObject.GetComponent<RectTransform>(), isActive ? 0 : offsetX, .7f)
+            LeanTween.moveX(gameObject.GetComponent<RectTransform>(), isActive ? startX : offsetX, .7f)
                 .setOnStart(() => {
                     btnRecipe.interactable = false;
                     UIGameManager.Instance.noClickSetActive(isActive);

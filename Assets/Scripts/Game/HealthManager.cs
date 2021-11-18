@@ -22,7 +22,7 @@ namespace Game
             {
                 Image image = Instantiate(basePrefab, transform).GetComponent<Image>();
                 healths.Add(image);
-                image.transform.position = new Vector2((offset.x * i) + 20, image.transform.position.y);
+                image.GetComponent<RectTransform>().localPosition = new Vector2(45 * i, 0);
             }
         }
 

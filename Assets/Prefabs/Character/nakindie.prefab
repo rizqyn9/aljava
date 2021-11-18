@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2441086383887292010, guid: d919f9c672191e64d93c762e3ac91e7e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 2441086383887292020, guid: d919f9c672191e64d93c762e3ac91e7e, type: 3}
       propertyPath: m_Name
       value: anak indie

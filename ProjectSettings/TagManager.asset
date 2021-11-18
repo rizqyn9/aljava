@@ -48,3 +48,6 @@ TagManager:
   - name: Glass
     uniqueID: 3621514299
     locked: 0
+  - name: AspectRatio
+    uniqueID: 3233523981
+    locked: 0
