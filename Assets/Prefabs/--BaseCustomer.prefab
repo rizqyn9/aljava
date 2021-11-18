@@ -77,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charPos: {fileID: 2822712361203055988}
   bublePos: {fileID: 3247768653436233266}
+  orderLayeWalk: -3
+  orderLayerSeat: -1
   buyerPrototype:
     customerCode: 
     buyerBase: {fileID: 0}
@@ -94,8 +96,12 @@ MonoBehaviour:
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
   bubbles: {fileID: 0}
+  patience: {fileID: 0}
+  menuServeCount: 0
+  leanTweenID: 0
   direction: 0
   duration: 0
+  curentState: 
 --- !u!1 &7663860477992421672
 GameObject:
   m_ObjectHideFlags: 0

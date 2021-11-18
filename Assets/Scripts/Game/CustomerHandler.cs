@@ -9,6 +9,7 @@ namespace Game
         [Header("Properties")]
         public Transform charPos;
         public Transform bublePos;
+        public int orderLayeWalk, orderLayerSeat;
 
         [Header("Debug")]
         public BuyerPrototype buyerPrototype;
@@ -90,6 +91,8 @@ namespace Game
         [SerializeField] float duration;
         IEnumerator IWalkSeat()
         {
+            spriteRenderer.sortingOrder = orderLayeWalk;
+
             direction = buyerPrototype.spawnPos.x - buyerPrototype.seatPos.x;
             direction = direction < 0 ? direction * -1 : direction;
             duration = direction / 5;
@@ -102,7 +105,7 @@ namespace Game
 
         IEnumerator IHandleOnSeat()
         {
-            spriteRenderer.sortingOrder = 1;
+            spriteRenderer.sortingOrder = orderLayerSeat;
 
             GameController.RulesController.menuInstanceTotal += buyerPrototype.menuListNames.Count;
             bubbles.show();

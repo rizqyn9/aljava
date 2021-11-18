@@ -39,7 +39,8 @@ namespace Game
         public void init(Machine _machine)
         {
             machine = _machine;
-            transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
+            //transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
+            transform.position = _machine.processPos.position;
 
             bars = new List<Image> { barRepair, barProcess, barOvercook };
             checks = new List<GameObject> { checkList, checkRepair };

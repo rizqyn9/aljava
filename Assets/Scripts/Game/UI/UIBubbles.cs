@@ -64,7 +64,9 @@ namespace Game
 
         public void show()
         {
-            transform.position = Camera.main.WorldToScreenPoint(buyerPrototype.customerHandler.bublePos.position);
+            //transform.position = Camera.main.WorldToScreenPoint(buyerPrototype.customerHandler.bublePos.position);
+            transform.position = buyerPrototype.customerHandler.bublePos.position;
+
             LeanTween.alpha(rectTransform, 1, .3f).setOnComplete(animateMenu);
             LeanTween.scale(rectTransform, new Vector2(1.2f, 1.2f), .2f).setLoopPingPong(2);
         }
