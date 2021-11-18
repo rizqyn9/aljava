@@ -1,0 +1,55 @@
+ANIM_ALL > state awal buat "mesin" cari sprite yang ga ada isi
+
+> stem_mealk	 : 24 FPS / level 1-3 lengkap
+[ Animasi ]
+~ steamilk_nivelX_0003 - 0074
+[ State pas diambil isi ]
+~ steamilk_nivelX_0075 - 0078
+
+*state sesuai kebutuhan, klo kurang chat ae
+
+
+> blender	 : 20 FPS / level 1-3 lengkap
+[ Posisi ]
+~ dah ada contoh natanya, base diganti sesuai level sisanya sama
+[ Animasi ]
+~ blender_anim0000 - 0025
+[ State pas diambil isi ]
+~ blender_anim0026 - 0029
+
+*state sesuai kebutuhan, klo kurang chat ae
+*animasi ga ganti, cuma nambah state doang
+*color shift dari warna putih ke warna lain tanya bagas/rizqy
+
+
+> Main_menu	 : 12 FPS 
+[ Animasi Awal/once ]
+~ starter_main0000 - 0030
+[ Animasi Idle/loop ]
+~ idle_main0031 - 0067
+
+
+> grind_minigame : 16/18 FPS 
+[ Animasi]
+~ grind_mingame0000 - 0060
+
+*cuk, lupa fps nya. coba antara 2 itu klo ga pas sesuain aja
+
+
+
+> cofefe_grinder : 24 FPS / level 1-3 lengkap
+[ Animasi ]
+~ grind_full_sprite_nivelX_0006 - 0060
+[ State pas diambil isi ]
+~ grind_full_sprite_nivelX_0061 - 0064
+
+*state sesuai kebutuhan, klo kurang chat ae
+
+
+> cofefe_maker : 24 FPS
+[ Animasi ]
+~ full_sprite0003 - 0075
+[ State pas diambil isi ]
+~ full_sprite0076 - 0080
+
+*state sesuai kebutuhan, klo kurang chat ae

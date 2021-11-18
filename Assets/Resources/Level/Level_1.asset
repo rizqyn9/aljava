@@ -20,7 +20,7 @@ MonoBehaviour:
   BuyerTypeUnlock: 01000000
   delayPerCustomer: 10
   healthTotal: 3
-  gameDuration: 0
+  gameDuration: 20
   minPoint: 0
   minOrder: 0
   minBuyer: 0
