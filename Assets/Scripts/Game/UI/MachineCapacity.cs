@@ -48,7 +48,20 @@ namespace Game
         {
             machine = _machine;
             maxCapacity = machine.properties.maxCapacity;
-            transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
+            //transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
+
+
+            transform.position = machine.capacityPos.position;
+
+
+            //print(Camera.main.WorldToScreenPoint(machine.capacityPos.position));
+            //print(Camera.main.WorldToViewportPoint(machine.capacityPos.position));
+            //print(Camera.main.ScreenPointToRay(machine.capacityPos.position));
+            //print(Camera.main.ScreenToViewportPoint(machine.capacityPos.position));
+            //print(Camera.main.ScreenToWorldPoint(machine.capacityPos.position));
+            //print(Camera.main.ViewportPointToRay(machine.capacityPos.position));
+            //print(Camera.main.ViewportToScreenPoint(machine.capacityPos.position));
+            //print(Camera.main.ViewportToWorldPoint(machine.capacityPos.position));
         }
 
         void resetCapacity()
