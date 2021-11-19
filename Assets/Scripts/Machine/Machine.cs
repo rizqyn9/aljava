@@ -2,6 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+//#if UNITY_EDITOR
+using UnityEditor;
+//#endif
+
+//#if UNITY_EDITOR
+//#endif
+
 namespace Game
 {
     [RequireComponent(typeof(BoxCollider2D))]
@@ -31,7 +38,7 @@ namespace Game
         public MachineCapacity machineCapacity;
         public MachineProcess machineProcess;
 
-        #region Machine State
+#region Machine State
         [SerializeField] MachineState _machineState = MachineState.OFF;
         public MachineState machineState
         {
@@ -80,9 +87,9 @@ namespace Game
                     break;
             }
         }
-        #endregion
+#endregion
 
-        #region Initial
+#region Initial
         private void Awake() => boxCollider2D = GetComponent<BoxCollider2D>();
         public void setEnableCollider() => boxCollider2D.enabled = true;
         public void setDisableCollider() => boxCollider2D.enabled = false;
@@ -115,9 +122,9 @@ namespace Game
             animator.enabled = false;
             setUpComponent();
         }
-        #endregion
+#endregion
 
-        #region Handle from Machine Manager
+#region Handle from Machine Manager
         public virtual void OnGameBeforeStart() => StartCoroutine(beforeStart());
         public virtual void OnGameStart()
         {
@@ -125,9 +132,9 @@ namespace Game
             machineState = MachineState.ON_IDDLE;
             isInteractable = true;
         }
-        #endregion
+#endregion
 
-        #region Trigger Default handle
+#region Trigger Default handle
         public GlassRegistered glassTarget;
         public Machine machineTarget;
         public bool isInteractable = false;
@@ -150,9 +157,9 @@ namespace Game
             machineState = MachineState.ON_PROCESS;
         }
         public virtual void OnMachineServe() { }
-        #endregion
+#endregion
 
-        #region Hook Machine Receiver
+#region Hook Machine Receiver
         public bool isMachineReceiver = false;
         public List<MachineIgrendient> listIgrendients = new List<MachineIgrendient>();
         public void reqInput(MachineIgrendient _igrendient)
@@ -166,9 +173,9 @@ namespace Game
             if (isMachineReceiver)
                 machineState = MachineState.ON_PROCESS;
         }
-        #endregion
+#endregion
 
-        #region Handle On State
+#region Handle On State
         public virtual void OnMachineInit()
         {
             animator.enabled = true;
@@ -216,9 +223,9 @@ namespace Game
         {
             setEnableCollider();
         }
-        #endregion
+#endregion
 
-        #region Hook Machine Process
+#region Hook Machine Process
         public void OnProcessCompleted()
         {
             machineState = MachineState.ON_DONE;
@@ -245,9 +252,9 @@ namespace Game
             machineProcess.runOverCook();
             yield break;
         }
-        #endregion
+#endregion
 
-        #region Animator
+#region Animator
         [SerializeField] string currentAnimState = "";
         public void changeAnimation(string newAnimState)
         {
@@ -255,9 +262,9 @@ namespace Game
             animator.Play(newAnimState);
             currentAnimState = newAnimState;
         }
-        #endregion
+#endregion
 
-        #region Hook machine capacity
+#region Hook machine capacity
         public void OnCapacityGetOne()
         {
             if (machineCapacity.stateCapacity == 0)
@@ -275,17 +282,17 @@ namespace Game
         {
             machineState = MachineState.ON_IDDLE;
         }
-        #endregion
+#endregion
 
-        #region IEnumurator
+#region IEnumurator
         IEnumerator beforeStart()
         {
             LeanTween.alpha(gameObject, 1, GameController.GameProperties.animMachineBeforeStart).setEaseInBounce();
             yield return 1;
         }
-        #endregion
+#endregion
 
-        #region Dependencies
+#region Dependencies
         void setUpComponent()
         {
             UIGameManager.MachineManager.instanceMachineProcess(this, out machineProcess);
@@ -312,6 +319,8 @@ namespace Game
                 foreach(SpriteRenderer go in prefabPlace.GetComponentsInChildren<SpriteRenderer>())
                     Destroy(go.gameObject);
         }
-        #endregion
+#endregion
     }
 }
+
+

@@ -29,15 +29,16 @@ namespace Game
             menuFailTotal += _menuFail;
         }
 
+        public bool isHealthRunOut = false;
         public void handleHealthRunOut()
         {
-            print("healt Run out");
+            isHealthRunOut = true;
             initializeLose();
         }
 
         public void handleGameTimeOut()
         {
-            print("Game Time out");
+            if (isHealthRunOut) return;
             GameController.GameState = GameState.CLEARANCE;
 
             CustomerManager.Instance.gameTimeOut = true;
@@ -50,6 +51,7 @@ namespace Game
 
         public void handleCustomerGameManagerTimeOut()
         {
+            if (isHealthRunOut) return;
             initializeWin();
         }
 

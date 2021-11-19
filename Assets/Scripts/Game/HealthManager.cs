@@ -36,7 +36,8 @@ namespace Game
 
         private void validateHealth()
         {
-            if (instance < 1) GameController.RulesController.handleHealthRunOut();
+            if (instance < 1)
+                GameController.RulesController.handleHealthRunOut();
         }
 
         public void increment()

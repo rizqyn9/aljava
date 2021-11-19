@@ -9,6 +9,7 @@ namespace Game
         [Header("Properties")]
         public Transform machineProcessPlace;
         public Transform machineCapacityPlace;
+        public Transform fixedPos;
         public GameObject baseMachineProcess, baseMachineCapacity;
 
         [Header("Debug")]
@@ -17,7 +18,7 @@ namespace Game
 
         public void instanceMachineProcess(Machine _machine, out MachineProcess machineProcess)
         {
-            machineProcess = Instantiate(baseMachineProcess, machineProcessPlace).GetComponent<MachineProcess>();
+            machineProcess = Instantiate(baseMachineProcess, fixedPos).GetComponent<MachineProcess>();
             machineProcesses.Add(machineProcess);
             machineProcess.init(_machine);
         }

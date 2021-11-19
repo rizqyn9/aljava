@@ -29,6 +29,9 @@ namespace Game
             {
                 for (int i = 0; i < _total; i++)
                     LeanTween.scale(stars[i].gameObject, new Vector2(1f, 1f), .7f).setDelay(.2f * i).setEaseInBounce();
+            }).setOnStart(() =>
+            {
+                UIGameManager.Instance.noClickSetActive(true);
             });
         }
 

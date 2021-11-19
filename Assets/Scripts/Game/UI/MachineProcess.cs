@@ -40,7 +40,14 @@ namespace Game
         {
             machine = _machine;
             //transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
-            transform.position = _machine.processPos.position;
+            //transform.position = _machine.processPos.position;
+            //transform.position = UIGameManager.MachineManager.fixedPos;
+
+            //transform.position = Camera.main.WorldToViewportPoint(_machine.processPos.position);
+            //transform.position = Camera.main.ViewportToScreenPoint(_machine.processPos.position);
+            //transform.position = Camera.main.ViewportToWorldPoint(_machine.processPos.position);
+            //transform.position = Camera.main.ScreenToWorldPoint(_machine.processPos.position);
+            //transform.position = Camera.main.ScreenToViewportPoint(_machine.processPos.position);
 
             bars = new List<Image> { barRepair, barProcess, barOvercook };
             checks = new List<GameObject> { checkList, checkRepair };
