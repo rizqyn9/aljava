@@ -385,12 +385,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.userEnvDatas.Array.data[2].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[0].machineType
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[1].machineType
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
+      propertyPath: customUserData.userEnvDatas.Array.data[2].machineType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272515, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: m_Name
@@ -5096,7 +5104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.055555552
+      value: 0.100245565
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -5104,7 +5112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.8888889
+      value: 0.79950887
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.height

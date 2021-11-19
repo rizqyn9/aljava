@@ -107,6 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42278b00246a943c7b408aeae9826d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ANIM_EMPTY: ANIM_EMPTY
+  ANIM_FIRST_INIT: ANIM_FIRST_INIT
+  ANIM_PROCESS: ANIM_PROCESS
+  ANIM_FULL: ANIM_FULL
+  ANIM_GET_ONE: ANIM_GET_ONE
+  ANIM_LAST_INIT: ANIM_LAST_INIT
+  spriteGlassStates: []
   machineType: 0
   capacityPos: {fileID: 8107185125127881016}
   processPos: {fileID: 7770272426960577123}
@@ -123,6 +130,16 @@ MonoBehaviour:
   machineCapacity: {fileID: 0}
   machineProcess: {fileID: 0}
   _machineState: 0
+  glassTarget:
+    glassCode: 
+    glass: {fileID: 0}
+    seatIndex: 0
+  machineTarget: {fileID: 0}
+  isInteractable: 0
+  bruteForce: 0
+  isMachineReceiver: 0
+  listIgrendients: 
+  currentAnimState: 
 --- !u!61 &6826961090936221964
 BoxCollider2D:
   m_ObjectHideFlags: 0
