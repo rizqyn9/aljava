@@ -1,21 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
 {
     public class UI_Lose : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+
+        [ContextMenu("Test")]
+        public void Test()
         {
-        
+            init();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void init()
         {
-        
+            LeanTween.moveY(gameObject.GetComponent<RectTransform>(), 0, 2f).setEaseInBounce()
+                .setOnStart(() => UIGameManager.Instance.noClickSetActive(true));
         }
     }
 }

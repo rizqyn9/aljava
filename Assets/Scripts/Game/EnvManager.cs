@@ -57,7 +57,11 @@ namespace Game
             machineManager.OnGameStart();
         }
         public void OnGameClearance() { }
-        public void OnGameFinish() { }
+        public void OnGameFinish()
+        {
+            machineManager.OnGameFinished();
+        }
+
         public void OnGameIddle() { }
         public void OnGamePause() { }
         #endregion

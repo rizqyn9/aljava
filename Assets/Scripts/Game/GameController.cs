@@ -38,6 +38,8 @@ namespace Game
         {
             levelBase = _levelbase;
 
+            UIGameManager.Recipe.init();
+
             StartCoroutine(IStartGame());
         }
 
@@ -51,6 +53,12 @@ namespace Game
 
             GameState = GameState.START;
         }
+
+        public void handleGameEnd()
+        {
+            GameState = GameState.FINISH;
+        }
+
 
         public void Btn_Home()
         {

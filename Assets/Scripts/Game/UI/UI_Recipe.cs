@@ -25,5 +25,14 @@ namespace Game
                 .setEase(animationCurve);
             isActive = !isActive;
         }
+
+
+        /// <summary>
+        /// Render Menu list
+        /// </summary>
+        public void init()
+        {
+
+        }
     }
 }

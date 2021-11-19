@@ -28,7 +28,9 @@ namespace Game
             _machine = EnvManager.Instance.machineManager.machines.Find(val => val.machineType == _machineTarget && val.machineState == MachineState.ON_IDDLE);
             return _machine;
         }
-        
+
+        public void OnGameFinished() => setInteractableMachine(false);
+
         #region SetUp Machine
         void instanceMachine()
         {

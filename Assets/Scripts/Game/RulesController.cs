@@ -39,7 +39,13 @@ namespace Game
         {
             print("Game Time out");
             GameController.GameState = GameState.CLEARANCE;
+
             CustomerManager.Instance.gameTimeOut = true;
+            if(CustomerManager.Instance.findAvaibleSeat().Count == 3)
+            {
+                handleCustomerGameManagerTimeOut();
+            }
+
         }
 
         public void handleCustomerGameManagerTimeOut()
@@ -54,13 +60,14 @@ namespace Game
             //if (buyerInstance == buyerSuccessTotal) star = 3;
             //else if (buyerSuccessTotal / buyerInstance * 10 >= 5) star = 2;
             //else if (buyerSuccessTotal / buyerInstance * 10 <= 5) star = 1;
+            GameController.Instance.handleGameEnd();
             UIGameManager.Win.init(UIGameManager.HealthManager.instance);
         }
 
         public void initializeLose()
         {
-            print("Lose");
-
+            GameController.Instance.handleGameEnd();
+            UIGameManager.Lose.init();
         }
     }
 }

@@ -92,13 +92,15 @@ namespace Game
             transformSeatDatas[_seatIndex] = tsd;
 
             if (gameTimeOut)
+            {
                 if (findAvaibleSeat().Count == 3)
                     GameController.RulesController.handleCustomerGameManagerTimeOut();
+            }
         }
 
 
         #region Depends
-        List<TransformSeatData> findAvaibleSeat() => transformSeatDatas.FindAll(val => val.isSeatAvaible);
+        public List<TransformSeatData> findAvaibleSeat() => transformSeatDatas.FindAll(val => val.isSeatAvaible);
 
         IEnumerator IReactiveSpawner()
         {

@@ -12,6 +12,7 @@ namespace Game
         [SerializeField] UIMachineManager machineManager;
         [SerializeField] UIBubblesManager bubblesManager;
         [SerializeField] HealthManager healtManager;
+        [SerializeField] UI_Recipe recipe;
         [SerializeField] UI_Win win;
         [SerializeField] UI_Lose lose;
         [SerializeField] GameObject TopBar;
@@ -22,6 +23,7 @@ namespace Game
 
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
+        public static UI_Recipe Recipe => Instance.recipe;
         public static HealthManager HealthManager => Instance.healtManager;
         public static UI_Lose Lose => Instance.lose;
         public static UI_Win Win => Instance.win;
@@ -105,6 +107,7 @@ namespace Game
         #region Handle NoClickArea
         public void noClickSetActive(bool active)
         {
+            isActiveUI = active;
             canvasGroups.ForEach(val => val.alpha = active ? 0 : 1);
             noClickArea.SetActive(active);
         }
