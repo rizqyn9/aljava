@@ -269,9 +269,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 199978689885622549, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.09990564
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -279,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.8001887
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -329,7 +333,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199978689885622549, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
 --- !u!20 &827510134 stripped
 Camera:

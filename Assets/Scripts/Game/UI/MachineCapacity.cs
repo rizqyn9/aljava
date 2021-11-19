@@ -49,7 +49,7 @@ namespace Game
             machine = _machine;
             maxCapacity = machine.properties.maxCapacity;
             //transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
-            transform.position = machine.capacityPos.position;
+            //transform.position = machine.capacityPos.position;
         }
 
         void resetCapacity()

@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
 using System;
 using UnityEditor;
 using Game;
-#endif
+//#endif
 
 [CreateAssetMenu(fileName = "MachineBase", menuName = "ScriptableObject/MachineBase")]
 public class MachineBase : ScriptableObject
@@ -31,7 +31,7 @@ public class MachineBase : ScriptableObject
     public List<MachineProperties> properties = new List<MachineProperties>();
 }
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
 [CustomEditor(typeof(MachineBase))]
 public class editScript : Editor
 {
@@ -105,6 +105,7 @@ public class editScript : Editor
             }
 
             //Debug.Log($"<color=green> Validate success {target.name} </color>");
+
             msg = $"Validate success {target.name}";
             return true;
 
@@ -115,7 +116,15 @@ public class editScript : Editor
             msg = e.Message.ToString();
             return false;
         }
+    }
 
+    public Transform pos;
+
+    public void generatePosCanvas()
+    {
+        Debug.Log("adsadad");
+
+        Debug.Log(UIMachineManager.MachineProcessPlace);
     }
 }
-#endif
+//#endif

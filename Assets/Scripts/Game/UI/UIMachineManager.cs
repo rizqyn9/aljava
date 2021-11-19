@@ -11,6 +11,9 @@ namespace Game
         public Transform machineCapacityPlace;
         public Transform fixedPos;
         public GameObject baseMachineProcess, baseMachineCapacity;
+        public List<MachineCanvas> processesTransform = new List<MachineCanvas>();
+        public List<MachineCanvas> capacitiesTransform = new List<MachineCanvas>();
+
 
         [Header("Debug")]
         public List<MachineProcess> machineProcesses = new List<MachineProcess>();
@@ -18,16 +21,26 @@ namespace Game
 
         public void instanceMachineProcess(Machine _machine, out MachineProcess machineProcess)
         {
-            machineProcess = Instantiate(baseMachineProcess, fixedPos).GetComponent<MachineProcess>();
+            machineProcess = Instantiate(baseMachineProcess, GetTransform(true, _machine)).GetComponent<MachineProcess>();
             machineProcesses.Add(machineProcess);
             machineProcess.init(_machine);
         }
 
         public void instanceMachineCapacity(Machine _machine, out MachineCapacity machineCapacity)
         {
-            machineCapacity = Instantiate(baseMachineCapacity, machineCapacityPlace).GetComponent<MachineCapacity>();
+            machineCapacity = Instantiate(baseMachineCapacity, GetTransform(false, _machine)).GetComponent<MachineCapacity>();
             machineCapacities.Add(machineCapacity);
             machineCapacity.init(_machine);
         }
+
+        Transform GetTransform(bool isProcess, Machine _machine)
+        {
+            if (isProcess)
+                return processesTransform.Find(val => val.machineType == _machine.machineType).transform;
+            else
+                return capacitiesTransform.Find(val => val.machineType == _machine.machineType).transform;
+        }
+
+        public static Transform MachineProcessPlace => UIGameManager.MachineManager.machineProcessPlace;
     }
 }

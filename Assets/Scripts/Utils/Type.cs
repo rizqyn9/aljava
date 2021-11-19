@@ -250,3 +250,9 @@ public enum BuyerState
     ON_WAITING,
     ON_DONE
 }
+
+public struct MachineDependsType
+{
+    public MachineIgrendient machineType;
+    public Transform gameObjectPosition;
+}
