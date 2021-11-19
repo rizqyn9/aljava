@@ -24,9 +24,12 @@ namespace Game
             LeanTween.moveX(gameObject.GetComponent<RectTransform>(), isActive ? startX : offsetX, .7f)
                 .setOnStart(() => {
                     btnRecipe.interactable = false;
-                    UIGameManager.Instance.noClickSetActive(isActive);
+                    if(isActive) UIGameManager.Instance.noClickSetActive(isActive);
                     })
-                .setOnComplete(() => btnRecipe.interactable = true)
+                .setOnComplete(() => {
+                    btnRecipe.interactable = true;
+                    if(!isActive) UIGameManager.Instance.noClickSetActive(isActive);
+                })
                 .setEase(animationCurve);
             isActive = !isActive;
         }
