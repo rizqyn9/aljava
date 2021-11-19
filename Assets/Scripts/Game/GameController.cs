@@ -38,8 +38,6 @@ namespace Game
         {
             levelBase = _levelbase;
 
-            UIGameManager.Recipe.init();
-
             StartCoroutine(IStartGame());
         }
 

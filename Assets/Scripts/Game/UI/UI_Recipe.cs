@@ -8,10 +8,15 @@ namespace Game
     public class UI_Recipe : MonoBehaviour
     {
         [Header("Properties")]
+        public GameObject baseItemRecipe;
+        public Transform itemPlace;
         public float offsetX;
         public float startX;
         public Button btnRecipe;
-        public AnimationCurve animationCurve; 
+        public AnimationCurve animationCurve;
+
+        [Header("Debug")]
+        public List<UIBaseRecipe> recipesItem;
 
         [SerializeField] bool isActive;
         public void Btn_Recipe()
@@ -30,9 +35,14 @@ namespace Game
         /// <summary>
         /// Render Menu list
         /// </summary>
-        public void init()
+        public void init(List<MenuBase> _menuBases)
         {
-
+            _menuBases.ForEach(val =>
+            {
+                UIBaseRecipe go = Instantiate(baseItemRecipe, itemPlace).GetComponent<UIBaseRecipe>();
+                recipesItem.Add(go);
+                go.init(val);
+            });
         }
     }
 }

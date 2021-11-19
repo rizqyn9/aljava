@@ -42,6 +42,8 @@ namespace Game
         {
             getAllResources();
 
+            UIGameManager.Recipe.init(listMenus);
+
             machineManager.init(this);
         }
 

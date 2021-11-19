@@ -1,21 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Game
 {
     public class UIBaseRecipe : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        [Header("Properties")]
+        public TMP_Text menuTitle;
+        public List<Image> steps;
+        public Image menuImage;
 
-        // Update is called once per frame
-        void Update()
+        [Header("Debug")]
+        [SerializeField] MenuBase menuBase;
+        public void init(MenuBase _menuBase)
         {
-        
+            menuBase = _menuBase;
         }
     }
 }
