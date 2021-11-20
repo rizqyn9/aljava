@@ -13,7 +13,11 @@ namespace Game
 
         [Header("Debug")]
         public LevelBase levelBase;
+        public bool isTutorial = false;
+        public Tutorial tutorial;
 
+        // Accessor
+        public static bool IsTutorial => Instance.isTutorial;
         public static LevelBase LevelBase => Instance.levelBase;
         public static GameProperties GameProperties => Instance.gameProperties;
         public static OrderController OrderController => Instance.orderController;
@@ -33,6 +37,14 @@ namespace Game
             }
         }
         #endregion
+
+        public void initTutorial(LevelBase _levelBase, Tutorial _tutorial)
+        {
+            levelBase = _levelBase;
+            tutorial = _tutorial;
+
+            tutorial.init();
+        }
 
         public void init(LevelBase _levelbase)
         {

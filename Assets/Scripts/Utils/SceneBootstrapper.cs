@@ -1,7 +1,10 @@
-using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEditor;
+//#endif
 
+//#if UNITY_EDITOR
 [InitializeOnLoad]
 public class SceneBootstrapper
 {
@@ -136,3 +139,4 @@ public class SceneBootstrapper
         }
     }
 }
+#endif

@@ -8,6 +8,8 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "Level Base", menuName = "ScriptableObject/LevelBase")]
 public class LevelBase : ScriptableObject
 {
+    public bool isTutorialLevel = false;
+    public Tutorial tutorialScript;
     public bool isLevelTest = false;
     public int level;
     public GameMode gameMode = GameMode.TIME;
