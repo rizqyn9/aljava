@@ -39,16 +39,8 @@ namespace Game
         public void init(Machine _machine)
         {
             machine = _machine;
-            print(Camera.main.WorldToScreenPoint(_machine.processPos.position));
-            transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
-            //transform.position = _machine.processPos.position;
-            //transform.position = UIGameManager.MachineManager.fixedPos;
 
-            //transform.position = Camera.main.WorldToViewportPoint(_machine.processPos.position);
-            //transform.position = Camera.main.ViewportToScreenPoint(_machine.processPos.position);
-            //transform.position = Camera.main.ViewportToWorldPoint(_machine.processPos.position);
-            //transform.position = Camera.main.ScreenToWorldPoint(_machine.processPos.position);
-            //transform.position = Camera.main.ScreenToViewportPoint(_machine.processPos.position);
+            updatePos();
 
             bars = new List<Image> { barRepair, barProcess, barOvercook };
             checks = new List<GameObject> { checkList, checkRepair };
@@ -59,16 +51,14 @@ namespace Game
             duration = _machine.properties.processDuration;
         }
 
-        [ContextMenu("Test")]
-        public void Test()
+        public void updatePos()
         {
-            print(Camera.main.WorldToScreenPoint(machine.processPos.position));
-
             transform.position = Camera.main.WorldToScreenPoint(machine.processPos.position);
         }
 
         public void runProcess()
         {
+            updatePos();
             forceStop();                // Prevent double tweening in single process
             barType = BarType.PROCESS;
             runDefault(barProcess, duration);

@@ -48,8 +48,15 @@ namespace Game
         {
             machine = _machine;
             maxCapacity = machine.properties.maxCapacity;
+
+            updatePos();
             //transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
             //transform.position = machine.capacityPos.position;
+        }
+
+        public void updatePos()
+        {
+            transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
         }
 
         void resetCapacity()
@@ -59,6 +66,8 @@ namespace Game
 
         public void setFull()
         {
+            updatePos();
+
             machineCapacityState = MachineCapacityState.ON_FULL;
             stateCapacity = maxCapacity;
             LeanTween.alpha(rectTransform, 1, 1f);
@@ -67,6 +76,8 @@ namespace Game
 
         public void getOne()
         {
+            updatePos();
+
             stateCapacity -= 1;
             if (_stateCapacity <= 0)
             {
@@ -78,6 +89,8 @@ namespace Game
 
         private void handleEmpty()
         {
+            updatePos();
+
             machineCapacityState = MachineCapacityState.ON_EMPTY;
             LeanTween.alpha(rectTransform, 0, 1f);
             machine.OnCapacityEmpty();
