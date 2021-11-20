@@ -52,6 +52,6 @@ public class LevelStageController : Singleton<LevelStageController>
 
     public void Btn_Close()
     {
-        GameManager.UnLoadScene(SceneValid.LEVEL_STAGE);
+        MainMenuController.Instance.Btn_Level();
     }
 }
