@@ -1,6 +1,9 @@
 name: Actions 😎
 
-on: [push, pull_request]
+on: 
+  push:
+    branches:  
+    - 'build'
 
 jobs:
   build:
