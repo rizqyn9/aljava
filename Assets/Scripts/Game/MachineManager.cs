@@ -45,13 +45,19 @@ namespace Game
 
         int getLevelMachine(MachineBase _machineBase)
         {
-            int res = GameManager.Instance.userData.userEnvDatas.Find(val => val.machineType == _machineBase.machineType).level;
-            if(res > _machineBase.properties.Count || res == 0)
+            try
             {
-                Debug.LogWarning($"{_machineBase.machineType.ToString()} to much level value || value == 0");
+                int res = GameManager.Instance.userData.userEnvDatas.Find(val => val.machineType == _machineBase.machineType).level;
+                if(res > _machineBase.properties.Count || res == 0)
+                {
+                    Debug.LogWarning($"{_machineBase.machineType.ToString()} to much level value || value == 0");
+                    return 1;
+                } 
+                return res;
+            } catch
+            {
                 return 1;
-            } 
-            return res;
+            }
         }
         #endregion
     }

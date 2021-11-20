@@ -39,7 +39,7 @@ public class SaveData : MonoBehaviour
 
     public void init()
     {
-        saveFilePath = Application.dataPath + "/Persistant/aljava.json";
+        saveFilePath = Application.persistentDataPath + "/aljava.json";
         if (Dev.Instance.useCustomUserData)
             userData = Dev.Instance.customUserData;
         else
