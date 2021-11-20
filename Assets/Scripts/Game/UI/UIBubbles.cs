@@ -42,7 +42,7 @@ namespace Game
         public void init(BuyerPrototype _buyerPrototype)
         {
             buyerPrototype = _buyerPrototype;
-            print($"req init from {_buyerPrototype.customerCode}");
+            //print($"req init from {_buyerPrototype.customerCode}");
 
             patience.init(buyerPrototype.customerHandler);
 

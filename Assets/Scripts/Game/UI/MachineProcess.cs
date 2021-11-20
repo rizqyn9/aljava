@@ -39,7 +39,8 @@ namespace Game
         public void init(Machine _machine)
         {
             machine = _machine;
-            //transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
+            print(Camera.main.WorldToScreenPoint(_machine.processPos.position));
+            transform.position = Camera.main.WorldToScreenPoint(_machine.processPos.position);
             //transform.position = _machine.processPos.position;
             //transform.position = UIGameManager.MachineManager.fixedPos;
 
@@ -56,6 +57,14 @@ namespace Game
             isUseOverCook = _machine.machineBase.isUseOverCook;
             isUseCapacity = _machine.machineBase.isUseBarCapacity;
             duration = _machine.properties.processDuration;
+        }
+
+        [ContextMenu("Test")]
+        public void Test()
+        {
+            print(Camera.main.WorldToScreenPoint(machine.processPos.position));
+
+            transform.position = Camera.main.WorldToScreenPoint(machine.processPos.position);
         }
 
         public void runProcess()
