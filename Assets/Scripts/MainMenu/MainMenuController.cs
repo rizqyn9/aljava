@@ -11,6 +11,9 @@ public class MainMenuController : Singleton<MainMenuController>
     [SerializeField] GameObject noClickArea;
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] GameObject settingContainer;
+    [SerializeField] GameObject aboutContainer;
+    [SerializeField] GameObject upgradeContainer;
+    [SerializeField] GameObject menuListContainer;
 
 
     //[Header("Debug")]
@@ -48,13 +51,44 @@ public class MainMenuController : Singleton<MainMenuController>
     public void Btn_Setting()
     {
         isSetting = !isSetting;
-        noClickArea.SetActive(isSetting);
-        LeanTween.moveY(settingContainer.GetComponent<RectTransform>(), isSetting ? 0 : settingOffsetY, 1f).setEaseInBack();
+        defaultCommand(isSetting, settingContainer);
+    }
+
+    [SerializeField] bool isAbout = false;
+    public void Btn_About()
+    {
+        isAbout = !isAbout;
+        defaultCommand(isAbout, aboutContainer);
+    }
+
+    [SerializeField] bool isUpgrade = false;
+    public void Btn_Upgrade()
+    {
+        isUpgrade = !isUpgrade;
+        defaultCommand(isUpgrade, upgradeContainer);
+    }
+
+    [SerializeField] bool isMenuList = false;
+    public void Btn_MenuList()
+    {
+        isMenuList = !isMenuList;
+        defaultCommand(isMenuList, menuListContainer);
+    }
+
+    public void defaultCommand(bool _isActive, GameObject _go)
+    {
+        LeanTween.moveY(_go.GetComponent<RectTransform>(), _isActive ? 0 : settingOffsetY, 1f)
+            .setOnComplete(() => { if (!_isActive) noClickArea.SetActive(false); })
+            .setOnStart(() => { if (_isActive) noClickArea.SetActive(true); })
+            .setEaseInBack();
     }
 
     public void Btn_PreventClick()
     {
         if (isSetting) Btn_Setting();
         if (isLevel) Btn_Level();
+        if (isMenuList) Btn_MenuList();
+        if (isUpgrade) Btn_Upgrade();
+        if (isAbout) Btn_About();
     }
 }
