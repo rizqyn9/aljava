@@ -13,6 +13,7 @@ public class MenuBase : ScriptableObject
     public MenuListName menuListName;
     public GameObject menuPrefab;
     public List<MachineIgrendient> Igrendients;
+    public List<Sprite> stepRecipes;
     public string menuDesc;
     public Sprite menuSprite;
     public int pointInGame;

@@ -50,8 +50,6 @@ namespace Game
             maxCapacity = machine.properties.maxCapacity;
 
             updatePos();
-            //transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
-            //transform.position = machine.capacityPos.position;
         }
 
         public void updatePos()

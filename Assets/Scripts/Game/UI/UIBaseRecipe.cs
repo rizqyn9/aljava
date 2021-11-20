@@ -17,6 +17,18 @@ namespace Game
         public void init(MenuBase _menuBase)
         {
             menuBase = _menuBase;
+
+            menuImage.sprite = _menuBase.menuSprite;
+
+            for(int i = 0; i < steps.Count; i++)
+            {
+                
+                if (i >= _menuBase.stepRecipes.Count)
+                {
+                    steps[i].enabled = false;
+                } else
+                    steps[i].sprite = menuBase.stepRecipes[i];
+            }
         }
     }
 }

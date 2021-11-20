@@ -37,6 +37,7 @@ namespace Game
 
         /// <summary>
         /// Render Menu list
+        /// Do foreach 
         /// </summary>
         public void init(List<MenuBase> _menuBases)
         {
