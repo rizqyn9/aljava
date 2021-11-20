@@ -64,6 +64,11 @@ public class AljavaWindow : EditorWindow
                 machineManager.capacitiesTransform.Add(machineCanvas);
             });
         }
+
+        if(GUILayout.Button("Delete Persistant"))
+        {
+
+        }
     }
 }
 #endif

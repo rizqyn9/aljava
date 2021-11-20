@@ -54,16 +54,6 @@ public class SaveData : MonoBehaviour
         }
     }
 
-    //public LevelModel grabData()
-    //{
-    //    //return new LevelModel
-    //    //{
-    //    //    level = MainController.Instance.levelBase.level,
-    //    //    playerInstance = MainController.RulesController.buyerInstanceTotal,
-    //    //    isWin = MainController.RulesController.isWin
-    //    //};
-    //}
-
     public void saveIntoJson()
     {
         try
@@ -103,6 +93,18 @@ public class SaveData : MonoBehaviour
                 },
             }
         };
+    }
+
+    [ContextMenu("Reset Persistant")]
+    public void resetPersistant()
+    {
+        saveFilePath = Application.persistentDataPath + "/aljava.json";
+        if (File.Exists(saveFilePath))
+        {
+            Debug.Log("Founded");
+            File.Delete(saveFilePath);
+            Debug.Log("Deleted");
+        }
     }
 
 
