@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Game;
+using Aljava.Game;
+
 
 /// <summary>
 /// Default handler game state, handle from GameController

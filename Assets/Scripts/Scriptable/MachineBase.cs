@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 #if UNITY_EDITOR
 using System;
+using Aljava.Game;
 using UnityEditor;
-using Game;
 #endif
 
 [CreateAssetMenu(fileName = "MachineBase", menuName = "ScriptableObject/MachineBase")]

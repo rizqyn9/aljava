@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Game;
-
+using Aljava;
+using Aljava.Game;
 
 public class Dev : Singleton<Dev>
 {

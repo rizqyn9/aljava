@@ -1,80 +1,92 @@
-using System;
-using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public static class SceneValid
+using Aljava.MainMenu;
+using Aljava.Level;
+using Aljava.Game;
+using System.Collections;
+namespace Aljava
 {
-    public const string MAIN_MENU = "MainMenu";
-    public const string LEVEL_STAGE = "LevelStage";
-    public const string GAME = "Game";
-}
-
-public class GameManager : Singleton<GameManager>
-{
-    [Header("Properties")]
-    public SaveData saveData;
-    public GameObject resourceManagerPrefab;
-
-    [Header("Debug")]
-    public UserData userData;
-    public bool isResourceManagerReady = false;
-
-    private void Start()
+    public static class SceneValid
     {
-        saveData.init();
-        userData = saveData.userData;
+        public const string MAIN_MENU = "MainMenu";
+        public const string LEVEL_STAGE = "LevelStage";
+        public const string GAME = "Game";
+    }
 
-        // Ensure that resource manager instance on hierarchy
-        if (!FindObjectOfType<ResourceManager>())
+    public class GameManager : Singleton<GameManager>
+    {
+        [Header("Properties")]
+        public SaveData saveData;
+        public GameObject resourceManagerPrefab;
+
+        [Header("Debug")]
+        public UserData userData;
+        public bool isResourceManagerReady = false;
+
+        private void Start()
         {
-            Instantiate(resourceManagerPrefab);
+            saveData.init();
+            userData = saveData.userData;
+
+            // Ensure that resource manager instance on hierarchy
+            if (!FindObjectOfType<ResourceManager>())
+            {
+                Instantiate(resourceManagerPrefab);
+            }
         }
-    }
 
-    #region Scene Handler
-    private void OnEnable() => SceneManager.sceneLoaded += handleSceneLoaded;
-    private void OnDisable() => SceneManager.sceneLoaded -= handleSceneLoaded;
-
-    [SerializeField] string sceneNow;
-    [SerializeField] bool isInit;
-    public void handleSceneLoaded(Scene _scene, LoadSceneMode arg1)
-    {
-        sceneNow = _scene.name;
-        if(sceneNow == SceneValid.GAME)
+        delegate void SuccessLoadedResources();
+        IEnumerator ICheckResource(SuccessLoadedResources callback)
         {
-            GameController.Instance.init(levelBase);
-        } else if (sceneNow == SceneValid.MAIN_MENU)
-        {
-            MainMenuController.Instance.init();
-        } else if(sceneNow == SceneValid.LEVEL_STAGE)
-        {
-            LevelStageController.Instance.init();
+            yield return new WaitUntil(() => Instance.isResourceManagerReady);
+            callback();
+            yield break;
         }
-    }
 
-    public static void LoadScene(string _target, LoadSceneMode _loadSceneMode = LoadSceneMode.Single)
-    {
-        SceneManager.LoadScene(_target, _loadSceneMode);
-    }
+        #region Scene Handler
+        private void OnEnable() => SceneManager.sceneLoaded += handleSceneLoaded;
+        private void OnDisable() => SceneManager.sceneLoaded -= handleSceneLoaded;
 
-    [SerializeField] LevelBase levelBase;
-    public static void LoadLevel(LevelBase _levelBase)
-    {
-        Instance.levelBase = _levelBase;
-        LoadScene(SceneValid.GAME);
-    }
+        [SerializeField] string sceneNow;
+        [SerializeField] bool isInit;
+        public void handleSceneLoaded(Scene _scene, LoadSceneMode arg1)
+        {
+            sceneNow = _scene.name;
+            if (sceneNow == SceneValid.GAME)
+            {
+                StartCoroutine(ICheckResource(() => GameController.Instance.init(levelBase)));
+            } else if (sceneNow == SceneValid.MAIN_MENU)
+            {
+                StartCoroutine(ICheckResource(MainMenuController.Instance.init));
+            } else if(sceneNow == SceneValid.LEVEL_STAGE)
+            {
+                StartCoroutine(ICheckResource(LevelStageController.Instance.init));
+            }
+        }
 
-    public static void UnLoadScene(string _target)
-    {
-        SceneManager.UnloadSceneAsync(_target);
-    }
+        public static void LoadScene(string _target, LoadSceneMode _loadSceneMode = LoadSceneMode.Single)
+        {
+            SceneManager.LoadScene(_target, _loadSceneMode);
+        }
 
-    public static void LoadNextLevel(LevelBase levelNow)
-    {
-        LoadLevel(ResourceManager.ListLevels.Find(val => val.level == (levelNow.level + 1)));
-    }
+        [SerializeField] LevelBase levelBase;
+        public static void LoadLevel(LevelBase _levelBase)
+        {
+            Instance.levelBase = _levelBase;
+            LoadScene(SceneValid.GAME);
+        }
 
-    public static void LoadMainMenu() => LoadScene(SceneValid.MAIN_MENU);
-    #endregion
+        public static void UnLoadScene(string _target)
+        {
+            SceneManager.UnloadSceneAsync(_target);
+        }
+
+        public static void LoadNextLevel(LevelBase levelNow)
+        {
+            LoadLevel(ResourceManager.ListLevels.Find(val => val.level == (levelNow.level + 1)));
+        }
+
+        public static void LoadMainMenu() => LoadScene(SceneValid.MAIN_MENU);
+        #endregion
+    }
 }

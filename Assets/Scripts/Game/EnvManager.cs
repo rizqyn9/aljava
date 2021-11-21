@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game
+namespace Aljava.Game
 {
     public class EnvManager : Singleton<EnvManager>, IGameState
     {

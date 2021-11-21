@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Game
+namespace Aljava.Game
 {
     public class GameController : Singleton<GameController>
     {

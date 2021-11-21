@@ -644,6 +644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56821017}
+  - component: {fileID: 56821018}
   m_Layer: 5
   m_Name: --upgrade
   m_TagString: Untagged
@@ -670,11 +671,24 @@ RectTransform:
   m_Father: {fileID: 279231276}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -350}
-  m_SizeDelta: {x: 0, y: -700}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -450}
+  m_SizeDelta: {x: 800, y: -250}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &56821018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56821016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61591176ddd154ee5bce790ea6c28430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineBases: []
 --- !u!1 &64419948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -96.45}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 242.85, y: 395.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &247912199
@@ -1708,6 +1722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDDOL: 0
   playBtn: {fileID: 27318385}
+  UI_Upgrade: {fileID: 56821018}
   noClickArea: {fileID: 669142580}
   canvasGroup: {fileID: 106392780}
   settingContainer: {fileID: 605290200}
@@ -1716,7 +1731,7 @@ MonoBehaviour:
   menuListContainer: {fileID: 2014409636}
   isLevel: 0
   isSetting: 0
-  settingOffsetY: -400
+  settingOffsetY: -500
   isAbout: 0
   isUpgrade: 0
   isMenuList: 0
@@ -3048,7 +3063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &689052140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3967,7 +3982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1332761949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4598,19 +4613,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.1004343
-      objectReference: {fileID: 0}
-    - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.050265342
+      objectReference: {fileID: 0}
+    - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7991314
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622551, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.8994693
       objectReference: {fileID: 0}
     - target: {fileID: 199978689885622760, guid: 6f8d968c394464a2f952fa16dc2acf81, type: 3}
       propertyPath: m_RootOrder
@@ -5382,7 +5397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1590354045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6721,7 +6736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1985705188
 RectTransform:
   m_ObjectHideFlags: 0

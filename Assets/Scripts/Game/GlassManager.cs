@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Game
+namespace Aljava.Game
 {
     [System.Serializable]
     public struct GlassRegistered

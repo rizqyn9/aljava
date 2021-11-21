@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game
+namespace Aljava.Game
 {
     public class UI_Lose : MonoBehaviour
     {

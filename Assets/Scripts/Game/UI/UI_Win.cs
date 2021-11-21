@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Game
+namespace Aljava.Game
 {
     public class UI_Win : MonoBehaviour
     {

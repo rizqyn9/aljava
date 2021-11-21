@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game
+namespace Aljava.Game
 {
     public class UI_Recipe : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game
+namespace Aljava.Game
 {
     public class HealthManager : MonoBehaviour
     {

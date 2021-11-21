@@ -1,4 +1,4 @@
-namespace Game
+namespace Aljava.Game
 {
     public static class GameStateController
     {

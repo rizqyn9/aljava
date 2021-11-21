@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Game
+namespace Aljava.Game
 {
     public class CoffeeMaker : Machine
     {

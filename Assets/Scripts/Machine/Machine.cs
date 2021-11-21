@@ -9,7 +9,7 @@ using UnityEditor;
 //#if UNITY_EDITOR
 //#endif
 
-namespace Game
+namespace Aljava.Game
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class Machine : MonoBehaviour

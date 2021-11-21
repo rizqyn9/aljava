@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game
+namespace Aljava.Game
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class Glass : MonoBehaviour
