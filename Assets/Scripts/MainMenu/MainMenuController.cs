@@ -10,6 +10,7 @@ namespace Aljava.MainMenu
         [Header("Properties")]
         public GameObject playBtn;
         public UI_Upgrade UI_Upgrade;
+        public UI_MenuBook UI_MenuBook;
         [SerializeField] GameObject noClickArea;
         [SerializeField] CanvasGroup canvasGroup;
         [SerializeField] GameObject settingContainer;
@@ -26,7 +27,7 @@ namespace Aljava.MainMenu
         {
             print("MainMenu Initialize");
             UI_Upgrade.init();
-
+            UI_MenuBook.init();
         }
 
         public void handleOpenLevel(bool levelIsOpen)
