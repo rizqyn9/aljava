@@ -27,7 +27,7 @@ namespace Game
                 listIgrendients.Add(machineType);
                 glassTarget.glass.addIgrendients(
                     listIgrendients,
-                    spriteGlassStates.Find(val => val.igrendient == listIgrendients[0]).sprite
+                    machineBase.spriteGlassStates.Find(val => val.igrendient == listIgrendients[0]).color
                     );
                 machineState = MachineState.ON_IDDLE;
             }

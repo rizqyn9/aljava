@@ -9,6 +9,7 @@ namespace Game
     {
         [Header("Properties")]
         public SpriteRenderer igrendientSprite;     // On start igrendient will render image is front of glass
+        public Sprite baseSpriteIgrendient;
 
         [Header("Debug")]
         public int glassCode;
@@ -30,7 +31,10 @@ namespace Game
             }
         }
 
-        private void Awake() => boxCollider2D = GetComponent<BoxCollider2D>();
+        private void Awake()
+        {
+            boxCollider2D = GetComponent<BoxCollider2D>();
+        }
 
         public void init(GlassRegistered _glassRegistered)
         {
@@ -80,11 +84,29 @@ namespace Game
 
         void checkMenu() => isValidMenu = GlassManager.MenuChecker(igrendients, out menuResult);
 
+        /// <summary>
+        /// Change glass state by Sprite
+        /// </summary>
+        /// <param name="_igrendients"></param>
+        /// <param name="_sprite"></param>
         public void addIgrendients(List<MachineIgrendient> _igrendients, Sprite _sprite)
         {
             igrendients.AddRange(_igrendients);
-            if(_sprite != null)
-                igrendientSprite.sprite = _sprite;
+            igrendientSprite.sprite = _sprite;
+            onFillIgrendients();
+            lastIgrendients = _igrendients[_igrendients.Count - 1];
+        }
+
+        /// <summary>
+        /// Change glass state by Color
+        /// </summary>
+        /// <param name="_igrendients"></param>
+        /// <param name="_color"></param>
+        public void addIgrendients(List<MachineIgrendient> _igrendients, Color _color)
+        {
+            igrendients.AddRange(_igrendients);
+            igrendientSprite.sprite = baseSpriteIgrendient;
+            igrendientSprite.color = _color;
             onFillIgrendients();
             lastIgrendients = _igrendients[_igrendients.Count - 1];
         }

@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b3be445812b470688990837f6d9018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  igrendientSprite: {fileID: 0}
+  igrendientSprite: {fileID: 525268225221969515}
+  baseSpriteIgrendient: {fileID: 21300000, guid: afee2cf4571e5454997ac33498082957, type: 3}
   glassCode: 0
   glassState: 0
   igrendients: 
@@ -57,8 +58,22 @@ MonoBehaviour:
     glassCode: 
     glass: {fileID: 0}
     seatIndex: 0
-  customerHandler: {fileID: 0}
+  boxCollider2D: {fileID: 0}
+  buyerPrototype:
+    customerCode: 
+    buyerBase: {fileID: 0}
+    buyerState: 0
+    seatData:
+      index: 0
+      isSeatAvaible: 0
+      transform: {fileID: 0}
+    spawnPos: {x: 0, y: 0}
+    seatPos: {x: 0, y: 0}
+    menuListNames: []
+    customerHandler: {fileID: 0}
   _lastIgrendients: 1
+  tap: 0
+  interval: 0.3
 --- !u!61 &1059953040177634455
 BoxCollider2D:
   m_ObjectHideFlags: 0

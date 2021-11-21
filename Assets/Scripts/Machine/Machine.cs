@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-//#if UNITY_EDITOR
+#if UNITY_EDITOR
 using UnityEditor;
-//#endif
+#endif
 
 //#if UNITY_EDITOR
 //#endif
@@ -21,9 +21,6 @@ namespace Game
             ANIM_FULL = "ANIM_FULL",
             ANIM_GET_ONE = "ANIM_GET_ONE",
             ANIM_LAST_INIT = "ANIM_LAST_INIT";
-
-        [Header("Properties")]
-        public List<SpriteGlassState> spriteGlassStates;
 
         [Header("Debug")]
         public MachineIgrendient machineType;
