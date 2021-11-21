@@ -113,7 +113,6 @@ MonoBehaviour:
   ANIM_FULL: ANIM_FULL
   ANIM_GET_ONE: ANIM_GET_ONE
   ANIM_LAST_INIT: ANIM_LAST_INIT
-  spriteGlassStates: []
   machineType: 0
   capacityPos: {fileID: 8107185125127881016}
   processPos: {fileID: 7770272426960577123}
@@ -164,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1634796, y: 2.570376}
+  m_Size: {x: 2.1634796, y: 2.9041605}
   m_EdgeRadius: 0
 --- !u!1 &6826961090992340429
 GameObject:

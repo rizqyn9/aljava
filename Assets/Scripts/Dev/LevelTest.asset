@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
   m_Name: LevelTest
   m_EditorClassIdentifier: 
+  isTutorialLevel: 0
+  tutorialScript: {fileID: 0}
   isLevelTest: 1
   level: 1
   gameMode: 1
   MenuClassifications: 0000000004000000
-  MenuTypeUnlock: 03
+  MenuTypeUnlock: 0302
   BuyerTypeUnlock: 00000000
   delayPerCustomer: 1
   healthTotal: 3

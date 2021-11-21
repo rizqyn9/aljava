@@ -17,17 +17,23 @@ MonoBehaviour:
   targetMachine: 0
   basePrefab: {fileID: 6826961090936221966, guid: 797c7b9155b9b4ba5b6eb9f1e5cccc53, type: 3}
   PrefabResult: {fileID: 0}
+  listTargetGlassState: 04
+  spriteGlassStates:
+  - name: 
+    igrendient: 3
+    sprite: {fileID: 0}
+    color: {r: 0.9245283, g: 0.7072757, b: 0.48406905, a: 1}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
   isUseProcessUI: 1
   isUseOverCook: 0
-  isUseBarCapacity: 0
+  isUseBarCapacity: 1
   isUpgradeable: 1
   isAutoRun: 0
   properties:
   - level: 1
-    maxCapacity: 0
-    processDuration: 0
+    maxCapacity: 4
+    processDuration: 1
     prefab: {fileID: 8305343421721946736, guid: 0a0e5f45faf2940b6a419246617110c9, type: 3}
   - level: 2
     maxCapacity: 0

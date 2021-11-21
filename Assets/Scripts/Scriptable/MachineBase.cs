@@ -17,6 +17,7 @@ public class MachineBase : ScriptableObject
     public GameObject PrefabResult;
 
     [Header("Glass State")]
+    public List<MachineIgrendient> listTargetGlassState;
     public List<SpriteGlassState> spriteGlassStates;
 
     [Tooltip("Instance UI overlay when machine touched on first time")]

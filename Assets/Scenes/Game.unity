@@ -358,7 +358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: devMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: useCustomUserData

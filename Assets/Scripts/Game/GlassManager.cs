@@ -44,9 +44,18 @@ namespace Game
         private static GlassRegistered FindGlass(MachineIgrendient _igrendient) =>
             EnvManager.GlassManager.glassRegistereds.Find(val => val.glass.lastIgrendients == _igrendient && val.glass.glassState != GlassState.PROCESS);
 
+        private static GlassRegistered FindGlass(List<MachineIgrendient> _igrendient) =>
+            EnvManager.GlassManager.glassRegistereds.Find(val => _igrendient.Contains(val.glass.lastIgrendients) && val.glass.glassState != GlassState.PROCESS);
+
         public static bool IsGlassTargetAvaible(MachineIgrendient _lastIgrendient, out GlassRegistered _glassRegistered)
         {
             _glassRegistered = FindGlass(_lastIgrendient);
+            return _glassRegistered.glassCode != null;
+        }
+
+        public static bool IsGlassTargetAvaible(List<MachineIgrendient> _listLastIgrendients, out GlassRegistered _glassRegistered)
+        {
+            _glassRegistered = FindGlass(_listLastIgrendients);
             return _glassRegistered.glassCode != null;
         }
 
