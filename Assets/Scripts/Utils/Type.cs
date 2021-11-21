@@ -52,14 +52,6 @@ public struct MachineLevel
 }
 
 [System.Serializable]
-public struct SpriteColorCustom
-{
-    public string target;
-    public MachineIgrendient targetIgrendients;
-    public Sprite sprite;
-}
-
-[System.Serializable]
 public struct MachineProperties
 {
     public int level;
@@ -74,6 +66,7 @@ public struct SpriteGlassState
     public string name;
     public MachineIgrendient igrendient;
     public Sprite sprite;
+    public Color color;
 }
 
 public enum MachineClass
