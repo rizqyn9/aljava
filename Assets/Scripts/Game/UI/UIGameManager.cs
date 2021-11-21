@@ -141,5 +141,17 @@ namespace Game
 
             Time.timeScale = isPaused ? 0 : 1;
         }
+
+        public void Btn_MainMenu()
+        {
+            Time.timeScale = 1;
+            GameManager.LoadMainMenu();
+        }
+
+        public void Btn_Restart()
+        {
+            Time.timeScale = 1;
+            GameManager.LoadLevel(GameController.LevelBase);
+        }
     }
 }

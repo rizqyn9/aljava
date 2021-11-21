@@ -74,5 +74,7 @@ public class GameManager : Singleton<GameManager>
     {
         LoadLevel(ResourceManager.ListLevels.Find(val => val.level == (levelNow.level + 1)));
     }
+
+    public static void LoadMainMenu() => LoadScene(SceneValid.MAIN_MENU);
     #endregion
 }
