@@ -19,6 +19,7 @@ namespace Game
         [SerializeField] TMP_Text count;
         [SerializeField] Button pauseBtn;
         [SerializeField] GameObject noClickArea;
+        [SerializeField] GameObject pauseContainer;
         [SerializeField] List<CanvasGroup> canvasGroups;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
@@ -114,10 +115,29 @@ namespace Game
         #endregion
 
         [SerializeField] bool isPaused = false;
+        [SerializeField] float offsetY;
         public void Btn_Pause()
         {
             isPaused = !isPaused;
             noClickSetActive(isPaused);
+
+            LeanTween.moveY(pauseContainer.GetComponent<RectTransform>(), isPaused ? 0 : offsetY, .3f)
+                .setOnStart(() =>
+                {
+                    if (isPaused)
+                    {
+                        pauseContainer.SetActive(isPaused);
+                        noClickSetActive(isPaused);
+                    }
+                })
+                .setOnComplete(()=>
+                {
+                    if(!isPaused)
+                    {
+                        pauseContainer.SetActive(isPaused);
+                        noClickSetActive(isPaused);
+                    }
+                }).setIgnoreTimeScale(true).setEaseInBack();
 
             Time.timeScale = isPaused ? 0 : 1;
         }
