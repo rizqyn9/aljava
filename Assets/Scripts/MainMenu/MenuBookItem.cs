@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuBookItem : MonoBehaviour
+namespace Aljava.MainMenu
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MenuBookItem : MonoBehaviour
     {
-        
-    }
+        [Header("Properties")]
+        public GameObject baseBarItem;
+        public Transform barContainer;
+        public TMPro.TMP_Text menuName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Debug")]
+        public List<MenuBookBar> listBar;
+        public MenuBase menuBase;
+
+        public void init(MenuBase _menuBase)
+        {
+            menuBase = _menuBase;
+            menuName.text = menuBase.menuName;
+        }
     }
 }
