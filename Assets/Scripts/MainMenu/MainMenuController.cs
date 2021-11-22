@@ -89,6 +89,7 @@ namespace Aljava.MainMenu
                 .setOnStart(() => {
                     if (_isActive)
                     {
+                        _go.SetActive(true);
                         noClickArea.SetActive(true);
                         canvasGroup.alpha = 0;
                     }
