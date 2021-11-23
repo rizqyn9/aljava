@@ -73,7 +73,7 @@ public struct SpriteGlassState
 public enum MachineClass
 {
     COFFEE,
-    LATTEE,
+    LATTE,
     ADDITIONAL
 }
 

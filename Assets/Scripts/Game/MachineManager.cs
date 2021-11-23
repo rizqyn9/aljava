@@ -47,7 +47,7 @@ namespace Aljava.Game
 
         Transform getTransform(MachineBase _machineBase)
         {
-            if (_machineBase.machineClass == MachineClass.LATTEE)
+            if (_machineBase.machineClass == MachineClass.LATTE)
                 return lattePos.Find(val => val.childCount == 0).transform;
             else
                 return transform;

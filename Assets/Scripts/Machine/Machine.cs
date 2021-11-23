@@ -113,7 +113,7 @@ namespace Aljava.Game
 
             properties = machineBase.properties[_machineLevel - 1];
 
-            if (machineBase.machineClass != MachineClass.LATTEE)
+            if (machineBase.machineClass != MachineClass.LATTE)
             {
                 checkPrefabSpawn();
                 machinePrefab = Instantiate(properties.prefab, prefabPlace.transform);
