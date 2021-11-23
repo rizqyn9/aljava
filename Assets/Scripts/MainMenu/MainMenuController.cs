@@ -105,5 +105,19 @@ namespace Aljava.MainMenu
             if (isUpgrade) Btn_Upgrade();
             if (isAbout) Btn_About();
         }
+
+        public void InstaLink()
+        {
+            Application.OpenURL("https://www.instagram.com/aljavacafe/");
+        }
+
+        public void GrabFoodLink()
+        {
+            Application.OpenURL("https://food.grab.com/id/en/restaurant/aljava-cafe-demaan-delivery/6-C2E1RFKATUKJJN");
+        }
+        public void MapsLink()
+        {
+            Application.OpenURL("https://www.google.com/maps/place/Aljava+Cafe/@-6.8079354,110.8404192,15z/data=!4m5!3m4!1s0x0:0x695b061a6027cab2!8m2!3d-6.8080939!4d110.8403623");
+        }
     }
 }
