@@ -106,19 +106,28 @@ namespace Aljava.Game
             getDependencies();
         }
 
-        public void init(MachineBase _machineBase, int _machineLevel)
+        public virtual void init(MachineBase _machineBase, int _machineLevel)
         {
             machineBase = _machineBase;
             machineType = machineBase.machineType;
 
             properties = machineBase.properties[_machineLevel - 1];
 
-            checkPrefabSpawn();
-            machinePrefab = Instantiate(properties.prefab, prefabPlace.transform);
+            if (machineBase.machineClass != MachineClass.LATTEE)
+            {
+                checkPrefabSpawn();
+                machinePrefab = Instantiate(properties.prefab, prefabPlace.transform);
+            }
+            else
+                initLatte();
+
             animator = machinePrefab.GetComponent<Animator>();
             animator.enabled = false;
+
             setUpComponent();
         }
+
+        public virtual void initLatte() { }
 #endregion
 
 #region Handle from Machine Manager

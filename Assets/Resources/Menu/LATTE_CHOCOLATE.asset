@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21487ea85a9949d6bc39018de391545, type: 3}
+  m_Name: LATTE_CHOCOLATE
+  m_EditorClassIdentifier: 
+  menuName: 
+  menuListName: 7
+  menuPrefab: {fileID: 2216117873799692242, guid: b1f8ca482267c4992b87bd5f5859b7d8, type: 3}
+  Igrendients: 0511
+  stepRecipes: []
+  menuDesc: 
+  menuSprite: {fileID: 0}
+  pointInGame: 0
+  price: 0

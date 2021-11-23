@@ -5,6 +5,8 @@ namespace Aljava.Game
 {
     public class MachineManager : MonoBehaviour
     {
+        public List<Transform> lattePos;
+
         [Header("Debug")]
         public EnvManager envManager;
         public List<Machine> machines = new List<Machine>();
@@ -37,10 +39,18 @@ namespace Aljava.Game
             foreach(MachineBase _machineBase in envManager.listMachines)
             {
                 if (!_machineBase.basePrefab) return;
-                Machine _machine = Instantiate(_machineBase.basePrefab, transform).GetComponent<Machine>();
+                Machine _machine = Instantiate(_machineBase.basePrefab, getTransform(_machineBase)).GetComponent<Machine>();
                 _machine.init(_machineBase, getLevelMachine(_machineBase));
                 machines.Add(_machine);
             }
+        }
+
+        Transform getTransform(MachineBase _machineBase)
+        {
+            if (_machineBase.machineClass == MachineClass.LATTEE)
+                return lattePos.Find(val => val.childCount == 0).transform;
+            else
+                return transform;
         }
 
         int getLevelMachine(MachineBase _machineBase)

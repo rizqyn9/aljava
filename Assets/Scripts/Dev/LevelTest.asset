@@ -17,8 +17,8 @@ MonoBehaviour:
   isLevelTest: 1
   level: 1
   gameMode: 1
-  MenuClassifications: 0000000004000000
-  MenuTypeUnlock: 0302
+  MenuClassifications: 000000000400000001000000
+  MenuTypeUnlock: 030207
   BuyerTypeUnlock: 00000000
   delayPerCustomer: 1
   healthTotal: 3

@@ -6,6 +6,9 @@ namespace Aljava.Game
 {
     public class Flavour : Machine
     {
-        
+        public override void initLatte()
+        {
+            machinePrefab = prefabPlace.GetChild(0).gameObject;
+        }
     }
 }
