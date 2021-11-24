@@ -21,6 +21,7 @@ namespace Aljava.Game
         [SerializeField] GameObject noClickArea;
         [SerializeField] GameObject pauseContainer;
         [SerializeField] List<CanvasGroup> canvasGroups;
+        [SerializeField] Converse converse;
 
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
@@ -28,6 +29,7 @@ namespace Aljava.Game
         public static HealthManager HealthManager => Instance.healtManager;
         public static UI_Lose Lose => Instance.lose;
         public static UI_Win Win => Instance.win;
+        public static Converse Converse => Instance.converse;
         public static bool IsActiveUI => Instance.isActiveUI;
 
         [Header("Debug")]
