@@ -4,6 +4,7 @@ using Aljava.MainMenu;
 using Aljava.Level;
 using Aljava.Game;
 using System.Collections;
+
 namespace Aljava
 {
     public static class SceneValid
@@ -54,7 +55,15 @@ namespace Aljava
             sceneNow = _scene.name;
             if (sceneNow == SceneValid.GAME)
             {
-                StartCoroutine(ICheckResource(() => GameController.Instance.init(levelBase)));
+                StartCoroutine(
+                    ICheckResource(() =>
+                    {
+                        if(levelBase.isTutorialLevel)
+                            GameController.Instance.initTutorial(levelBase, levelBase.tutorialScript);
+                        else 
+                            GameController.Instance.init(levelBase);
+                    })
+                );
             } else if (sceneNow == SceneValid.MAIN_MENU)
             {
                 StartCoroutine(ICheckResource(MainMenuController.Instance.init));

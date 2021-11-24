@@ -22,7 +22,7 @@ MonoBehaviour:
   - name: 
     igrendient: 5
     sprite: {fileID: 0}
-    color: {r: 0.7264151, g: 0.3708272, b: 0.051397286, a: 0}
+    color: {r: 0.7264151, g: 0.3708272, b: 0.051397286, a: 1}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
   isUseProcessUI: 1

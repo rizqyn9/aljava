@@ -41,7 +41,7 @@ namespace Aljava.Game
         public void initTutorial(LevelBase _levelBase, Tutorial _tutorial)
         {
             levelBase = _levelBase;
-            tutorial = _tutorial;
+            tutorial = Instantiate(_tutorial.gameObject, transform).GetComponent<Tutorial>();
 
             tutorial.init();
         }

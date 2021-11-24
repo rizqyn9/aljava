@@ -92,6 +92,7 @@ namespace Aljava.Game
         public void addIgrendients(List<MachineIgrendient> _igrendients, Sprite _sprite)
         {
             igrendients.AddRange(_igrendients);
+            if (igrendientSprite.sprite == null) igrendientSprite.sprite = baseSpriteIgrendient;
             igrendientSprite.sprite = _sprite;
             onFillIgrendients();
             lastIgrendients = _igrendients[_igrendients.Count - 1];

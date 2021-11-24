@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Aljava.Game;
 
 #if UNITY_EDITOR
 using UnityEditor;

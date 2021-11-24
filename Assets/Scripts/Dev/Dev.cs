@@ -27,7 +27,10 @@ public class Dev : Singleton<Dev>
     IEnumerator IStartGame()
     {
         yield return new WaitUntil(() => GameManager.Instance.isResourceManagerReady);
-        GameController.Instance.init(levelTest);
+        if(levelTest.isTutorialLevel)
+            GameController.Instance.initTutorial(levelTest, levelTest.tutorialScript);
+        else
+            GameController.Instance.init(levelTest);
         yield break;
     }
 }

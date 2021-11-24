@@ -18,7 +18,11 @@ MonoBehaviour:
   basePrefab: {fileID: 5972044566613367415, guid: 609f6f395068b4c12a1caaff9b75d9fc, type: 3}
   PrefabResult: {fileID: 0}
   listTargetGlassState: 01
-  spriteGlassStates: []
+  spriteGlassStates:
+  - name: 
+    igrendient: 8
+    sprite: {fileID: 0}
+    color: {r: 0.7169812, g: 0.44980422, b: 0.71024704, a: 0}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
   isUseProcessUI: 1
