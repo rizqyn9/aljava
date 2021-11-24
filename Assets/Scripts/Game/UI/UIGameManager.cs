@@ -15,11 +15,9 @@ namespace Aljava.Game
         [SerializeField] UI_Recipe recipe;
         [SerializeField] UI_Win win;
         [SerializeField] UI_Lose lose;
-        [SerializeField] GameObject TopBar;
-        [SerializeField] TMP_Text count;
+        [SerializeField] TMP_Text count, topNavText;
         [SerializeField] Button pauseBtn;
-        [SerializeField] GameObject noClickArea;
-        [SerializeField] GameObject pauseContainer;
+        [SerializeField] GameObject noClickArea, pauseContainer, TopBar;
         [SerializeField] List<CanvasGroup> canvasGroups;
         [SerializeField] Converse converse;
 
@@ -34,11 +32,22 @@ namespace Aljava.Game
 
         [Header("Debug")]
         public bool isActiveUI = false;
+        GameMode gameMode => GameController.LevelBase.gameMode;
 
         private void Start()
         {
             noClickSetActive(false);
         }
+
+        #region Top Nav Controller
+        public void navHandler(string val) => topNavText.text= getText(val);
+
+        string getText(string val)
+        {
+            if (gameMode == GameMode.ORDER) return $"Customer total {val}";
+            else return "";
+        }
+        #endregion
 
         #region Game State Handler
         void OnEnable() => GameController.OnGameStateChanged += GameStateHandler;
@@ -72,6 +81,10 @@ namespace Aljava.Game
         private void setUpComponent()
         {
             countDown = GameController.LevelBase.gameDuration;
+            if(GameController.LevelBase.gameMode == GameMode.ORDER)
+            {
+
+            }
         }
 
         #region COUNTDOWN CONTROLLER
@@ -102,11 +115,6 @@ namespace Aljava.Game
 
         #endregion
 
-        public void init()
-        {
-
-        }
-
         #region Handle NoClickArea
         public void noClickSetActive(bool active)
         {
@@ -116,6 +124,7 @@ namespace Aljava.Game
         }
         #endregion
 
+        #region Button
         [SerializeField] bool isPaused = false;
         [SerializeField] float offsetY;
         public void Btn_Pause()
@@ -155,5 +164,6 @@ namespace Aljava.Game
             Time.timeScale = 1;
             GameManager.LoadLevel(GameController.LevelBase);
         }
+        #endregion
     }
 }

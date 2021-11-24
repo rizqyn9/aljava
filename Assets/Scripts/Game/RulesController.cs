@@ -19,8 +19,9 @@ namespace Aljava.Game
         public void handleBuyerDone(int _menuSuccess)
         {
             buyerSuccessTotal += 1;
-            print("Trigger");
             menuSuccessTotal += _menuSuccess;
+
+            UIGameManager.Instance.navHandler(buyerSuccessTotal.ToString());
         }
 
         public void handleBuyerFail(int _menuFail)
@@ -46,7 +47,6 @@ namespace Aljava.Game
             {
                 handleCustomerGameManagerTimeOut();
             }
-
         }
 
         public void handleCustomerGameManagerTimeOut()
