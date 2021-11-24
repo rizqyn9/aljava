@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Aljava.Game
@@ -6,7 +7,7 @@ namespace Aljava.Game
     {
         [Header("Debug")]
         public int buyerInstance = 0;
-        [SerializeField] int buyerSuccessTotal = 0;
+        public int buyerSuccessTotal = 0;
         public int buyerFailTotal = 0;
 
         public int menuInstanceTotal = 0;
@@ -16,24 +17,38 @@ namespace Aljava.Game
         public int earnMoneyTotal = 0;
         public int earnPointTotal = 0;
 
+
+        #region Delegate
+        public event Action OnstatisticsChanged;
+        #endregion
+
+        [ContextMenu("Test")]
+        public void test()
+        {
+            print("Invoked");
+            OnstatisticsChanged?.Invoke();
+        }
+
         public void handleBuyerDone(int _menuSuccess)
         {
             buyerSuccessTotal += 1;
             menuSuccessTotal += _menuSuccess;
 
-            UIGameManager.Instance.navHandler(buyerSuccessTotal.ToString());
+            OnstatisticsChanged?.Invoke();
         }
 
         public void handleBuyerFail(int _menuFail)
         {
             buyerFailTotal += 1;
             menuFailTotal += _menuFail;
+            OnstatisticsChanged?.Invoke();
         }
 
         public bool isHealthRunOut = false;
         public void handleHealthRunOut()
         {
             isHealthRunOut = true;
+            OnstatisticsChanged?.Invoke();
             initializeLose();
         }
 

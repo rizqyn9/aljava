@@ -40,12 +40,12 @@ namespace Aljava.Game
         }
 
         #region Top Nav Controller
-        public void navHandler(string val) => topNavText.text= getText(val);
 
-        string getText(string val)
+        void OnStatsChanged() => setNav();
+
+        void setNav()
         {
-            if (gameMode == GameMode.ORDER) return $"Customer total {val}";
-            else return "";
+            if (gameMode == GameMode.ORDER) topNavText.text = $"Customer total {GameController.RulesController.buyerSuccessTotal.ToString()}";
         }
         #endregion
 
@@ -64,6 +64,7 @@ namespace Aljava.Game
 
         public void OnGameBeforeStart()
         {
+            GameController.RulesController.OnstatisticsChanged += OnStatsChanged;
             healtManager.init(3);
         }
 
@@ -81,11 +82,10 @@ namespace Aljava.Game
         private void setUpComponent()
         {
             countDown = GameController.LevelBase.gameDuration;
-            if(GameController.LevelBase.gameMode == GameMode.ORDER)
-            {
-
-            }
+            setNav();
         }
+
+        private void OnDestroy() => GameController.RulesController.OnstatisticsChanged -= OnStatsChanged;
 
         #region COUNTDOWN CONTROLLER
         public bool timerIsRunning = false;

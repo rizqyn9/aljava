@@ -16,9 +16,9 @@ MonoBehaviour:
   tutorialScript: {fileID: 0}
   isLevelTest: 1
   level: 1
-  gameMode: 1
+  gameMode: 2
   MenuClassifications: 000000000400000001000000
-  MenuTypeUnlock: 030207060405
+  MenuTypeUnlock: 0302
   BuyerTypeUnlock: 00000000
   delayPerCustomer: 1
   healthTotal: 3
