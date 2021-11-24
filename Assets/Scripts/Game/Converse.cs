@@ -55,6 +55,7 @@ namespace Aljava.Game
         public void test()
         {
             animateChar(true)
+                .setOnStart(() => dialogContainer.SetActive(true))
                 .setOnComplete(() =>
                         animateDialog(true)
                             .setOnStart(() => renderText("Test"))
@@ -65,7 +66,8 @@ namespace Aljava.Game
         public void closed()
         {
             animateDialog(false)
-                .setOnComplete(() => animateChar(false));
+                .setOnComplete(() => animateChar(false))
+                .setOnComplete(() => dialogContainer.SetActive(false));
         }
     }
 }
