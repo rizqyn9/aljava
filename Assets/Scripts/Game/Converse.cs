@@ -19,37 +19,30 @@ namespace Aljava.Game
     public class Converse : MonoBehaviour
     {
         public float offsetChar, offsetDialog;
-        public Image character;
         public TMPro.TMP_Text text;
-        public GameObject dialogContainer;
+        public GameObject dialogContainer, character;
 
         public List<DialogModel> dialogModels = new List<DialogModel>();
 
         public void init()
         {
-            animateChar(true, () => animateDialog(true));
         }
 
-        void animateChar(bool setActive, Action setComplete) =>
-            LeanTween.moveX(character.GetComponent<RectTransform>(), setActive ? 0 : offsetChar, .3f)
-            .setOnComplete(setComplete);
+        LTDescr animateChar(bool setActive) =>
+            LeanTween.moveX(character.GetComponent<RectTransform>(), setActive ? 0 : offsetChar, .3f);
 
-        void animateDialog(bool setActive) =>
-            LeanTween.moveY(dialogContainer.GetComponent<RectTransform>(), setActive ? 0 : offsetDialog, .3f);
+        LTDescr animateDialog(bool setActive) =>
+            LeanTween.moveY(dialogContainer.GetComponent<RectTransform>(), setActive ? 0 : offsetDialog, setActive ? .3f : .5f);
+
+        void renderText(string _text) =>
+            text.text = _text;
 
         void showDialog()
         {
             LeanTween.scale(dialogContainer.GetComponent<RectTransform>(), new Vector2(1, 1), .5f)
-                .setFrom(Vector2.zero)
-                .setOnComplete(showText);
+                .setFrom(Vector2.zero);
         }
 
-        void showText()
-        {
-            text.text = "asdgjad test init";
-            LeanTween.alpha(text.GetComponent<RectTransform>(), 1, .5f)
-                .setFrom(0);
-        }
 
         public bool isNext = false;
         public void Btn_Next()
@@ -57,10 +50,22 @@ namespace Aljava.Game
 
         }
 
+        public LTSeq seq;
         [ContextMenu("Test INIt")]
         public void test()
         {
-            init();
+            animateChar(true)
+                .setOnComplete(() =>
+                        animateDialog(true)
+                            .setOnStart(() => renderText("Test"))
+                    );
+        }
+
+        [ContextMenu("Close")]
+        public void closed()
+        {
+            animateDialog(false)
+                .setOnComplete(() => animateChar(false));
         }
     }
 }
