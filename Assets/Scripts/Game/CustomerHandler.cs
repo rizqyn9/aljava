@@ -121,6 +121,8 @@ namespace Aljava.Game
         public void changeAnimation(string newState)
         {
             if (curentState == newState) return;
+            if (newState == patience.BUYER_ANGRY) patience.image.color = patience.color2;
+            if (newState == patience.BUYER_TALK) patience.image.color = patience.color1;
             animator.Play(newState);
             curentState = newState;
         }

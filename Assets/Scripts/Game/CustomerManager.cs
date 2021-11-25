@@ -31,8 +31,12 @@ namespace Aljava.Game
             seatCount = transformSeatDatas.Count;
         }
 
-        public void OnGameStart()
+        public void OnGameStart() =>
+            StartCoroutine(delayInstanceCustomer());
+
+        IEnumerator delayInstanceCustomer()
         {
+            yield return new WaitForSeconds(GameController.GameProperties.delayCustomerOnStart);
             spawnerState = SpawnerState.CAN_CREATE;
         }
 

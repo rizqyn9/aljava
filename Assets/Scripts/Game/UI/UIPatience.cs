@@ -8,6 +8,7 @@ namespace Aljava.Game
     {
         [Header("Properties")]
         public Image image;
+        public Color color1, color2;
 
         [Header("Debug")]
         public CustomerHandler customerHandler;
@@ -24,6 +25,7 @@ namespace Aljava.Game
             customerHandler = _customerHandler;
             customerHandler.patience = this;
 
+            image.color = color1;
             image.fillAmount = 0;
         }
 

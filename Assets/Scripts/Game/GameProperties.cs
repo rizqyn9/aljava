@@ -11,5 +11,6 @@ namespace Aljava.Game
         public float repairDuration = .5f;
         public float delayStart = 1f;
         public float animMachineBeforeStart = .5f;
+        public float delayCustomerOnStart = 2f;
     }
 }

@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.2857207, g: 1, b: 0.08018869, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18498743, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -277,8 +277,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 28759466443720192}
+  color1: {r: 0.35757747, g: 0.9433962, b: 0, a: 1}
+  color2: {r: 0.9622642, g: 0.39489147, b: 0.39489147, a: 1}
   customerHandler: {fileID: 0}
   duration: 0
+  leanTweenID: 0
+  BUYER_TALK: BUYER_TALK
+  BUYER_IDDLE: BUYER_IDDLE
+  BUYER_ANGRY: BUYER_ANGRY
+  BUYER_HAPPY: BUYER_HAPPY
 --- !u!1 &6264957173299992717
 GameObject:
   m_ObjectHideFlags: 0

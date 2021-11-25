@@ -664,7 +664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[0].level
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9022198971172272514, guid: c01c76bf64f134b8f89331181a646f6c, type: 3}
       propertyPath: customUserData.userEnvDatas.Array.data[1].level
