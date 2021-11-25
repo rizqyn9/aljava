@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
-  m_Name: Level_1
+  m_Name: Level_8
   m_EditorClassIdentifier: 
   isTutorialLevel: 0
   tutorialScript: {fileID: 0}
   isLevelTest: 0
-  level: 1
+  level: 8
   gameMode: 2
-  MenuClassifications: 0000000004000000
-  MenuTypeUnlock: 03
-  BuyerTypeUnlock: 01000000
-  delayPerCustomer: 10
+  MenuClassifications: 000000000400000001000000
+  MenuTypeUnlock: 020304050607
+  BuyerTypeUnlock: 0000000001000000
+  delayPerCustomer: 6
   healthTotal: 3
-  gameDuration: 140
+  gameDuration: 290
   minPoint: 0
-  minOrder: 10
+  minOrder: 45
   minBuyer: 99
