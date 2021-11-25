@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Aljava.Game
 {
@@ -11,9 +9,8 @@ namespace Aljava.Game
             if (GlassManager.IsGlassTargetAvaible(machineBase.listTargetGlassState, out glassTarget))
             {
                 machineProcess.resetProcess();
-                listIgrendients.Add(machineType);
                 glassTarget.glass.addIgrendients(
-                    listIgrendients,
+                    new List<MachineIgrendient>() { machineType},
                     machineBase.spriteGlassStates.Find(val => glassTarget.glass.igrendients.Contains(val.igrendient)).color
                     );
                 machineCapacity.getOne();
