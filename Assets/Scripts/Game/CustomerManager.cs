@@ -52,7 +52,7 @@ namespace Aljava.Game
         [SerializeField] List<TransformSeatData> avaibleSeat;
         void Update()
         {
-            if(spawnerState == SpawnerState.CAN_CREATE && buyerNow <= seatCount )
+            if(spawnerState == SpawnerState.CAN_CREATE && buyerNow <= GameController.LevelBase.minBuyer )
             {
                 avaibleSeat = findAvaibleSeat();
                 if(avaibleSeat.Count > 0)

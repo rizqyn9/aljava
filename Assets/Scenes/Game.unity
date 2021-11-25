@@ -809,8 +809,9 @@ MonoBehaviour:
   overcookDuration: 1
   delayToOverCook: 0.5
   repairDuration: 0.5
-  delayStart: 1
+  delayStart: 2
   animMachineBeforeStart: 0.5
+  delayCustomerOnStart: 2
 --- !u!1 &233296352
 GameObject:
   m_ObjectHideFlags: 0
