@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21487ea85a9949d6bc39018de391545, type: 3}
   m_Name: ROBUSTA_ORIGINAL
   m_EditorClassIdentifier: 
-  menuName: 
+  menuName: Robusta
   menuListName: 3
   menuPrefab: {fileID: 2263267416889061750, guid: 1d15d1c4d289b484392f1ded87e15cb2, type: 3}
   Igrendients: 0304

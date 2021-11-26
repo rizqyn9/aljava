@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21487ea85a9949d6bc39018de391545, type: 3}
   m_Name: LATTE_MATCHA
   m_EditorClassIdentifier: 
-  menuName: 
+  menuName: Matcha
   menuListName: 4
   menuPrefab: {fileID: 2216117873799692242, guid: b1f8ca482267c4992b87bd5f5859b7d8, type: 3}
   Igrendients: 0711
