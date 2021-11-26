@@ -38,6 +38,7 @@ namespace Aljava.Game
 
         public void init(GlassRegistered _glassRegistered)
         {
+            igrendientSprite.sprite = null;
             glassRegistered = _glassRegistered;
         }
 
@@ -108,11 +109,16 @@ namespace Aljava.Game
             igrendients.AddRange(_igrendients);
 
             if (!igrendientSprite.sprite)
+                igrendientSprite.sprite = baseSpriteIgrendient;
+
+            if (_sprite)
             {
-                if (_sprite) igrendientSprite.sprite = _sprite;
-                else igrendientSprite.sprite = baseSpriteIgrendient;
+                igrendientSprite.sprite = _sprite;
+                igrendientSprite.color = Color.white;
             }
-            igrendientSprite.color = _color;
+            else
+                igrendientSprite.color = _color;
+
             onFillIgrendients();
             lastIgrendients = _igrendients[_igrendients.Count - 1];
         }
@@ -120,7 +126,9 @@ namespace Aljava.Game
         void onFillIgrendients()
         {
             glassState = GlassState.PROCESS;
-            LeanTween.scale(gameObject, new Vector2(.3f, .3f), .2f).setLoopPingPong(2).setOnComplete(() => glassState = GlassState.FILLED);
+            LeanTween.scale(gameObject, new Vector2(.25f, .25f), .15f)
+                .setLoopPingPong(2)
+                .setOnComplete(() => glassState = GlassState.FILLED);
         }
 
         #region Handle Tap

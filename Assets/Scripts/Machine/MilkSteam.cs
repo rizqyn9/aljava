@@ -9,9 +9,13 @@ namespace Aljava.Game
             if (GlassManager.IsGlassTargetAvaible(machineBase.listTargetGlassState, out glassTarget))
             {
                 machineProcess.resetProcess();
+
+                SpriteGlassState spriteGlassState = machineBase.spriteGlassStates.Find(val => glassTarget.glass.igrendients.Contains(val.igrendient));
+
                 glassTarget.glass.addIgrendients(
                     new List<MachineIgrendient>() { machineType},
-                    machineBase.spriteGlassStates.Find(val => glassTarget.glass.igrendients.Contains(val.igrendient)).color
+                    spriteGlassState.color,
+                    spriteGlassState.sprite
                     );
                 machineCapacity.getOne();
             }
