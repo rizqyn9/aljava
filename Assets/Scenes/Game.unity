@@ -7108,7 +7108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5800ae252fb354e1687eb2f2a094184f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2143041156}
+  point: {fileID: 2143041156}
   stars:
   - {fileID: 1516828565}
   - {fileID: 403795499}

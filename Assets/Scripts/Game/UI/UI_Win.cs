@@ -8,12 +8,12 @@ namespace Aljava.Game
     public class UI_Win : MonoBehaviour
     {
         [Header("Properties")]
-        public TMP_Text text;
+        public TMP_Text point;
         public List<Image> stars;
 
         private void Start()
         {
-            text.text = "";
+            point.text = "";
             stars.ForEach(val => val.gameObject.transform.localScale = Vector2.zero);
         }
 
@@ -25,6 +25,10 @@ namespace Aljava.Game
 
         public void init(int _total)
         {
+            LeanTween.alpha(point.GetComponent<RectTransform>(), 1, .8f)
+                .setOnStart(() => point.text = (GameController.RulesController.buyerSuccessTotal * 6).ToString())
+                .setFrom(0)
+                .setEaseInBack();
             LeanTween.moveY(gameObject.GetComponent<RectTransform>(), 0,2f).setEaseInBounce().setOnComplete(() =>
             {
                 for (int i = 0; i < _total; i++)
