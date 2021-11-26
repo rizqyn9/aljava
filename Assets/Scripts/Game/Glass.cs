@@ -103,10 +103,15 @@ namespace Aljava.Game
         /// </summary>
         /// <param name="_igrendients"></param>
         /// <param name="_color"></param>
-        public void addIgrendients(List<MachineIgrendient> _igrendients, Color _color)
+        public void addIgrendients(List<MachineIgrendient> _igrendients, Color _color, Sprite _sprite = null)
         {
             igrendients.AddRange(_igrendients);
-            igrendientSprite.sprite = baseSpriteIgrendient;
+
+            if (!igrendientSprite.sprite)
+            {
+                if (_sprite) igrendientSprite.sprite = _sprite;
+                else igrendientSprite.sprite = baseSpriteIgrendient;
+            }
             igrendientSprite.color = _color;
             onFillIgrendients();
             lastIgrendients = _igrendients[_igrendients.Count - 1];
