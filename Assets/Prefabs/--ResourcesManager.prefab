@@ -47,7 +47,15 @@ MonoBehaviour:
   isDDOL: 1
   listLevels:
   - {fileID: 11400000, guid: 9ac257d6e965f486cbfd405f9822297b, type: 2}
+  - {fileID: 11400000, guid: b05337b057bf42640b10ccd69be7c378, type: 2}
   - {fileID: 11400000, guid: 3a74d0b7d4ea6406f80c599df0ec934a, type: 2}
+  - {fileID: 11400000, guid: ad782060ca6c4419882dd36f2202a7e3, type: 2}
+  - {fileID: 11400000, guid: 613e81c3bf5639d41981bb0be2ed6fb2, type: 2}
+  - {fileID: 11400000, guid: 4015c977466dc114c97cca42c85ace82, type: 2}
+  - {fileID: 11400000, guid: 866268558e8dc7a47876e46c9c2aa747, type: 2}
+  - {fileID: 11400000, guid: c7126383fa0b3bd45883279b5043eb6e, type: 2}
+  - {fileID: 11400000, guid: 670e472b7f17d174a8f0120f7d9b606d, type: 2}
+  - {fileID: 11400000, guid: 5421630686412df4db17dc1a336cb46b, type: 2}
   listMachines:
   - {fileID: 11400000, guid: 9c878c2012a454dc38e5f207876505e5, type: 2}
   - {fileID: 11400000, guid: 2e76d78c3ba294269b8853f76214913a, type: 2}
@@ -91,3 +99,4 @@ MonoBehaviour:
   MachineDoneSFX: {fileID: 8300000, guid: 85f0c018b9cb5304c9bc83a180379a42, type: 3}
   MachineSoundSFX: {fileID: 0}
   MachineOverheatSFX: {fileID: 0}
+  BGM1: {fileID: 2772779828102395403, guid: 8ba2acf5773d82b43982e89ff5afb9e8, type: 3}

@@ -18,5 +18,6 @@ namespace Aljava
         public AudioClip MachineDoneSFX;
         public AudioClip MachineSoundSFX;
         public AudioClip MachineOverheatSFX;
+        public AudioSource BGM1;
     }
 }
