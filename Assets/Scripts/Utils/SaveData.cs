@@ -3,17 +3,20 @@ using System.IO;
 using System.Collections.Generic;
 using Aljava.Game;
 using Aljava;
+using System;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [System.Serializable]
 public struct LevelModel
 {
-    public bool isOpen;
+    public LevelState levelState;
     public int level;
     public int stars;
     public int playerInstance;
     public int point;
-    public bool isWin;
 }
 
 [System.Serializable]
@@ -30,6 +33,13 @@ public struct UserMachineState
 {
     public MachineIgrendient machineType;
     public int level;
+}
+
+public enum LevelState
+{
+    OPEN,
+    LOSE,
+    WIN
 }
 
 public class SaveData : MonoBehaviour
@@ -70,14 +80,36 @@ public class SaveData : MonoBehaviour
 
     public void updateLevel(LevelModel _levelModel)
     {
-        LevelModel _target = userData.listLevels.Find(val => val.level == _levelModel.level);
-        _target = _levelModel;
-        if (_levelModel.isWin)
+        print("saving data");
+        int _target = userData.listLevels.FindIndex(val => val.level == _levelModel.level);
+        userData.listLevels[_target] = _levelModel;  // Updating current level
+        if (_levelModel.levelState == LevelState.WIN)
         {
-            LevelModel _next = userData.listLevels.Find(val => val.level == _levelModel.level);
-            _next.isOpen = true;
+            // Set open on next level
+            openNextLevel(_levelModel.level + 1);
         }
         saveIntoJson();
+    }
+
+    private void openNextLevel(int _targetLevel)
+    {
+        int index = userData.listLevels.FindIndex(val => val.level == _targetLevel);
+        if(index >= 0)
+        {
+            print("Create new temp");
+            LevelModel next = userData.listLevels[index];
+            next.levelState = LevelState.OPEN;
+            userData.listLevels[index] = next;
+        }
+        else
+        {
+            print("UPdate");
+            userData.listLevels.Add(new LevelModel
+            {
+                level = _targetLevel,
+                levelState = LevelState.OPEN
+            });
+        }
     }
 
     public void createTemp()
@@ -89,24 +121,28 @@ public class SaveData : MonoBehaviour
             {
                 new LevelModel
                 {
-                    isOpen = true,
+                    levelState = LevelState.OPEN,
                     level = 1,
                 },
             }
         };
     }
 
+    #if UNITY_EDITOR
     [ContextMenu("Reset Persistant")]
-    public void resetPersistant()
+    [MenuItem("Aljava/reset persistant")]
+    public static void resetPersistant()
     {
-        saveFilePath = Application.persistentDataPath + "/aljava.json";
+        string saveFilePath = Application.persistentDataPath + "/aljava.json";
         if (File.Exists(saveFilePath))
         {
             Debug.Log("Founded");
             File.Delete(saveFilePath);
             Debug.Log("Deleted");
-        }
+        } else
+            Debug.Log("Empty");
     }
+    #endif
 
 
     /// <summary>
@@ -121,12 +157,8 @@ public class SaveData : MonoBehaviour
             listLevels = new List<LevelModel>()
             {
                 new LevelModel {
-                    isOpen = true,
+                    levelState = LevelState.OPEN,
                     level = 1,
-                },
-                new LevelModel {
-                    isOpen = true,
-                    level = 2
                 }
             }
         };

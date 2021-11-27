@@ -15,8 +15,9 @@ namespace Aljava.Game
         public int menuFailTotal = 0;
 
         public int earnMoneyTotal = 0;
-        public int earnPointTotal = 0;
+        public int earnPointTotal => buyerSuccessTotal * 6;
 
+        public LevelState levelState;
 
         #region Delegate
         public event Action OnstatisticsChanged;
@@ -77,14 +78,27 @@ namespace Aljava.Game
             //if (buyerInstance == buyerSuccessTotal) star = 3;
             //else if (buyerSuccessTotal / buyerInstance * 10 >= 5) star = 2;
             //else if (buyerSuccessTotal / buyerInstance * 10 <= 5) star = 1;
+            levelState = LevelState.WIN;
+            GameManager.Instance.saveData.updateLevel(getLevelModel());
             GameController.Instance.handleGameEnd();
             UIGameManager.Win.init(UIGameManager.HealthManager.instance);
         }
 
         public void initializeLose()
         {
+            levelState = LevelState.LOSE;
+            GameManager.Instance.saveData.updateLevel(getLevelModel());
             GameController.Instance.handleGameEnd();
             UIGameManager.Lose.init();
         }
+
+        LevelModel getLevelModel() =>
+            new LevelModel
+            {
+                level = GameController.LevelBase.level,
+                levelState = levelState,
+                point = earnPointTotal,
+                stars = UIGameManager.HealthManager.instance
+            };
     }
 }

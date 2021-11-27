@@ -26,7 +26,7 @@ namespace Aljava.Game
         public void init(int _total)
         {
             LeanTween.alpha(point.GetComponent<RectTransform>(), 1, .8f)
-                .setOnStart(() => point.text = (GameController.RulesController.buyerSuccessTotal * 6).ToString())
+                .setOnStart(() => point.text = GameController.RulesController.earnPointTotal.ToString())
                 .setFrom(0)
                 .setEaseInBack();
             LeanTween.moveY(gameObject.GetComponent<RectTransform>(), 0,2f).setEaseInBounce().setOnComplete(() =>
