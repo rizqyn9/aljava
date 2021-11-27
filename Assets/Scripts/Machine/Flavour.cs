@@ -18,7 +18,8 @@ namespace Aljava.Game
             {
                 glassTarget.glass.addIgrendients(
                     new List<MachineIgrendient>() { machineType },
-                    machineBase.spriteGlassStates[0].color
+                    machineBase.spriteGlassStates[0].color,
+                    machineBase.spriteGlassStates[0].sprite
                     );
             }
 

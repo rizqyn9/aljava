@@ -21,8 +21,8 @@ MonoBehaviour:
   spriteGlassStates:
   - name: 
     igrendient: 6
-    sprite: {fileID: 0}
-    color: {r: 0.7830189, g: 0.33610716, b: 0.33610716, a: 1}
+    sprite: {fileID: 21300000, guid: abc9e11f5efb1884781b19b47e6a7592, type: 3}
+    color: {r: 0.7830189, g: 0.32133323, b: 0.5307547, a: 1}
   isUseMachineOverlay: 0
   prefabUIOverlay: {fileID: 0}
   isUseProcessUI: 1

@@ -114,7 +114,7 @@ namespace Aljava.Game
             if (_sprite)
             {
                 igrendientSprite.sprite = _sprite;
-                igrendientSprite.color = Color.white;
+                igrendientSprite.color = _color.Equals(default(Color)) ? Color.white : _color;
             }
             else
                 igrendientSprite.color = _color;
