@@ -32,6 +32,7 @@ public class LevelBase : ScriptableObject
 public class LevelEditorScript : Editor
 {
     public LevelBase levelBase;
+    public string debugText = "";
 
     public override void OnInspectorGUI()
     {
@@ -45,6 +46,7 @@ public class LevelEditorScript : Editor
             if (!levelBase.isLevelTest)
                 renameFile();
         }
+        debugText = EditorGUILayout.TextArea(debugText, GUILayout.Height(300));
     }
 
     public void renameFile()
