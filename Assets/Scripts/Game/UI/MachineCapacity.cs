@@ -54,7 +54,7 @@ namespace Aljava.Game
 
         public void updatePos()
         {
-            transform.position = Camera.main.WorldToScreenPoint(machine.capacityPos.position);
+            transform.position = machine.capacityPos.position;
         }
 
         void resetCapacity()

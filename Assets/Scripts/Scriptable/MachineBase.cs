@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 #if UNITY_EDITOR
+using Sirenix.OdinInspector;
 using System;
 using Aljava.Game;
 using UnityEditor;

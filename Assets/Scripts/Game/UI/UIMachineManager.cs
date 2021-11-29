@@ -8,11 +8,12 @@ namespace Aljava.Game
         [Header("Properties")]
         public Transform machineProcessPlace;
         public Transform machineCapacityPlace;
+        public Transform machineOverlayPlace;
         public Transform fixedPos;
         public GameObject baseMachineProcess, baseMachineCapacity;
         public List<MachineCanvas> processesTransform = new List<MachineCanvas>();
         public List<MachineCanvas> capacitiesTransform = new List<MachineCanvas>();
-
+        public List<UI_MachineOverlay> listMachineOverlay = new List<UI_MachineOverlay>();
 
         [Header("Debug")]
         public List<MachineProcess> machineProcesses = new List<MachineProcess>();
@@ -30,6 +31,13 @@ namespace Aljava.Game
             machineCapacity = Instantiate(baseMachineCapacity, machineCapacityPlace).GetComponent<MachineCapacity>();
             machineCapacities.Add(machineCapacity);
             machineCapacity.init(_machine);
+        }
+
+        public void instanceMachineOverlay(Machine _machine, out UI_MachineOverlay machineOverlay)
+        {
+            machineOverlay = Instantiate(_machine.machineBase.prefabUIOverlay, machineOverlayPlace).GetComponent<UI_MachineOverlay>();
+            listMachineOverlay.Add(machineOverlay);
+            machineOverlay.init(_machine, machineOverlayPlace.gameObject);
         }
 
         public static Transform MachineProcessPlace => UIGameManager.MachineManager.machineProcessPlace;

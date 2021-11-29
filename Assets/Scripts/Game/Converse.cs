@@ -1,28 +1,18 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Aljava.Game
 {
-    public struct DialogModel
-    {
-        public Image characterImage;
-        public List<TextDialogModel> texts;
-    }
-
-    public struct TextDialogModel
-    {
-        public bool autoSkip;
-        public string text;
-    }
     public class Converse : MonoBehaviour
     {
-        public float offsetChar, offsetDialog;
+        [Header("Properties")]
         public TMPro.TMP_Text text;
+        public Button nextBtn;
+        public float offsetChar, offsetDialog;
         public GameObject dialogContainer, character;
-
-        public List<DialogModel> dialogModels = new List<DialogModel>();
 
         public void init()
         {
@@ -39,47 +29,63 @@ namespace Aljava.Game
         void renderText(string _text) =>
             text.text = _text;
 
-        void showDialog()
-        {
-            LeanTween.scale(dialogContainer.GetComponent<RectTransform>(), new Vector2(1, 1), .5f)
-                .setFrom(Vector2.zero);
-        }
 
-        public void setDialog(string text)
+        public bool dialogIsActive = false;
+        public bool isLastDialog = true;
+        public void showDialog(string _text, bool _isLastDialog = true, Action _bindNextButton = null)
         {
+            isLastDialog = _isLastDialog;
+            if (_bindNextButton != null) bindNextButton = _bindNextButton;
+
+            dialogIsActive = true;
             Time.timeScale = 0;
+            nextBtn.gameObject.SetActive(false);
+            
             animateChar(true)
                 .setOnStart(() => dialogContainer.SetActive(true))
                 .setOnComplete(() =>
                         animateDialog(true)
-                            .setOnStart(() => renderText(text))
+                            .setOnStart(() => StartCoroutine(ITextRender(_text)))
                     );
+        }
+
+        public void closeDialog()
+        {
+            animateDialog(false)
+                .setOnComplete(() => dialogContainer.SetActive(false));
+            animateChar(false)
+                .setDelay(.3f)
+                .setOnComplete(() => character.SetActive(false));
+        }
+
+        public void updateDialog()
+        {
+
         }
 
         public bool isNext = false;
+        Action bindNextButton;
+
         public void Btn_Next()
         {
-            Debug.Log("Next chat");
+            if (isLastDialog) closeDialog();
+            else
+            {
+                text.text = "";
+            }
+            GameController.Tutorial.tutorialState = TutorialState.RESOLVE;
+            nextBtn.gameObject.SetActive(false);
         }
 
-        public LTSeq seq;
-        [ContextMenu("Test INIt")]
-        public void test()
+        IEnumerator ITextRender(string _text)
         {
-            animateChar(true)
-                .setOnStart(() => dialogContainer.SetActive(true))
-                .setOnComplete(() =>
-                        animateDialog(true)
-                            .setOnStart(() => renderText("Test"))
-                    );
-        }
-
-        [ContextMenu("Close")]
-        public void closed()
-        {
-            animateDialog(false)
-                .setOnComplete(() => animateChar(false))
-                .setOnComplete(() => dialogContainer.SetActive(false));
+            text.text = "";
+            foreach(char letter in _text.ToCharArray())
+            {
+                text.text += letter;
+                yield return null;
+            }
+            nextBtn.gameObject.SetActive(true);
         }
     }
 }

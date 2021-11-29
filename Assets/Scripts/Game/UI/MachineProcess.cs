@@ -53,7 +53,7 @@ namespace Aljava.Game
 
         public void updatePos()
         {
-            transform.position = Camera.main.WorldToScreenPoint(machine.processPos.position);
+            transform.position = machine.processPos.position;
         }
 
         public void runProcess()

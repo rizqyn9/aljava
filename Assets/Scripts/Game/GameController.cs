@@ -18,6 +18,7 @@ namespace Aljava.Game
 
         // Accessor
         public static bool IsTutorial => Instance.isTutorial;
+        public static Tutorial Tutorial => Instance.tutorial;
         public static LevelBase LevelBase => Instance.levelBase;
         public static GameProperties GameProperties => Instance.gameProperties;
         public static OrderController OrderController => Instance.orderController;

@@ -16,14 +16,19 @@ MonoBehaviour:
   isTutorialLevel: 0
   tutorialPrefabs: {fileID: 0}
   level: 1
-  gameMode: 2
   MenuClassifications: 000000000400000001000000
   MenuTypeUnlock: 0402050607
   BuyerTypeUnlock: 0100000000000000
   delayPerCustomer: 15
   healthTotal: 3
+  gameMode: 2
   gameDuration: 40
   minPoint: 0
   minOrder: 10
   minBuyer: 99
-  message: Success Change File Name
+  message: "Success Change File NameError : UnityEngine.UnassignedReferenceException:
+    The variable tutorialPrefabs of LevelBase has not been assigned.\nYou probably
+    need to assign the tutorialPrefabs variable of the LevelBase script in the inspector.\n 
+    at (wrapper managed-to-native) UnityEngine.GameObject.GetComponentFastPath(UnityEngine.GameObject,System.Type,intptr)\n 
+    at UnityEngine.GameObject.GetComponent[T] () [0x00009] in /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/GameObject.bindings.cs:28
+    \n  at LevelBase.validateData () [0x00021] in /Users/rizqy/aljava/Assets/Scripts/Scriptable/LevelBase.cs:51 "

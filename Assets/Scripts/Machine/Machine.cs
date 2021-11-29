@@ -34,6 +34,7 @@ namespace Aljava.Game
         [Header("Component")]
         public MachineCapacity machineCapacity;
         public MachineProcess machineProcess;
+        public UI_MachineOverlay machineOverlay;
 
 #region Machine State
         [SerializeField] MachineState _machineState = MachineState.OFF;
@@ -150,6 +151,17 @@ namespace Aljava.Game
         {
             if (!isInteractable) return;
             bruteForce += 1;
+
+            if (machineBase.isUseMachineOverlay)
+            {
+                if (machineOverlay.isOverlayResolve) { }
+                else
+                {
+                    machineOverlay.spawn();
+                    return;
+                }
+            }
+
             if (machineState == MachineState.ON_IDDLE) OnValidateMachineIddle();
             if (machineState == MachineState.ON_DONE || machineState == MachineState.ON_OVERCOOK)
                 OnValidateMachineDone();
@@ -308,7 +320,10 @@ namespace Aljava.Game
             {
                 UIGameManager.MachineManager.instanceMachineCapacity(this, out machineCapacity);
             }
-            if (machineBase.isUseMachineOverlay) { }
+            if (machineBase.isUseMachineOverlay)
+            {
+                UIGameManager.MachineManager.instanceMachineOverlay(this, out machineOverlay);
+            }
         }
 
         void getDependencies()
