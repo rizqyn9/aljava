@@ -11,7 +11,7 @@ namespace Aljava.Game
             base.init();
 
             Debug.LogWarning("Tutorial mode");
-
+            StartCoroutine(IBaseListener());
             StartCoroutine(IStartGame());
         }
 
@@ -22,9 +22,11 @@ namespace Aljava.Game
             yield return new WaitForSeconds(GameController.GameProperties.delayStart / 2);
 
             GameController.GameState = GameState.BEFORE_START;
+            UIGameManager.Converse.setDialog("Disini kamu akan melayani pelanggan yang datang ke Cafe ini");
             yield return new WaitForSeconds(GameController.GameProperties.delayStart);
 
             GameController.GameState = GameState.START;
+            requestSuccess = true;
             yield break;
         }
     }

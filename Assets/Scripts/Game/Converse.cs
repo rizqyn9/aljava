@@ -29,10 +29,12 @@ namespace Aljava.Game
         }
 
         LTDescr animateChar(bool setActive) =>
-            LeanTween.moveX(character.GetComponent<RectTransform>(), setActive ? 0 : offsetChar, .3f);
+            LeanTween.moveX(character.GetComponent<RectTransform>(), setActive ? 0 : offsetChar, .3f)
+            .setIgnoreTimeScale(true);
 
         LTDescr animateDialog(bool setActive) =>
-            LeanTween.moveY(dialogContainer.GetComponent<RectTransform>(), setActive ? 0 : offsetDialog, setActive ? .3f : .5f);
+            LeanTween.moveY(dialogContainer.GetComponent<RectTransform>(), setActive ? 0 : offsetDialog, setActive ? .3f : .5f)
+            .setIgnoreTimeScale(true);
 
         void renderText(string _text) =>
             text.text = _text;
@@ -43,11 +45,21 @@ namespace Aljava.Game
                 .setFrom(Vector2.zero);
         }
 
+        public void setDialog(string text)
+        {
+            Time.timeScale = 0;
+            animateChar(true)
+                .setOnStart(() => dialogContainer.SetActive(true))
+                .setOnComplete(() =>
+                        animateDialog(true)
+                            .setOnStart(() => renderText(text))
+                    );
+        }
 
         public bool isNext = false;
         public void Btn_Next()
         {
-
+            Debug.Log("Next chat");
         }
 
         public LTSeq seq;

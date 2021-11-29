@@ -48,7 +48,7 @@ public class LevelBase : ScriptableObject
         try
         {
             if(!isLevelTest) renameFile();
-            if (!tutorialPrefabs.GetComponent<Tutorial>()) throw new System.Exception("Tutorial Object empyt");
+            if (!tutorialPrefabs.GetComponent<Tutorial>()) throw new System.NullReferenceException("Empty tutorial script");
             else message += "\nTutorial level validated";
 
         } catch (System.Exception e)

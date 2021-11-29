@@ -293,7 +293,9 @@ namespace Aljava.Game
 #region IEnumurator
         IEnumerator beforeStart()
         {
-            LeanTween.alpha(gameObject, 1, GameController.GameProperties.animMachineBeforeStart).setEaseInBounce();
+            LeanTween.alpha(gameObject, 1, GameController.GameProperties.animMachineBeforeStart)
+                .setEaseInBounce()
+                .setIgnoreTimeScale(true);
             yield return 1;
         }
 #endregion
