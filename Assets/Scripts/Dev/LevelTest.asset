@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
   m_Name: LevelTest
   m_EditorClassIdentifier: 
-  isTutorialLevel: 1
-  tutorialScript: {fileID: 1808200968692157325, guid: 8a83347dff1474ac5ae735731859f3b5, type: 3}
   isLevelTest: 1
+  isTutorialLevel: 1
+  tutorialPrefabs: {fileID: 189894165454865582, guid: 4ca3991fad45b441cab46de83019d402, type: 3}
   level: 1
-  gameMode: 2
   MenuClassifications: 000000000400000001000000
   MenuTypeUnlock: 030207060504
   BuyerTypeUnlock: 00000000
   delayPerCustomer: 1
   healthTotal: 3
+  gameMode: 2
   gameDuration: 8
   minPoint: 0
   minOrder: 0
   minBuyer: 0
+  message: '
+
+    Tutorial level validated'

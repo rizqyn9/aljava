@@ -38,10 +38,10 @@ namespace Aljava.Game
         }
         #endregion
 
-        public void initTutorial(LevelBase _levelBase, Tutorial _tutorial)
+        public void initTutorial(LevelBase _levelBase, GameObject _tutorial)
         {
             levelBase = _levelBase;
-            tutorial = Instantiate(_tutorial.gameObject, transform).GetComponent<Tutorial>();
+            tutorial = Instantiate(_tutorial, transform).GetComponent<Tutorial>();
 
             tutorial.init();
         }

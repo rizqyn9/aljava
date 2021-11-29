@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  isTutorialLevel: 0
-  tutorialScript: {fileID: 0}
   isLevelTest: 0
+  isTutorialLevel: 0
+  tutorialPrefabs: {fileID: 0}
   level: 1
   gameMode: 2
   MenuClassifications: 000000000400000001000000
@@ -26,3 +26,4 @@ MonoBehaviour:
   minPoint: 0
   minOrder: 10
   minBuyer: 99
+  message: Success Change File Name

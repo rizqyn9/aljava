@@ -59,7 +59,7 @@ namespace Aljava
                     ICheckResource(() =>
                     {
                         if(levelBase.isTutorialLevel)
-                            GameController.Instance.initTutorial(levelBase, levelBase.tutorialScript);
+                            GameController.Instance.initTutorial(levelBase, levelBase.tutorialPrefabs);
                         else 
                             GameController.Instance.init(levelBase);
                     })

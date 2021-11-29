@@ -37,6 +37,8 @@ public struct UserMachineState
 
 public enum LevelState
 {
+    COMMON,
+    LOCK,
     OPEN,
     LOSE,
     WIN
@@ -96,14 +98,17 @@ public class SaveData : MonoBehaviour
         int index = userData.listLevels.FindIndex(val => val.level == _targetLevel);
         if(index >= 0)
         {
-            print("Create new temp");
+            print("Update");
             LevelModel next = userData.listLevels[index];
-            next.levelState = LevelState.OPEN;
-            userData.listLevels[index] = next;
+            if(next.levelState == LevelState.LOCK)
+            {
+                next.levelState = LevelState.OPEN;
+                userData.listLevels[index] = next;
+            }
         }
         else
         {
-            print("UPdate");
+            print("Create new temp");
             userData.listLevels.Add(new LevelModel
             {
                 level = _targetLevel,

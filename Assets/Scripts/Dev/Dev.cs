@@ -28,7 +28,7 @@ public class Dev : Singleton<Dev>
     {
         yield return new WaitUntil(() => GameManager.Instance.isResourceManagerReady);
         if(levelTest.isTutorialLevel)
-            GameController.Instance.initTutorial(levelTest, levelTest.tutorialScript);
+            GameController.Instance.initTutorial(levelTest, levelTest.tutorialPrefabs);
         else
             GameController.Instance.init(levelTest);
         yield break;
