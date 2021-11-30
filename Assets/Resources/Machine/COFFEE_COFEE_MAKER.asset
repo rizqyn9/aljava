@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09b8754b010e42c5bba8a0f571fa639, type: 3}
   m_Name: COFFEE_COFEE_MAKER
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  machineName: Espresso
   machineClass: 0
   machineType: 4
   targetMachine: 0
@@ -29,17 +39,21 @@ MonoBehaviour:
   isUseOverCook: 1
   isUseBarCapacity: 0
   isUpgradeable: 1
+  iconUpgradeable: {fileID: 21300000, guid: 4c58788e6a8b24ec88162f9a3db8811e, type: 3}
   isAutoRun: 0
   properties:
   - level: 1
     maxCapacity: 0
+    amout: 0
     processDuration: 1
     prefab: {fileID: 1750299975057209778, guid: 1fc120627fe0945868c3adc58c7f4044, type: 3}
   - level: 2
     maxCapacity: 0
+    amout: 0
     processDuration: 1
     prefab: {fileID: 4326245141259370996, guid: 90c5d1d92f48749eea92382163491204, type: 3}
   - level: 3
     maxCapacity: 0
+    amout: 0
     processDuration: 1
     prefab: {fileID: 6959594727657560747, guid: c57686c49c509404bb93b749e0c8263f, type: 3}

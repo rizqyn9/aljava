@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09b8754b010e42c5bba8a0f571fa639, type: 3}
   m_Name: ADDITIONAL_MILK_STEAMMED
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  machineName: Steamed Milk
   machineClass: 2
   machineType: 17
   targetMachine: 0
@@ -45,17 +55,21 @@ MonoBehaviour:
   isUseOverCook: 0
   isUseBarCapacity: 1
   isUpgradeable: 1
+  iconUpgradeable: {fileID: 21300000, guid: 06f52c673d4434822978e1a568741029, type: 3}
   isAutoRun: 0
   properties:
   - level: 1
     maxCapacity: 4
+    amout: 100
     processDuration: 1
     prefab: {fileID: 8305343421721946736, guid: 0a0e5f45faf2940b6a419246617110c9, type: 3}
   - level: 2
     maxCapacity: 0
+    amout: 150
     processDuration: 0
     prefab: {fileID: 1441373011865069878, guid: b5d12c624a6dd4121b7cd2897db43b72, type: 3}
   - level: 3
     maxCapacity: 0
+    amout: 200
     processDuration: 0
     prefab: {fileID: 1089437481023693858, guid: 6caec309ad3e9415ab8298cd7a4e3800, type: 3}

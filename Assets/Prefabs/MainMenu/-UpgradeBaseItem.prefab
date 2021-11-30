@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ed5d533876b46ebb10d484fadcf0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 4408858317981326621}
   machineName: {fileID: 4408858318150126995}
   listIndicator:
   - {fileID: 4408858316219479986}

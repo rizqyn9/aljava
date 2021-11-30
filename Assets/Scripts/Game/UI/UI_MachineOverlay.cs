@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Aljava.Game
@@ -8,6 +7,7 @@ namespace Aljava.Game
     {
         [Header("Properties")]
         public float offsetY = -400;
+        public Animator animator;
 
         [Header("Debug")]
         public Machine machine;
@@ -15,6 +15,11 @@ namespace Aljava.Game
         public bool isInteractable = false;
         public bool isOverlayResolve = false;
         public bool isMiniGameSuccess = false;
+
+        private void OnEnable()
+        {
+            if(animator) animator.enabled = false;
+        }
 
         public void init(Machine _machine, GameObject _container)
         {
@@ -57,6 +62,18 @@ namespace Aljava.Game
         public void Btn_True()
         {
             isOverlayResolve = true;
+            if(machine.machineType == MachineIgrendient.BEANS_ROBUSTA)
+            {
+                animator.enabled = true;
+                animator.Play("run");
+                StartCoroutine(IListen());
+            }
+        }
+
+        IEnumerator IListen()
+        {
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("done"));
+            print("aniim done");
         }
 
         public void Btn_False()

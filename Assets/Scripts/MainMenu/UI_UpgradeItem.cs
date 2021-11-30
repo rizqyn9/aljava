@@ -7,7 +7,7 @@ namespace Aljava.MainMenu
     public class UI_UpgradeItem : MonoBehaviour
     {
         [Header("Properties")]
-        public SpriteRenderer icon;
+        public Image icon;
         public TMPro.TMP_Text machineName;
         public List<Image> listIndicator;
 

@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09b8754b010e42c5bba8a0f571fa639, type: 3}
   m_Name: LATTE_LATTE_TARO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  machineName: 
   machineClass: 1
   machineType: 8
   targetMachine: 0
@@ -28,10 +38,12 @@ MonoBehaviour:
   isUseProcessUI: 1
   isUseOverCook: 0
   isUseBarCapacity: 0
-  isUpgradeable: 1
+  isUpgradeable: 0
+  iconUpgradeable: {fileID: 0}
   isAutoRun: 0
   properties:
   - level: 0
     maxCapacity: 0
+    amout: 0
     processDuration: 0
     prefab: {fileID: 0}
