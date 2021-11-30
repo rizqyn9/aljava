@@ -30,6 +30,8 @@ namespace Aljava
             Instance.soundFX.PlayOneShot(_audioClip);
         }
 
+        public static void PlayButtonSFX() => Instance.soundFX.PlayOneShot(Instance.ButtonSFX);
+
         public enum AudioTarget
         {
             BGM,

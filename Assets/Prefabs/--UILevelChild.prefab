@@ -65,9 +65,16 @@ MonoBehaviour:
   btn: {fileID: 3297020673724246059}
   levelUnlock: {fileID: 21300000, guid: 397377c4c11ec9647a62688279ba64ff, type: 3}
   levelLocked: {fileID: 21300000, guid: c8e100dd586117b4b94a79f90dab858c, type: 3}
+  textLockedColor: {r: 0.8301887, g: 0.7411001, b: 0.4738341, a: 1}
   index: 0
   level: 0
   levelBase: {fileID: 0}
+  levelModel:
+    levelState: 0
+    level: 0
+    stars: 0
+    playerInstance: 0
+    point: 0
 --- !u!114 &3297020673724246059
 MonoBehaviour:
   m_ObjectHideFlags: 0

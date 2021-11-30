@@ -11,11 +11,13 @@ namespace Aljava.Level
         public Button btn;
         public Sprite levelUnlock;
         public Sprite levelLocked;
+        public Color textLockedColor;
 
         [Header("Debug")]
         public int index;
         public int level;
         public LevelBase levelBase;
+        public LevelModel levelModel;
 
         public void init(int _index, LevelBase _levelBase = null)
         {
@@ -25,10 +27,12 @@ namespace Aljava.Level
             gameObject.name = $"Level-{level}";
             text.text = level.ToString();
 
-            if (!_levelBase)
+            levelModel = LevelStageController.Instance.listLevelUser.Find(val => val.level == level);
+
+            if (!_levelBase || levelModel.Equals(default(LevelModel)) || levelModel.levelState == LevelState.LOCK)
             {
                 image.sprite = levelLocked;
-                text.color = new Color(0, 1, 0, .5f);
+                text.color = textLockedColor;
                 btn.interactable = false;
                 return;
             } else
@@ -44,6 +48,7 @@ namespace Aljava.Level
         {
             if (LevelStageController.Instance.isAcceptable)              // Prevent brute force req
             {
+                SoundManager.PlayButtonSFX();
                 LevelStageController.Instance.reqFromChild(levelBase);
             }
         }

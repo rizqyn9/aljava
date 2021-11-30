@@ -14,12 +14,15 @@ namespace Aljava.Level
         [Header("Debug")]
         public int resCount = 0;
         public List<UI_Level> levels = new List<UI_Level>();
-        public bool isAcceptable = true; // Prevent Brute Force 
+        public bool isAcceptable = true; // Prevent Brute Force
+        public List<LevelModel> listLevelUser = new List<LevelModel>();
 
         public void init()
         {
             resCount = ResourceManager.ListLevels.Count;
             int render = resCount > minShowLevel ? resCount : minShowLevel;
+
+            listLevelUser = GameManager.Instance.userData.listLevels;
 
             for(int i = 0; i < render; i++)
             {
