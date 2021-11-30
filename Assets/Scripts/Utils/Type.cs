@@ -57,6 +57,7 @@ public struct MachineProperties
 {
     public int level;
     public int maxCapacity;
+    public int amout;
     public float processDuration;
     public GameObject prefab;
 }

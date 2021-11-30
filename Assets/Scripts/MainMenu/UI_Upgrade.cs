@@ -8,8 +8,10 @@ namespace Aljava.MainMenu
         [Header("Properties")]
         public GameObject baseUpgradeItem;
         public Transform placeInstance;
+        public TMPro.TMP_Text coins;
 
         [Header("Debug")]
+        public int userCoin;
         public List<MachineBase> machineBases;
         public List<UI_UpgradeItem> listUpgradeItems = new List<UI_UpgradeItem>();
 
@@ -22,6 +24,13 @@ namespace Aljava.MainMenu
                 listUpgradeItems.Add(item);
                 item.init(val);
             });
+        }
+
+        private void OnEnable()
+        {
+            userCoin = GameManager.Instance.userData.point;
+            coins.text = userCoin.ToString();
+            listUpgradeItems.ForEach(val => val.updateData());
         }
     }
 }
