@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352d1b6a5f0254a36b1664e3623ff7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetY: -250
+  offsetY: -400
   container: {fileID: 0}
   machine: {fileID: 0}
   isInteractable: 0

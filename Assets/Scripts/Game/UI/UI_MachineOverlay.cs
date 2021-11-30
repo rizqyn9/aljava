@@ -7,7 +7,7 @@ namespace Aljava.Game
     public class UI_MachineOverlay : MonoBehaviour
     {
         [Header("Properties")]
-        public float offsetY = -250f;
+        public float offsetY = -400;
 
         [Header("Debug")]
         [SerializeField] GameObject container;
@@ -46,11 +46,13 @@ namespace Aljava.Game
         public void Btn_True()
         {
             hide();
+            isOverlayResolve = true;
         }
 
         public void Btn_False()
         {
             Debug.LogWarning("False");
+            isOverlayResolve = false;
         }
     }
 }
