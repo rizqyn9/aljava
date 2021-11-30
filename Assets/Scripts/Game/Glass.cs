@@ -57,7 +57,7 @@ namespace Aljava.Game
                 {
                     buyerPrototype.customerHandler.OnMenuServe(menuResult);
                     //LeanTween.move(gameObject, new LTSpline(new Vector3[] { Vector3.zero, new Vector3(100, 100) }), 2f);
-                    LeanTween.scale(gameObject, Vector3.zero, 1f).setOnComplete(handleOnServe);
+                    LeanTween.scale(gameObject, Vector3.zero, .3f).setOnComplete(handleOnServe);
                 } else
                     boxCollider2D.enabled = true;
             else

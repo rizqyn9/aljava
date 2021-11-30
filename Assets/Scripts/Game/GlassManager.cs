@@ -84,7 +84,7 @@ namespace Aljava.Game
             _glass.gameObject.LeanScale(new Vector2(.2f, .2f), .5f).setEaseInBounce().setOnComplete(() =>
             {
                 _glass.glassState = GlassState.EMPTY; // Open glass for filled
-            });
+            }).setIgnoreTimeScale(GameController.IsTutorial);
             yield break;
         }
         #endregion

@@ -45,7 +45,7 @@ namespace Aljava.Game
         {
             levelBase = _levelBase;
             tutorial = Instantiate(_tutorial, transform).GetComponent<Tutorial>();
-
+            isTutorial = true;
             tutorial.init();
         }
 

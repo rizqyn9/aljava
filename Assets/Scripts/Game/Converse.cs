@@ -32,11 +32,12 @@ namespace Aljava.Game
 
         public bool dialogIsActive = false;
         public bool isLastDialog = true;
-
+        public bool usePaused;
         public void showDialog
             (
                 string _text,
                 bool _isLastDialog = true,
+                bool _usePaused = true,
                 Action _bindNextButton = null,
                 bool _showNextBtn = true,
                 Action _cbOnDone = null,
@@ -44,6 +45,10 @@ namespace Aljava.Game
             )
         {
             isLastDialog = _isLastDialog;
+
+            if (_usePaused) Time.timeScale = 0;
+            usePaused = _usePaused;
+
             if (_bindNextButton != null) bindNextButton = _bindNextButton;
 
             isNextClicked = false;
@@ -72,12 +77,11 @@ namespace Aljava.Game
                 .setOnComplete(() => dialogContainer.SetActive(false));
             animateChar(false)
                 .setDelay(.3f)
-                .setOnComplete(() => character.SetActive(false));
-        }
-
-        public void updateDialog()
-        {
-
+                .setOnComplete(() =>
+                {
+                    if (usePaused) Time.timeScale = 0;
+                    character.SetActive(false);
+                });
         }
 
         public bool isNext = false;

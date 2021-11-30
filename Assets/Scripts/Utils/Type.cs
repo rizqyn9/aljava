@@ -254,5 +254,5 @@ public struct MachineDependsType
 interface IHightLight
 {
     public void showHightLight();
-    public void hideHightLight();
+    public void removeHightLight();
 }

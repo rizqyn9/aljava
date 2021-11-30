@@ -44,13 +44,15 @@ namespace Aljava.Game
 
         //public 
 
-        public void TaskCoroutine(Action _task, Func<bool> waitUntil, Action _success = null) => StartCoroutine(ITask(_task, waitUntil, _success));
+        public void TaskCoroutine(Action _task, Func<bool> waitUntil, Action _success = null, bool _usePause = false) => StartCoroutine(ITask(_task, waitUntil, _success, _usePause));
 
-        public IEnumerator ITask(Action _task, Func<bool> waitUntil, Action _success = null)
+        public IEnumerator ITask(Action _task, Func<bool> waitUntil, Action _success = null, bool _usePause = false)
         {
+            if (_usePause) Time.timeScale = 0;
             _task();
             yield return new WaitUntil(waitUntil);
             _success?.Invoke();
+            if (_usePause) Time.timeScale = 1;
         }
 
         public virtual void handleTaskClear()

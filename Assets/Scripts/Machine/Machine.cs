@@ -163,6 +163,7 @@ namespace Aljava.Game
                 if (machineOverlay.isOverlayResolve) { }
                 else
                 {
+                    if (isHighlighted) removeHightLight();
                     machineOverlay.spawn();
                     return;
                 }
@@ -353,11 +354,30 @@ namespace Aljava.Game
         #endregion
 
         #region Interface HightLight
+        public SpriteRenderer sprite;
+        [SerializeField] int animId = 0;
+        [SerializeField] bool isHighlighted;
         public virtual void showHightLight()
         {
-            print("me on hightlight");
+            isHighlighted = true;
+            UIGameManager.Instance.noClickSetActive(true);
+            sprite = machinePrefab.GetComponent<SpriteRenderer>();
+            sprite.sortingLayerName = "UI";
+            sprite.sortingOrder = 10;
+            animId = LeanTween.scale(sprite.gameObject, new Vector2(1.1f, 1.1f), .5f)
+                .setLoopPingPong()
+                .setIgnoreTimeScale(true)
+                .id;
         }
-        public virtual void hideHightLight() { }
+        public virtual void removeHightLight()
+        {
+            isHighlighted = false;
+            sprite.sortingLayerID = 0;
+            sprite.sortingOrder = 0;
+            LeanTween.cancel(animId);
+            sprite.gameObject.transform.localScale = new Vector2(1, 1);
+            UIGameManager.Instance.noClickSetActive(false);
+        }
         #endregion
     }
 }

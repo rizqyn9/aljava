@@ -27,14 +27,14 @@ namespace Aljava.Game
 
             Time.timeScale = 1;
 
-            yield return new WaitForSeconds(GameController.GameProperties.delayStart);
+            //yield return new WaitForSeconds(GameController.GameProperties.delayStart);
             GameController.GameState = GameState.START;
 
-            Time.timeScale = 0;
-            baseMechanic1();
-            yield return new WaitUntil(() => canNext);
+            //Time.timeScale = 0;
+            //baseMechanic1();
+            //yield return new WaitUntil(() => canNext);
 
-            //miniGameTask1();
+            miniGameTask1();
             //yield break;
         }
 
@@ -68,7 +68,7 @@ namespace Aljava.Game
                 () => {
                     converse.showDialog("The number of customers you have to serve you can see on the icon at the top of your ", false);
                     UIGameManager.Instance.setHightLight(UIGameManager.Instance.customerCount);
-                    },
+                },
                 () => converse.isNextClicked,
                 () =>
                 {
