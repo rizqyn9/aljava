@@ -12,7 +12,7 @@ namespace Aljava.Game
         [Header("Debug")]
         public Machine machine;
         [SerializeField] GameObject container;
-        [SerializeField] bool isInteractable = false;
+        public bool isInteractable = false;
         public bool isOverlayResolve = false;
 
         public void init(Machine _machine, GameObject _container)

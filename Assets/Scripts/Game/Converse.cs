@@ -95,13 +95,13 @@ namespace Aljava.Game
         IEnumerator ITextRender(string _text, bool _showNextBtn, Action _cb)
         {
             text.text = "";
-            foreach (char letter in _text.ToCharArray())
-            {
-                text.text += letter;
-                yield return null;
-            }
-            //text.text = _text;
-            //yield return null;
+            //foreach (char letter in _text.ToCharArray())
+            //{
+            //    text.text += letter;
+            //    yield return null;
+            //}
+            text.text = _text;
+            yield return null;
 
             _cb?.Invoke();
 

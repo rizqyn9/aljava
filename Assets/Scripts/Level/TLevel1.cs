@@ -64,18 +64,9 @@ namespace Aljava.Game
         void miniGameTask3() =>
             TaskCoroutine(
                     dialogSeventh,
-                    () => machineListen.machineState == MachineState.ON_PROCESS,
+                    () => machineListen.machineOverlay.isInteractable,
                     () => { print("Mantap"); }
                 );
-
-        //IEnumerator taskMachineOverlay()
-        //{
-        //    canNext = false;
-        //    yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay);
-        //    yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay.machine.machineBase.machineType == MachineIgrendient.BEANS_ROBUSTA);
-        //    dialogFifth();
-        //    canNext = true;
-        //}
 
         void dialogFirst() =>
             UIGameManager.Converse
@@ -108,7 +99,10 @@ namespace Aljava.Game
                         "cobalah tekan mesin grinder",
                         true,
                         _showNextBtn: false,
-                        _cbOnStart: () => listenMachine(MachineIgrendient.BEANS_ROBUSTA),
+                        _cbOnStart: () => {
+                            listenMachine(MachineIgrendient.BEANS_ROBUSTA);
+                            Time.timeScale = 1;
+                            },
                         _cbOnDone: () => machineListen.canBypassAuthorize = true
                     );
     }

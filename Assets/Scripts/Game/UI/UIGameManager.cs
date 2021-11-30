@@ -166,5 +166,14 @@ namespace Aljava.Game
             GameManager.LoadLevel(GameController.LevelBase);
         }
         #endregion
+
+        #region Canvas Ordering
+
+        public void setOrdering()
+        {
+
+        }
+
+        #endregion
     }
 }
