@@ -255,6 +255,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 279231277}
+        m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: Btn_SFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &21966483
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,9 +397,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7098620260831191444}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 279231277}
+        m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: Btn_SFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2613,8 +2625,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 279231277}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: Btn_About
+        m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: Btn_SFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2624,9 +2636,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 279231277}
+        m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: Btn_About
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2759,6 +2771,18 @@ MonoBehaviour:
       - m_Target: {fileID: 279231277}
         m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
         m_MethodName: Btn_MenuList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 279231277}
+        m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: Btn_SFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3954,6 +3978,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 279231277}
+        m_TargetAssemblyTypeName: Aljava.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: Btn_SFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1983828638
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,11 +4577,6 @@ PrefabInstance:
       objectReference: {fileID: 24100000, guid: ba59eb5d1b85e244697b16349ab67fe5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f590896794f04e58afc8dd4860ede9d, type: 3}
---- !u!82 &7098620260831191444 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1805880226722613303, guid: 2f590896794f04e58afc8dd4860ede9d, type: 3}
-  m_PrefabInstance: {fileID: 5740507037337771015}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9022198972740857809
 PrefabInstance:
   m_ObjectHideFlags: 0

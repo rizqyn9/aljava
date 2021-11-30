@@ -79,7 +79,7 @@ namespace Aljava.MainMenu
 
         public void defaultCommand(bool _isActive, GameObject _go)
         {
-            LeanTween.moveY(_go.GetComponent<RectTransform>(), _isActive ? 0 : settingOffsetY, 1f)
+            LeanTween.moveY(_go.GetComponent<RectTransform>(), _isActive ? 0 : settingOffsetY, .5f)
                 .setOnComplete(() => {
                     if (!_isActive)
                     {
@@ -105,6 +105,11 @@ namespace Aljava.MainMenu
             if (isMenuList) Btn_MenuList();
             if (isUpgrade) Btn_Upgrade();
             if (isAbout) Btn_About();
+        }
+
+        public void Btn_SFX()
+        {
+            SoundManager.PlaySound(SoundManager.Instance.ButtonSFX);
         }
 
         public void InstaLink()
