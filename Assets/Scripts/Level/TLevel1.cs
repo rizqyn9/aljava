@@ -11,13 +11,6 @@ namespace Aljava.Game
         {
             base.init();
             Debug.LogWarning("Tutorial mode");
-            listAction = new List<Action>()
-            {
-                dialogFirst,
-                dialogSecond,
-                dialogThird,
-                dialogFourth
-            };
             StartCoroutine(IStartGame());
         }
 
@@ -29,13 +22,10 @@ namespace Aljava.Game
 
             GameController.GameState = GameState.BEFORE_START;
 
-            //foreach(Action action in listAction)
-            //{
-            //    StartCoroutine(IBaseListener(action));
-            //    yield return new WaitUntil(() => canNext);
-            //}
-
+            introGameTask1();
+            yield return new WaitUntil(() => canNext);
             Time.timeScale = 1;
+
 
             yield return new WaitForSeconds(GameController.GameProperties.delayStart);
 
@@ -46,6 +36,34 @@ namespace Aljava.Game
             miniGameTask1();
             yield break;
         }
+
+        void introGameTask1() =>
+            TaskCoroutine(
+                () => converse.showDialog("Disini kamu akan melayani pelanggan yang datang ke Cafe ini", false),
+                () => converse.isNextClicked,
+                introGameTask2
+                );
+
+        void introGameTask2() =>
+            TaskCoroutine(
+                () => converse.showDialog("Jumlah pelanggan yang harus kamu layani dapat kamu lihat pada ikon diatas ini", false),
+                () => converse.isNextClicked,
+                introGameTask3
+                );
+
+        void introGameTask3() =>
+            TaskCoroutine(
+                () => converse.showDialog("Kamu dapat melihat sisa jam kerja mu disini", false),
+                () => converse.isNextClicked,
+                introGameTask4
+                );
+
+        void introGameTask4() =>
+            TaskCoroutine(
+                () => converse.showDialog("Pastikan kamu melayani semua pelanggan sebelum waktu kerjamu habis", true),
+                () => converse.isNextClicked,
+                () => canNext = true
+                );
 
         void miniGameTask1() =>
             TaskCoroutine(
@@ -68,22 +86,6 @@ namespace Aljava.Game
                     () => { print("Mantap"); }
                 );
 
-        void dialogFirst() =>
-            UIGameManager.Converse
-                .showDialog("Disini kamu akan melayani pelanggan yang datang ke Cafe ini", false);
-
-        void dialogSecond() =>
-            UIGameManager.Converse
-                .showDialog("Jumlah pelanggan yang harus kamu layani dapat kamu lihat pada ikon diatas ini", false);
-
-        void dialogThird() =>
-            UIGameManager.Converse
-                .showDialog("Kamu dapat melihat sisa jam kerja mu disini", false);
-
-        void dialogFourth() =>
-            UIGameManager.Converse
-                .showDialog("pastikan kamu melayani semua pelanggan sebelum waktu kerjamu habis", true);
-
         void dialogFifth() =>
             UIGameManager.Converse
                 .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", false);
@@ -98,7 +100,7 @@ namespace Aljava.Game
                     (
                         "cobalah tekan mesin grinder",
                         true,
-                        _showNextBtn: false,
+                        _showNextBtn: true,
                         _cbOnStart: () => {
                             listenMachine(MachineIgrendient.BEANS_ROBUSTA);
                             Time.timeScale = 1;

@@ -55,7 +55,11 @@ namespace Aljava.Game
             _cbOnStart?.Invoke();
 
             animateChar(true)
-                .setOnStart(() => dialogContainer.SetActive(true))
+                .setOnStart(() =>
+                {
+                    character.SetActive(true);
+                    dialogContainer.SetActive(true);
+                })
                 .setOnComplete(() =>
                         animateDialog(true)
                             .setOnStart(() => StartCoroutine(ITextRender(_text, _showNextBtn, _cbOnDone)))

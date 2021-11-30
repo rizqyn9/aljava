@@ -15,6 +15,7 @@ namespace Aljava.Game
     public abstract class Tutorial : MonoBehaviour
     {
         public LevelBase levelBase;
+        public Converse converse => UIGameManager.Converse;
         public List<Action> listAction;
 
         public bool canNext = false;
@@ -41,13 +42,15 @@ namespace Aljava.Game
             yield break;
         }
 
-        public void TaskCoroutine(Action _task, Func<bool> waitUntil, Action _success) => StartCoroutine(ITask(_task, waitUntil, _success));
+        //public 
 
-        public IEnumerator ITask(Action _task, Func<bool> waitUntil, Action _success)
+        public void TaskCoroutine(Action _task, Func<bool> waitUntil, Action _success = null) => StartCoroutine(ITask(_task, waitUntil, _success));
+
+        public IEnumerator ITask(Action _task, Func<bool> waitUntil, Action _success = null)
         {
             _task();
             yield return new WaitUntil(waitUntil);
-            _success();
+            _success?.Invoke();
         }
 
         public virtual void handleTaskClear()
