@@ -58,7 +58,7 @@ namespace Aljava.Game
             Debug.Log("Task Succeded");
         }
 
-        public void listenMachine(MachineIgrendient _machineType)
+        public void getListenMachine(MachineIgrendient _machineType)
         {
             machineListen = null;
             machineListen = EnvManager.MachineManager.machines.Find(val => val.machineType == _machineType);
