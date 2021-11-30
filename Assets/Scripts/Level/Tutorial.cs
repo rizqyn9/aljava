@@ -43,6 +43,15 @@ namespace Aljava.Game
             yield break;
         }
 
+        public void TaskCoroutine(Action _task, Func<bool> waitUntil, Action _success) => StartCoroutine(ITask(_task, waitUntil, _success));
+
+        public IEnumerator ITask(Action _task, Func<bool> waitUntil, Action _success)
+        {
+            _task();
+            yield return new WaitUntil(waitUntil);
+            _success();
+        }
+
         public virtual void handleTaskClear()
         {
             Debug.Log("Task Succeded");

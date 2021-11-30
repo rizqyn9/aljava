@@ -29,11 +29,11 @@ namespace Aljava.Game
 
             GameController.GameState = GameState.BEFORE_START;
 
-            foreach(Action action in listAction)
-            {
-                StartCoroutine(IBaseListener(action));
-                yield return new WaitUntil(() => canNext);
-            }
+            //foreach(Action action in listAction)
+            //{
+            //    StartCoroutine(IBaseListener(action));
+            //    yield return new WaitUntil(() => canNext);
+            //}
 
             Time.timeScale = 1;
 
@@ -41,7 +41,9 @@ namespace Aljava.Game
 
             GameController.GameState = GameState.START;
 
-            StartCoroutine(taskMachineOverlay());
+            //StartCoroutine(taskMachineOverlay());
+
+            tutorialMiniGame();
             yield break;
         }
 
@@ -61,17 +63,29 @@ namespace Aljava.Game
             UIGameManager.Converse
                 .showDialog("pastikan kamu melayani semua pelanggan sebelum waktu kerjamu habis", true);
 
-        IEnumerator taskMachineOverlay()
+        public void tutorialMiniGame() =>
+            TaskCoroutine(
+                    dialogFifth,
+                    () => UIGameManager.Converse.isNextClicked,
+                    () => { }
+                );
+
+        public void Task2()
         {
-            canNext = false;
-            yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay);
-            yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay.machine.machineBase.machineType == MachineIgrendient.BEANS_ROBUSTA);
-            dialogFifth();
-            canNext = true;
+
         }
+
+        //IEnumerator taskMachineOverlay()
+        //{
+        //    canNext = false;
+        //    yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay);
+        //    yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay.machine.machineBase.machineType == MachineIgrendient.BEANS_ROBUSTA);
+        //    dialogFifth();
+        //    canNext = true;
+        //}
 
         public void dialogFifth() =>
             UIGameManager.Converse
-            .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", true);
+                .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", false);
     }
 }

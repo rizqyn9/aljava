@@ -37,6 +37,8 @@ namespace Aljava.Game
             isLastDialog = _isLastDialog;
             if (_bindNextButton != null) bindNextButton = _bindNextButton;
 
+            isNextClicked = true;
+
             dialogIsActive = true;
             Time.timeScale = 0;
             nextBtn.gameObject.SetActive(false);
@@ -66,6 +68,7 @@ namespace Aljava.Game
         public bool isNext = false;
         Action bindNextButton;
 
+        public bool isNextClicked = false;
         public void Btn_Next()
         {
             if (isLastDialog) closeDialog();
@@ -73,7 +76,8 @@ namespace Aljava.Game
             {
                 text.text = "";
             }
-            GameController.Tutorial.tutorialState = TutorialState.RESOLVE;
+            //GameController.Tutorial.tutorialState = TutorialState.RESOLVE;
+            isNextClicked = true;
             nextBtn.gameObject.SetActive(false);
         }
 
