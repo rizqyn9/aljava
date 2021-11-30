@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Aljava.MainMenu
 {
     public class MainMenuController : Singleton<MainMenuController>
@@ -119,5 +120,12 @@ namespace Aljava.MainMenu
         {
             Application.OpenURL("https://www.google.com/maps/place/Aljava+Cafe/@-6.8079354,110.8404192,15z/data=!4m5!3m4!1s0x0:0x695b061a6027cab2!8m2!3d-6.8080939!4d110.8403623");
         }
+
+        public Slider musicSlider, volumeSlider;
+
+        public void SetMusicVolume(Slider slider) =>
+            SoundManager.Instance.changeVolume(slider.value, SoundManager.AudioTarget.BGM);
+
+        public void setSFXVolume(Slider slider) => SoundManager.Instance.changeVolume(slider.value, SoundManager.AudioTarget.SFX);
     }
 }
