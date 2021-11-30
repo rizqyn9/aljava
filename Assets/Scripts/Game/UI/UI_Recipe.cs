@@ -33,7 +33,6 @@ namespace Aljava.Game
             isActive = !isActive;
         }
 
-
         /// <summary>
         /// Render Menu list
         /// Do foreach 

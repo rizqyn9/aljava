@@ -145,12 +145,15 @@ namespace Aljava.Game
         public GlassRegistered glassTarget;
         public Machine machineTarget;
         public bool isInteractable = false;
-        public bool canBypassAuthorize = false;
         //BUG code:1
         [SerializeField] int bruteForce;
         public virtual void OnMouseDown()
         {
-            if (canBypassAuthorize) { }
+            if (GameController.IsTutorial)
+            {
+                if (GameController.Tutorial.machineAuthorized != machineType) return;
+                if (isHighlighted) removeHightLight();
+            }
             else
             {
                 if (!isInteractable) return;
@@ -173,8 +176,6 @@ namespace Aljava.Game
             if (machineState == MachineState.ON_DONE || machineState == MachineState.ON_OVERCOOK)
                 OnValidateMachineDone();
             if (machineState == MachineState.ON_NEEDREPAIR) machineState = MachineState.ON_REPAIR;
-
-            canBypassAuthorize = false; // reset
         }
 
         public virtual void OnValidateMachineDone() { }
@@ -372,7 +373,7 @@ namespace Aljava.Game
         public virtual void removeHightLight()
         {
             isHighlighted = false;
-            sprite.sortingLayerID = 0;
+            sprite.sortingLayerName = "Machine";
             sprite.sortingOrder = 0;
             LeanTween.cancel(animId);
             sprite.gameObject.transform.localScale = new Vector2(1, 1);

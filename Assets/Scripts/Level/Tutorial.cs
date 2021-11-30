@@ -20,6 +20,7 @@ namespace Aljava.Game
 
         public bool canNext = false;
         public Machine machineListen = null;
+        public MachineIgrendient machineAuthorized;
 
         public virtual void init()
         {

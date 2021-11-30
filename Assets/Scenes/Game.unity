@@ -1774,6 +1774,7 @@ MonoBehaviour:
   character: {fileID: 313960535}
   dialogIsActive: 0
   isLastDialog: 1
+  usePaused: 0
   isNext: 0
   isNextClicked: 0
 --- !u!223 &536194022
@@ -1794,8 +1795,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -2068510291
-  m_SortingOrder: 7
+  m_SortingLayerID: -506290755
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &536194023
 MonoBehaviour:
@@ -1813,7 +1814,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 32
 --- !u!1 &572045970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4994,7 +4995,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: -2068510291
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!1 &1496816325
 GameObject:

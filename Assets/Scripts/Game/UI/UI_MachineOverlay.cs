@@ -20,10 +20,12 @@ namespace Aljava.Game
         {
             machine = _machine;
             container = _container;
+            gameObject.SetActive(false);
         }
 
         public void spawn()
         {
+            gameObject.SetActive(true);
             isMiniGameSuccess = false;
             LeanTween.moveY(container.GetComponent<RectTransform>(), 0, .5f)
                 .setOnStart(() => gameObject.SetActive(true))
@@ -49,6 +51,7 @@ namespace Aljava.Game
                 .setIgnoreTimeScale(true);
 
             UIGameManager.MachineManager.activeMachineOverlay = null;
+            gameObject.SetActive(false);
         }
 
         public void Btn_True()

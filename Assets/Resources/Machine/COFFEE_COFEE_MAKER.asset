@@ -23,8 +23,8 @@ MonoBehaviour:
     igrendient: 3
     sprite: {fileID: 0}
     color: {r: 0.7169812, g: 0.41482657, b: 0.21306516, a: 1}
-  isUseMachineOverlay: 0
-  prefabUIOverlay: {fileID: 1333638251850023474, guid: b8c2f8612169e4e9a8a7569ea0cdd614, type: 3}
+  isUseMachineOverlay: 1
+  prefabUIOverlay: {fileID: 3961756690805038863, guid: 350121ce6fd13480db1bbf42548a6d04, type: 3}
   isUseProcessUI: 1
   isUseOverCook: 1
   isUseBarCapacity: 0

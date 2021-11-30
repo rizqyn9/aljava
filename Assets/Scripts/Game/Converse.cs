@@ -14,8 +14,11 @@ namespace Aljava.Game
         public float offsetChar, offsetDialog;
         public GameObject dialogContainer, character;
 
-        public void init()
+        GraphicRaycaster raycast;
+        private void OnEnable()
         {
+            raycast = gameObject.GetComponent<GraphicRaycaster>();
+            raycast.enabled = false;
         }
 
         LTDescr animateChar(bool setActive) =>
@@ -112,7 +115,7 @@ namespace Aljava.Game
             yield return null;
 
             _cb?.Invoke();
-
+            raycast.enabled = _showNextBtn;
             nextBtn.gameObject.SetActive(_showNextBtn);
         }
     }

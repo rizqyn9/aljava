@@ -19,7 +19,7 @@ namespace Aljava.Game
             menuBase = _menuBase;
 
             menuImage.sprite = _menuBase.menuSprite;
-
+            menuTitle.text = menuBase.menuName;
             for(int i = 0; i < steps.Count; i++)
             {
                 

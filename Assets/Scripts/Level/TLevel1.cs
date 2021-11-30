@@ -127,7 +127,7 @@ namespace Aljava.Game
                             true,
                             _showNextBtn: true,
                             _cbOnStart: () => getListenMachine(MachineIgrendient.BEANS_ROBUSTA),
-                            _cbOnDone: () => machineListen.canBypassAuthorize = true
+                            _cbOnDone: () => machineAuthorized = MachineIgrendient.BEANS_ROBUSTA
                         ),
                     () => converse.isNextClicked,
                     miniGameTask4
@@ -143,7 +143,7 @@ namespace Aljava.Game
 
         void miniGameTask5() =>
             TaskCoroutine(
-                    () => converse.showDialog("Press the button 'fill beans' to fill the coffee beans on to the grinder", false),
+                    () => converse.showDialog("Press the button 'fill beans' to fill the coffee beans on to the grinder", true),
                     () => machineListen.machineOverlay.isOverlayResolve,
                     miniGameTask6
                     );
@@ -158,7 +158,12 @@ namespace Aljava.Game
         // Highlight Coffee Maker
         void miniGameTask7() =>
             TaskCoroutine(
-                    () => converse.showDialog("Now is the time to set the coffee machine, press the coffee machine", true),
+                    () => converse.showDialog(
+                        "Now is the time to set the coffee machine, press the coffee machine",
+                        true,
+                        _cbOnStart: () => getListenMachine(MachineIgrendient.COFEE_MAKER),
+                        _cbOnDone: () => machineAuthorized = MachineIgrendient.COFEE_MAKER
+                        ),
                     () => machineListen.machineOverlay.isMiniGameSuccess,
                     miniGameTask8
                 );
