@@ -17,9 +17,14 @@ namespace Aljava.Game
         [SerializeField] UI_Lose lose;
         [SerializeField] TMP_Text count, topNavText;
         [SerializeField] Button pauseBtn;
-        [SerializeField] GameObject noClickArea, pauseContainer, TopBar;
         [SerializeField] List<CanvasGroup> canvasGroups;
         [SerializeField] Converse converse;
+        public GameObject
+            noClickArea,
+            pauseContainer,
+            TopBar,
+            timerCount,
+            customerCount;
 
         // Accessor
         public static UIMachineManager MachineManager => Instance.machineManager;
@@ -171,6 +176,35 @@ namespace Aljava.Game
 
         public void setOrdering()
         {
+
+        }
+
+        #endregion
+
+        #region HightLight
+        int anim = 0;
+        public void setHightLight(GameObject go)
+        {
+            anim = 0;
+            noClickArea.SetActive(true);
+            Canvas a = go.AddComponent<Canvas>();
+            a.overrideSorting = true;
+            a.sortingLayerName = "UI";
+            a.sortingOrder = 7;
+            anim = LeanTween
+                .scale(go.GetComponent<RectTransform>(), new Vector2(1.1f, 1), .5f)
+                .setLoopPingPong()
+                .setIgnoreTimeScale(true)
+                .id;
+        }
+
+        public void removeHightLight(GameObject go)
+        {
+            go.GetComponent<Canvas>().overrideSorting = false;
+            noClickArea.SetActive(false);
+            LeanTween.cancel(anim);
+            go.GetComponent<RectTransform>().localScale = new Vector2(1, 1);
+
 
         }
 

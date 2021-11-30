@@ -1474,9 +1474,8 @@ RectTransform:
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children:
   - {fileID: 331130746}
-  - {fileID: 1309480011}
-  - {fileID: 618917967}
   - {fileID: 1787878351}
+  - {fileID: 1496816326}
   m_Father: {fileID: 1612906349}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2223,12 +2222,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 390701643}
-  m_RootOrder: 2
+  m_Father: {fileID: 1496816326}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 14.4921875, y: -0.71998596}
+  m_AnchoredPosition: {x: 14.4921875, y: 174.28003}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &642892162
@@ -3995,16 +3994,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309480010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 390701643}
-  m_RootOrder: 1
+  m_Father: {fileID: 1496816326}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -42.578125, y: -1.0899658}
+  m_AnchoredPosition: {x: -42.578125, y: 173.91003}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1309480012
@@ -4997,6 +4996,43 @@ Canvas:
   m_SortingLayerID: -2068510291
   m_SortingOrder: 5
   m_TargetDisplay: 0
+--- !u!1 &1496816325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496816326}
+  m_Layer: 5
+  m_Name: --clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1496816326
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496816325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1309480011}
+  - {fileID: 618917967}
+  m_Father: {fileID: 390701643}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1502572375
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,14 +5729,16 @@ MonoBehaviour:
   count: {fileID: 618917965}
   topNavText: {fileID: 1437104612}
   pauseBtn: {fileID: 270167939}
-  noClickArea: {fileID: 1102585652}
-  pauseContainer: {fileID: 1827482118}
-  TopBar: {fileID: 390701642}
   canvasGroups:
   - {fileID: 426841320}
   - {fileID: 889261552}
   - {fileID: 888045897}
   converse: {fileID: 536194021}
+  noClickArea: {fileID: 1102585652}
+  pauseContainer: {fileID: 1827482118}
+  TopBar: {fileID: 390701642}
+  timerCount: {fileID: 1496816325}
+  customerCount: {fileID: 1787878350}
   isActiveUI: 0
   timerIsRunning: 0
   _countDown: 0
@@ -6167,7 +6205,7 @@ RectTransform:
   - {fileID: 51465814}
   - {fileID: 1437104610}
   m_Father: {fileID: 390701643}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

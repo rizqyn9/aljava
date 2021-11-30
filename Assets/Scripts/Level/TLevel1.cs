@@ -22,21 +22,20 @@ namespace Aljava.Game
 
             GameController.GameState = GameState.BEFORE_START;
 
-            introGameTask1();
-            yield return new WaitUntil(() => canNext);
+            //introGameTask1();
+            //yield return new WaitUntil(() => canNext);
 
             Time.timeScale = 1;
 
             yield return new WaitForSeconds(GameController.GameProperties.delayStart);
-
             GameController.GameState = GameState.START;
 
             Time.timeScale = 0;
             baseMechanic1();
             yield return new WaitUntil(() => canNext);
 
-            miniGameTask1();
-            yield break;
+            //miniGameTask1();
+            //yield break;
         }
 
         #region Intro
@@ -66,10 +65,16 @@ namespace Aljava.Game
         // HightLight Customer Target
         void baseMechanic2() =>
             TaskCoroutine(
-                () => converse.showDialog("The number of customers you have to serve you can see on the icon at the top of your ", false),
+                () => {
+                    converse.showDialog("The number of customers you have to serve you can see on the icon at the top of your ", false);
+                    UIGameManager.Instance.setHightLight(UIGameManager.Instance.customerCount);
+                    },
                 () => converse.isNextClicked,
-                baseMechanic3
-                );
+                () =>
+                {
+                    baseMechanic3();
+                    UIGameManager.Instance.removeHightLight(UIGameManager.Instance.customerCount);
+                });
 
         void baseMechanic3() =>
             TaskCoroutine(
@@ -81,14 +86,19 @@ namespace Aljava.Game
         // HightLight Timer
         void baseMechanic4() =>
             TaskCoroutine(
-                () => converse.showDialog("You can see your remaining working time here", false),
+                () => {
+                    converse.showDialog("You can see your remaining working time here", false);
+                    UIGameManager.Instance.setHightLight(UIGameManager.Instance.timerCount);
+                },
                 () => converse.isNextClicked,
-                baseMechanic5
-                );
+                () => {
+                    baseMechanic5();
+                    UIGameManager.Instance.removeHightLight(UIGameManager.Instance.timerCount);
+                });
 
         void baseMechanic5() =>
             TaskCoroutine(
-                () => converse.showDialog("Make sure you serve all customers before your working time runs out", false),
+                () => converse.showDialog("Make sure you serve all customers before your working time runs out", true),
                 () => converse.isNextClicked,
                 () => canNext = true
                 );
