@@ -68,14 +68,14 @@ namespace Aljava.Game
 
         void miniGameTask1() =>
             TaskCoroutine(
-                    dialog5,
+                    () => converse.showDialog("Setiap harinya kamu harus mengatur MESIN GRINDER dan juga MESIN COFFEE MAKER", false),
                     () => converse.isNextClicked,
                     miniGameTask2
                 );
 
         void miniGameTask2() =>
             TaskCoroutine(
-                    dialog6,
+                    () => converse.showDialog("Setiap harinya kamu harus mengatur MESIN GRINDER dan juga MESIN COFFEE MAKER", false),
                     () => converse.isNextClicked,
                     miniGameTask3
                 );
@@ -87,27 +87,11 @@ namespace Aljava.Game
                     miniGameTask4
                 );
 
-        // Listen Machine open overlay
-        void miniGameTask4() =>
-            TaskCoroutine(
-                    () => machineListen.showHightLight(),
-                    () => machineListen.machineOverlay.isInteractable,
-                    () => { print("Mantap"); }
-                );
-
-        void dialog5() =>
-            UIGameManager.Converse
-                .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", false);
-
-        void dialog6() =>
-            UIGameManager.Converse
-                .showDialog("Setiap harinya kamu harus mengatur MESIN GRINDER dan juga MESIN COFFEE MAKER", false);
-
         void dialog7() =>
             UIGameManager.Converse
                 .showDialog
                     (
-                        "cobalah tekan mesin grinder",
+                        "Cobalah tekan mesin grinder",
                         true,
                         _showNextBtn: true,
                         _cbOnStart: () => {
@@ -116,5 +100,28 @@ namespace Aljava.Game
                             },
                         _cbOnDone: () => machineListen.canBypassAuthorize = true
                     );
+
+        // Listen Machine open overlay
+        void miniGameTask4() =>
+            TaskCoroutine(
+                    () => machineListen.showHightLight(),
+                    () => machineListen.machineOverlay.isInteractable,
+                    miniGameTask5
+                );
+
+        void miniGameTask5() =>
+            TaskCoroutine(
+                    () => converse.showDialog("tekan tombol 'ISI BEANS' untuk melakukan pengisian biji kopi pada grinder", true),
+                    () => machineListen.machineOverlay.isOverlayResolve,
+                    miniGameTask6
+                    );
+
+        void miniGameTask6() =>
+            TaskCoroutine(
+                    () => converse.showDialog("tekan tombol 'ISI BEANS' untuk melakukan pengisian biji kopi pada grinder", true),
+                    () => machineListen.machineOverlay.isMiniGameSuccess,
+                    () => { }
+                );
+
     }
 }

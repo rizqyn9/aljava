@@ -14,6 +14,7 @@ namespace Aljava.Game
         [SerializeField] GameObject container;
         public bool isInteractable = false;
         public bool isOverlayResolve = false;
+        public bool isMiniGameSuccess = false;
 
         public void init(Machine _machine, GameObject _container)
         {
@@ -23,13 +24,16 @@ namespace Aljava.Game
 
         public void spawn()
         {
+            isMiniGameSuccess = false;
             LeanTween.moveY(container.GetComponent<RectTransform>(), 0, .5f)
                 .setOnStart(() => gameObject.SetActive(true))
                 .setOnComplete(() =>
                 {
                     UIGameManager.Instance.noClickSetActive(true);
                     isInteractable = true;
-                });
+                })
+                .setIgnoreTimeScale(true);
+
             UIGameManager.MachineManager.activeMachineOverlay = this;
         }
 
@@ -41,20 +45,26 @@ namespace Aljava.Game
                     UIGameManager.Instance.noClickSetActive(false);
                     isInteractable = false;
                 })
-                .setOnComplete(() => gameObject.SetActive(false));
+                .setOnComplete(() => gameObject.SetActive(false))
+                .setIgnoreTimeScale(true);
 
             UIGameManager.MachineManager.activeMachineOverlay = null;
         }
 
         public void Btn_True()
         {
-            hide();
             isOverlayResolve = true;
         }
 
         public void Btn_False()
         {
             isOverlayResolve = false;
+        }
+
+        public void Btn_Resolve()
+        {
+            isMiniGameSuccess = true;
+            hide();
         }
     }
 }

@@ -16,8 +16,8 @@ MonoBehaviour:
   isTutorialLevel: 0
   tutorialPrefabs: {fileID: 0}
   level: 1
-  MenuClassifications: 000000000400000001000000
-  MenuTypeUnlock: 0402050607
+  MenuClassifications: 0000000004000000
+  MenuTypeUnlock: 02
   BuyerTypeUnlock: 0100000000000000
   delayPerCustomer: 15
   healthTotal: 3
