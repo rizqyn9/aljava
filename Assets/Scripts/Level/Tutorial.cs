@@ -18,10 +18,8 @@ namespace Aljava.Game
         public List<Action> listAction;
 
         public bool canNext = false;
+        public Machine machineListen = null;
 
-        /**
-         * Customer come and order menu 
-         */
         public virtual void init()
         {
 
@@ -55,6 +53,12 @@ namespace Aljava.Game
         public virtual void handleTaskClear()
         {
             Debug.Log("Task Succeded");
+        }
+
+        public void listenMachine(MachineIgrendient _machineType)
+        {
+            machineListen = null;
+            machineListen = EnvManager.MachineManager.machines.Find(val => val.machineType == _machineType);
         }
     }
 }

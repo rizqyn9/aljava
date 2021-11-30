@@ -43,37 +43,30 @@ namespace Aljava.Game
 
             //StartCoroutine(taskMachineOverlay());
 
-            tutorialMiniGame();
+            miniGameTask1();
             yield break;
         }
 
-        public void dialogFirst() =>
-            UIGameManager.Converse
-                .showDialog("Disini kamu akan melayani pelanggan yang datang ke Cafe ini", false);
-
-        public void dialogSecond() =>
-            UIGameManager.Converse
-                .showDialog("Jumlah pelanggan yang harus kamu layani dapat kamu lihat pada ikon diatas ini", false);
-
-        public void dialogThird() =>
-            UIGameManager.Converse
-                .showDialog("Kamu dapat melihat sisa jam kerja mu disini", false);
-
-        public void dialogFourth() =>
-            UIGameManager.Converse
-                .showDialog("pastikan kamu melayani semua pelanggan sebelum waktu kerjamu habis", true);
-
-        public void tutorialMiniGame() =>
+        void miniGameTask1() =>
             TaskCoroutine(
                     dialogFifth,
                     () => UIGameManager.Converse.isNextClicked,
-                    () => { }
+                    miniGameTask2
                 );
 
-        public void Task2()
-        {
+        void miniGameTask2() =>
+            TaskCoroutine(
+                    dialogSixth,
+                    () => UIGameManager.Converse.isNextClicked,
+                    miniGameTask3
+                );
 
-        }
+        void miniGameTask3() =>
+            TaskCoroutine(
+                    dialogSeventh,
+                    () => machineListen.machineState == MachineState.ON_PROCESS,
+                    () => { print("Mantap"); }
+                );
 
         //IEnumerator taskMachineOverlay()
         //{
@@ -84,8 +77,39 @@ namespace Aljava.Game
         //    canNext = true;
         //}
 
-        public void dialogFifth() =>
+        void dialogFirst() =>
+            UIGameManager.Converse
+                .showDialog("Disini kamu akan melayani pelanggan yang datang ke Cafe ini", false);
+
+        void dialogSecond() =>
+            UIGameManager.Converse
+                .showDialog("Jumlah pelanggan yang harus kamu layani dapat kamu lihat pada ikon diatas ini", false);
+
+        void dialogThird() =>
+            UIGameManager.Converse
+                .showDialog("Kamu dapat melihat sisa jam kerja mu disini", false);
+
+        void dialogFourth() =>
+            UIGameManager.Converse
+                .showDialog("pastikan kamu melayani semua pelanggan sebelum waktu kerjamu habis", true);
+
+        void dialogFifth() =>
             UIGameManager.Converse
                 .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", false);
+
+        void dialogSixth() =>
+            UIGameManager.Converse
+                .showDialog("Setiap harinya kamu harus mengatur MESIN GRINDER dan juga MESIN COFFEE MAKER", false);
+
+        void dialogSeventh() =>
+            UIGameManager.Converse
+                .showDialog
+                    (
+                        "cobalah tekan mesin grinder",
+                        true,
+                        _showNextBtn: false,
+                        _cbOnStart: () => listenMachine(MachineIgrendient.BEANS_ROBUSTA),
+                        _cbOnDone: () => machineListen.canBypassAuthorize = true
+                    );
     }
 }

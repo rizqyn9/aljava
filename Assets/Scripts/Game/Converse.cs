@@ -32,22 +32,33 @@ namespace Aljava.Game
 
         public bool dialogIsActive = false;
         public bool isLastDialog = true;
-        public void showDialog(string _text, bool _isLastDialog = true, Action _bindNextButton = null)
+
+        public void showDialog
+            (
+                string _text,
+                bool _isLastDialog = true,
+                Action _bindNextButton = null,
+                bool _showNextBtn = true,
+                Action _cbOnDone = null,
+                Action _cbOnStart = null
+            )
         {
             isLastDialog = _isLastDialog;
             if (_bindNextButton != null) bindNextButton = _bindNextButton;
 
-            isNextClicked = true;
+            isNextClicked = false;
 
             dialogIsActive = true;
             Time.timeScale = 0;
             nextBtn.gameObject.SetActive(false);
-            
+
+            _cbOnStart?.Invoke();
+
             animateChar(true)
                 .setOnStart(() => dialogContainer.SetActive(true))
                 .setOnComplete(() =>
                         animateDialog(true)
-                            .setOnStart(() => StartCoroutine(ITextRender(_text)))
+                            .setOnStart(() => StartCoroutine(ITextRender(_text, _showNextBtn, _cbOnDone)))
                     );
         }
 
@@ -81,15 +92,20 @@ namespace Aljava.Game
             nextBtn.gameObject.SetActive(false);
         }
 
-        IEnumerator ITextRender(string _text)
+        IEnumerator ITextRender(string _text, bool _showNextBtn, Action _cb)
         {
             text.text = "";
-            foreach(char letter in _text.ToCharArray())
+            foreach (char letter in _text.ToCharArray())
             {
                 text.text += letter;
                 yield return null;
             }
-            nextBtn.gameObject.SetActive(true);
+            //text.text = _text;
+            //yield return null;
+
+            _cb?.Invoke();
+
+            nextBtn.gameObject.SetActive(_showNextBtn);
         }
     }
 }

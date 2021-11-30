@@ -19,6 +19,7 @@ namespace Aljava.Game
         #region Accessor
         public static Trash Trash => Instance.trash;
         public static GlassManager GlassManager => Instance.glassManager;
+        public static MachineManager MachineManager => Instance.machineManager;
         public static List<MachineBase> ListMachines => Instance.listMachines;
         public static List<MenuBase> ListMenus => Instance.listMenus;
         public static List<BuyerBase> ListBuyers => Instance.listBuyers;

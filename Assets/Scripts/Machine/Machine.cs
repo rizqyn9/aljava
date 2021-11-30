@@ -145,13 +145,18 @@ namespace Aljava.Game
         public GlassRegistered glassTarget;
         public Machine machineTarget;
         public bool isInteractable = false;
+        public bool canBypassAuthorize = false;
         //BUG code:1
         [SerializeField] int bruteForce;
         public virtual void OnMouseDown()
         {
-            if (!isInteractable) return;
-            if (UIGameManager.IsActiveUI) return;
-            bruteForce += 1;
+            if (canBypassAuthorize) { }
+            else
+            {
+                if (!isInteractable) return;
+                if (UIGameManager.IsActiveUI) return;
+                bruteForce += 1;
+            }
 
             if (machineBase.isUseMachineOverlay)
             {
@@ -167,6 +172,8 @@ namespace Aljava.Game
             if (machineState == MachineState.ON_DONE || machineState == MachineState.ON_OVERCOOK)
                 OnValidateMachineDone();
             if (machineState == MachineState.ON_NEEDREPAIR) machineState = MachineState.ON_REPAIR;
+
+            canBypassAuthorize = false; // reset
         }
 
         public virtual void OnValidateMachineDone() { }
