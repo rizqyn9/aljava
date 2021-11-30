@@ -14,15 +14,33 @@ namespace Aljava.MainMenu
         public List<MenuBase> listMenuBases;
         public List<MenuBookItem> menuItems = new List<MenuBookItem>();
 
-        public void init()
+        public int statePage, count;
+
+        int setStatePage(bool isIncrement)
         {
-            listMenuBases = ResourceManager.ListMenus;
-            render(listMenuBases[0], listMenuBases[1]);
+            if (isIncrement) statePage += 1;
+            if (!isIncrement) statePage -= 1;
+
+            if (statePage >= count) statePage = 0;
+            if (statePage < 0) statePage = count-1;
+
+            return statePage;
         }
 
-        public List<MenuBookItem> rendered;
+        public void init()
+        {
+            rendered.Clear();
+            listMenuBases = ResourceManager.ListMenus;
+            count = listMenuBases.Count;
+            statePage = 0;
+            render(listMenuBases[statePage], listMenuBases[setStatePage(true)]);
+        }
+
+        public Queue<MenuBookItem> rendered = new Queue<MenuBookItem>();
         void render(MenuBase _left = null, MenuBase _right = null)
         {
+            foreach (MenuBookItem item in rendered) Destroy(item.gameObject);
+            rendered.Clear();
             if (_left) renderItem(leftPos, _left);
             if (_right) renderItem(rightPos, _right);
         }
@@ -31,16 +49,17 @@ namespace Aljava.MainMenu
         {
             MenuBookItem item = Instantiate(baseItem, pos).GetComponent<MenuBookItem>();
             item.init(_menu);
-            rendered.Add(item);
+            rendered.Enqueue(item);
         }
 
         public void Btn_Left()
         {
-
+            render(listMenuBases[setStatePage(false)], listMenuBases[setStatePage(false)]);
         }
 
         public void Btn_Right()
         {
+            render(listMenuBases[setStatePage(true)], listMenuBases[setStatePage(true)]);
 
         }
     }

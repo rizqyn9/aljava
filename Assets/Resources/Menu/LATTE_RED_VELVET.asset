@@ -21,3 +21,4 @@ MonoBehaviour:
   menuSprite: {fileID: 21300000, guid: b8cc20beaa347429a9bd29d9cf77eb1b, type: 3}
   pointInGame: 0
   price: 0
+  barMenus: []

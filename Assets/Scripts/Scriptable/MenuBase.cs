@@ -18,6 +18,7 @@ public class MenuBase : ScriptableObject
     public Sprite menuSprite;
     public int pointInGame;
     public int price;
+    public List<BarMenu> barMenus = new List<BarMenu>();
 }
 
 
