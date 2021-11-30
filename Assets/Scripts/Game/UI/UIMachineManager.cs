@@ -18,6 +18,7 @@ namespace Aljava.Game
         [Header("Debug")]
         public List<MachineProcess> machineProcesses = new List<MachineProcess>();
         public List<MachineCapacity> machineCapacities = new List<MachineCapacity>();
+        public UI_MachineOverlay activeMachineOverlay = null;
 
         public void instanceMachineProcess(Machine _machine, out MachineProcess machineProcess)
         {

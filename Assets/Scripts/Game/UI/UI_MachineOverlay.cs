@@ -10,8 +10,8 @@ namespace Aljava.Game
         public float offsetY = -400;
 
         [Header("Debug")]
+        public Machine machine;
         [SerializeField] GameObject container;
-        [SerializeField] Machine machine;
         [SerializeField] bool isInteractable = false;
         public bool isOverlayResolve = false;
 
@@ -23,7 +23,6 @@ namespace Aljava.Game
 
         public void spawn()
         {
-            print("Spawm");
             LeanTween.moveY(container.GetComponent<RectTransform>(), 0, .5f)
                 .setOnStart(() => gameObject.SetActive(true))
                 .setOnComplete(() =>
@@ -31,10 +30,11 @@ namespace Aljava.Game
                     UIGameManager.Instance.noClickSetActive(true);
                     isInteractable = true;
                 });
-
+            UIGameManager.MachineManager.activeMachineOverlay = this;
         }
 
-        public void hide() =>
+        public void hide()
+        {
             LeanTween.moveY(container.GetComponent<RectTransform>(), offsetY, .5f)
                 .setOnStart(() =>
                 {
@@ -42,6 +42,9 @@ namespace Aljava.Game
                     isInteractable = false;
                 })
                 .setOnComplete(() => gameObject.SetActive(false));
+
+            UIGameManager.MachineManager.activeMachineOverlay = null;
+        }
 
         public void Btn_True()
         {
@@ -51,7 +54,6 @@ namespace Aljava.Game
 
         public void Btn_False()
         {
-            Debug.LogWarning("False");
             isOverlayResolve = false;
         }
     }

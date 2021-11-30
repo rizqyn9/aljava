@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelTest
   m_EditorClassIdentifier: 
   isLevelTest: 1
-  isTutorialLevel: 0
+  isTutorialLevel: 1
   tutorialPrefabs: {fileID: 189894165454865582, guid: 4ca3991fad45b441cab46de83019d402, type: 3}
   level: 1
   MenuClassifications: 000000000400000001000000

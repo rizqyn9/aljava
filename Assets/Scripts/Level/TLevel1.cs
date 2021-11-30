@@ -40,6 +40,8 @@ namespace Aljava.Game
             yield return new WaitForSeconds(GameController.GameProperties.delayStart);
 
             GameController.GameState = GameState.START;
+
+            StartCoroutine(taskMachineOverlay());
             yield break;
         }
 
@@ -58,5 +60,18 @@ namespace Aljava.Game
         public void dialogFourth() =>
             UIGameManager.Converse
                 .showDialog("pastikan kamu melayani semua pelanggan sebelum waktu kerjamu habis", true);
+
+        IEnumerator taskMachineOverlay()
+        {
+            canNext = false;
+            yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay);
+            yield return new WaitUntil(() => UIGameManager.MachineManager.activeMachineOverlay.machine.machineBase.machineType == MachineIgrendient.BEANS_ROBUSTA);
+            dialogFifth();
+            canNext = true;
+        }
+
+        public void dialogFifth() =>
+            UIGameManager.Converse
+            .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", true);
     }
 }
