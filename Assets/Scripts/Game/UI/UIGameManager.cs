@@ -21,6 +21,7 @@ namespace Aljava.Game
         [SerializeField] List<CanvasGroup> canvasGroups;
         [SerializeField] Converse converse;
 
+        // Accessor
         public static UIMachineManager MachineManager => Instance.machineManager;
         public static UIBubblesManager BubblesManager => Instance.bubblesManager;
         public static UI_Recipe Recipe => Instance.recipe;

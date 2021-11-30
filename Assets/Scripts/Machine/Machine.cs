@@ -150,6 +150,7 @@ namespace Aljava.Game
         public virtual void OnMouseDown()
         {
             if (!isInteractable) return;
+            if (UIGameManager.IsActiveUI) return;
             bruteForce += 1;
 
             if (machineBase.isUseMachineOverlay)

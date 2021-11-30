@@ -10,6 +10,7 @@ namespace Aljava.Game
         [SerializeField] GameProperties gameProperties;
         [SerializeField] OrderController orderController;
         [SerializeField] RulesController rulesController;
+        [SerializeField] EnvManager envManager;
 
         [Header("Debug")]
         public LevelBase levelBase;
@@ -18,6 +19,7 @@ namespace Aljava.Game
 
         // Accessor
         public static bool IsTutorial => Instance.isTutorial;
+        public static EnvManager EnvManager => Instance.envManager;
         public static Tutorial Tutorial => Instance.tutorial;
         public static LevelBase LevelBase => Instance.levelBase;
         public static GameProperties GameProperties => Instance.gameProperties;
