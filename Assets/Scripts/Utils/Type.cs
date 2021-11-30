@@ -250,3 +250,9 @@ public struct MachineDependsType
     public MachineIgrendient machineType;
     public Transform gameObjectPosition;
 }
+
+interface IHightLight
+{
+    public void showHightLight();
+    public void hideHightLight();
+}

@@ -12,7 +12,7 @@ using UnityEditor;
 namespace Aljava.Game
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public abstract class Machine : MonoBehaviour
+    public abstract class Machine : MonoBehaviour, IHightLight
     {
         [Header("Animation State")]
         public string ANIM_EMPTY = "ANIM_EMPTY";
@@ -350,7 +350,15 @@ namespace Aljava.Game
                 foreach(SpriteRenderer go in prefabPlace.GetComponentsInChildren<SpriteRenderer>())
                     Destroy(go.gameObject);
         }
-#endregion
+        #endregion
+
+        #region Interface HightLight
+        public virtual void showHightLight()
+        {
+            print("me on hightlight");
+        }
+        public virtual void hideHightLight() { }
+        #endregion
     }
 }
 

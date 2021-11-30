@@ -22,8 +22,9 @@ namespace Aljava.Game
 
             GameController.GameState = GameState.BEFORE_START;
 
-            introGameTask1();
-            yield return new WaitUntil(() => canNext);
+            //introGameTask1();
+
+            //yield return new WaitUntil(() => canNext);
             Time.timeScale = 1;
 
 
@@ -67,34 +68,42 @@ namespace Aljava.Game
 
         void miniGameTask1() =>
             TaskCoroutine(
-                    dialogFifth,
-                    () => UIGameManager.Converse.isNextClicked,
+                    dialog5,
+                    () => converse.isNextClicked,
                     miniGameTask2
                 );
 
         void miniGameTask2() =>
             TaskCoroutine(
-                    dialogSixth,
-                    () => UIGameManager.Converse.isNextClicked,
+                    dialog6,
+                    () => converse.isNextClicked,
                     miniGameTask3
                 );
 
         void miniGameTask3() =>
             TaskCoroutine(
-                    dialogSeventh,
+                    dialog7,
+                    () => converse.isNextClicked,
+                    miniGameTask4
+                );
+
+        // Listen Machine open overlay
+        void miniGameTask4() =>
+            TaskCoroutine(
+                    () => machineListen.showHightLight(),
                     () => machineListen.machineOverlay.isInteractable,
                     () => { print("Mantap"); }
                 );
 
-        void dialogFifth() =>
+        void dialog5() =>
             UIGameManager.Converse
                 .showDialog("Sekarang aku akan memberitahumu bagaimana untuk mengoperasikan mesin yang ada disini", false);
 
-        void dialogSixth() =>
+        void dialog6() =>
             UIGameManager.Converse
                 .showDialog("Setiap harinya kamu harus mengatur MESIN GRINDER dan juga MESIN COFFEE MAKER", false);
 
-        void dialogSeventh() =>
+        void dialog7() =>
             UIGameManager.Converse
                 .showDialog
                     (
