@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,8 +52,13 @@ namespace Aljava.Game
 
         void patienceRunOut()
         {
+            StartCoroutine(simDelay());
+        }
+
+        IEnumerator simDelay()
+        {
+            yield return new WaitUntil(() => !customerHandler.isOnServe);
             customerHandler.OnPatienceRunOut();
-            UIGameManager.HealthManager.decrement();
         }
 
         private void OnDestroy()

@@ -19,6 +19,7 @@ namespace Aljava.Game
         public SpriteRenderer spriteRenderer;
         public UIBubbles bubbles;
         public UIPatience patience;
+        public bool isOnServe = false;
 
         public void init(BuyerPrototype _buyerPrototype)
         {
@@ -48,6 +49,8 @@ namespace Aljava.Game
 
             if (buyerPrototype.menuListNames.Count < 1)
                 allMenusDone();
+
+            isOnServe = false;
         }
 
         void allMenusDone()

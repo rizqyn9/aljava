@@ -27,6 +27,7 @@ namespace Aljava.Game
                 if(res = queue.menuListNames.Find(val => val.menuListName == _menu.menuListName))
                 {
                     _buyerPrototype = queue;
+                    _buyerPrototype.customerHandler.isOnServe = true;
                     _buyerPrototype.menuListNames.Remove(_menu);        // remove from cache
                     break;
                 }

@@ -40,6 +40,7 @@ namespace Aljava.Game
 
         public void handleBuyerFail(int _menuFail)
         {
+            UIGameManager.HealthManager.decrement();
             buyerFailTotal += 1;
             menuFailTotal += _menuFail;
             OnstatisticsChanged?.Invoke();

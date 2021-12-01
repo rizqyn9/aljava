@@ -54,9 +54,11 @@ namespace Aljava.Game
         {
             if(spawnerState == SpawnerState.CAN_CREATE && buyerNow <= GameController.LevelBase.minBuyer )
             {
+                print("asdad");
                 avaibleSeat = findAvaibleSeat();
                 if(avaibleSeat.Count > 0)
                 {
+                    print("asdadafdajd");
                     createCustomer();
                 }
             }
@@ -65,6 +67,7 @@ namespace Aljava.Game
         [SerializeField] int customerCounter = 0;
         void createCustomer()
         {
+            spawnerState = SpawnerState.REACTIVE;
             TransformSeatData seatData = avaibleSeat[Random.Range(0, avaibleSeat.Count)];
 
             buyerNow += 1;
@@ -72,6 +75,7 @@ namespace Aljava.Game
             TransformSeatData tsd = transformSeatDatas[seatData.index];         // To modify the struct, first assign it to a local variable, modify the variable, then assign the variable back to the item in the collection
             tsd.isSeatAvaible = false;
             transformSeatDatas[seatData.index] = tsd;
+                    print("asdadafdajfd");
 
             BuyerPrototype buyerPrototype = new BuyerPrototype()
             {
@@ -110,7 +114,7 @@ namespace Aljava.Game
         {
             spawnerState = SpawnerState.REACTIVE;
             yield return new WaitForSeconds(GameController.Instance.levelBase.delayPerCustomer);
-            if (spawnerState != SpawnerState.REACTIVE) yield break;
+            //if (spawnerState != SpawnerState.REACTIVE) yield break;
             spawnerState = SpawnerState.CAN_CREATE;
             yield break;
         }
