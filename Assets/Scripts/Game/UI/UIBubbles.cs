@@ -80,7 +80,7 @@ namespace Aljava.Game
             ItemMenu item = listItem.Find(val => val.menuListName == _menu);
             listItem.Remove(item);
 
-            item.go.LeanScale(new Vector2(1.2f, 1.2f), .2f).setTo(Vector2.zero).setOnComplete(() =>
+            item.go.LeanScale(new Vector2(1.2f, 1.2f), .2f).setTo(Vector2.zero).setOnStart(() =>
             {
                 if (listItem.Count < 1) closeBubble();
             });
