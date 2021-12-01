@@ -22,7 +22,7 @@ MonoBehaviour:
   delayPerCustomer: 15
   healthTotal: 3
   gameMode: 2
-  gameDuration: 40
+  gameDuration: 140
   minPoint: 0
   minOrder: 10
   minBuyer: 99

@@ -12,8 +12,8 @@ namespace Aljava.MainMenu
 
         public void init(int _idTitle, int totalBar)
         {
-            title.text = _idTitle == 1 ? "Bitterness" : "Sweetness";
-            for(int i =0; i < 3; i++)
+            title.text = _idTitle == 1 ? "Bitterness" : _idTitle == 2 ? "Sweetness" : "Acidity";
+            for (int i =0; i < 3; i++)
                 Instantiate(baseBar, instanceBarPlace).GetComponent<Image>().sprite = i > totalBar ? deactive : active;
         }
     }

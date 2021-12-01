@@ -16,8 +16,13 @@ MonoBehaviour:
   menuListName: 6
   menuPrefab: {fileID: 5972044566613367415, guid: 609f6f395068b4c12a1caaff9b75d9fc, type: 3}
   Igrendients: 0811
-  stepRecipes: []
+  stepRecipes:
+  - {fileID: 7738048791536459887, guid: 0d42add48eb654d4c95fafbc947bd4db, type: 3}
+  - {fileID: 21300000, guid: f782355a0e8fb8f418d3b74ccccc2f13, type: 3}
   menuDesc: 
   menuSprite: {fileID: 21300000, guid: 3147ebed4507a400f9477916ae44cd5e, type: 3}
   pointInGame: 0
   price: 0
+  barMenus:
+  - id: 2
+    total: 3
