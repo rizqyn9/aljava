@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 0d42add48eb654d4c95fafbc947bd4db
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4751955099469158832
+    second: flavouricon_0
+  - first:
+      213: 2597092325350942729
+    second: flavouricon_1
+  - first:
+      213: -3269511009245501101
+    second: flavouricon_2
+  - first:
+      213: -3353613825899027027
+    second: flavouricon_3
+  - first:
+      213: 8869854931123818240
+    second: flavouricon_4
+  - first:
+      213: 7738048791536459887
+    second: flavouricon_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,9 +50,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -89,7 +107,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: flavouricon_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 75
+        width: 77
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056e883930aad0eb0800000000000000
+      internalID: -4751955099469158832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flavouricon_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 75
+        width: 77
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908af6db5b9ba0420800000000000000
+      internalID: 2597092325350942729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flavouricon_2
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 75
+        width: 77
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35961b84f0d50a2d0800000000000000
+      internalID: -3269511009245501101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flavouricon_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 75
+        width: 76
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da523795ef19571d0800000000000000
+      internalID: -3353613825899027027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flavouricon_4
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 75
+        width: 77
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fc1eab01e081b70800000000000000
+      internalID: 8869854931123818240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flavouricon_5
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 75
+        width: 77
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60eb22c062136b60800000000000000
+      internalID: 7738048791536459887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
