@@ -15,4 +15,4 @@ MonoBehaviour:
   buyerType: 1
   buyerName: 
   buyerPrefab: {fileID: 1007301357059231708, guid: fd8b0e15157a95647a9184023cbf4a70, type: 3}
-  patienceDuration: 10
+  patienceDuration: 15

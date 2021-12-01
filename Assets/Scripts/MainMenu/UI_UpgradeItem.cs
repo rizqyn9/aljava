@@ -30,8 +30,14 @@ namespace Aljava.MainMenu
 
         public void updateData()
         {
-            UserMachineState machineState = GameManager.Instance.userData.userEnvDatas.Find(val => val.machineType == machineBase.machineType);
-            level = machineState.Equals(default(UserMachineState)) ? 1 : machineState.level;
+            int index = GameManager.Instance.userData.userEnvDatas.FindIndex(val => val.machineType == machineBase.machineType);
+            if(index >= 0)
+            {
+                level = GameManager.Instance.userData.userEnvDatas[index].level;
+            } else
+            {
+                level = 1;
+            }
             if(level >= 3)
             {
                 priceBtn.interactable = false;
