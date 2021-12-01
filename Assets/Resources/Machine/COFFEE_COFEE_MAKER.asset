@@ -44,8 +44,8 @@ MonoBehaviour:
   properties:
   - level: 1
     maxCapacity: 0
-    amout: 0
-    processDuration: 1
+    amout: 100
+    processDuration: 1.3
     prefab: {fileID: 1750299975057209778, guid: 1fc120627fe0945868c3adc58c7f4044, type: 3}
   - level: 2
     maxCapacity: 0
@@ -55,5 +55,5 @@ MonoBehaviour:
   - level: 3
     maxCapacity: 0
     amout: 0
-    processDuration: 1
+    processDuration: 0.8
     prefab: {fileID: 6959594727657560747, guid: c57686c49c509404bb93b749e0c8263f, type: 3}
