@@ -17,12 +17,12 @@ MonoBehaviour:
   tutorialPrefabs: {fileID: 0}
   level: 2
   MenuClassifications: 040000000000000001000000
-  MenuTypeUnlock: 020305
-  BuyerTypeUnlock: 000000000100000002000000
+  MenuTypeUnlock: 0205
+  BuyerTypeUnlock: 0000000002000000
   delayPerCustomer: 10
   healthTotal: 3
   gameMode: 2
-  gameDuration: 170
+  gameDuration: 120
   minPoint: 0
   minOrder: 15
   minBuyer: 99

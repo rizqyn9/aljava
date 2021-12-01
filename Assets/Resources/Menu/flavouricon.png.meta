@@ -112,12 +112,12 @@ TextureImporter:
       name: flavouricon_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 75
-        width: 77
-        height: 121
+        x: 21
+        y: 37
+        width: 130
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,12 +133,12 @@ TextureImporter:
       name: flavouricon_1
       rect:
         serializedVersion: 2
-        x: 260
-        y: 75
-        width: 77
-        height: 121
+        x: 224
+        y: 32
+        width: 130
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: flavouricon_2
       rect:
         serializedVersion: 2
-        x: 443
-        y: 75
-        width: 77
-        height: 121
+        x: 404
+        y: 32
+        width: 130
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: flavouricon_3
       rect:
         serializedVersion: 2
-        x: 606
-        y: 75
-        width: 76
-        height: 121
+        x: 572
+        y: 31
+        width: 130
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: flavouricon_4
       rect:
         serializedVersion: 2
-        x: 780
-        y: 75
-        width: 77
-        height: 121
+        x: 744
+        y: 29
+        width: 130
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,12 +217,12 @@ TextureImporter:
       name: flavouricon_5
       rect:
         serializedVersion: 2
-        x: 955
-        y: 75
-        width: 77
-        height: 121
+        x: 912
+        y: 47
+        width: 129
+        height: 177
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
