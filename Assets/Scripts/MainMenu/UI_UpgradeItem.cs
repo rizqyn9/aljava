@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,12 @@ namespace Aljava.MainMenu
 
             listIndicator.ForEach(val => val.enabled = false);
 
+            StartCoroutine(IUpdateData());
+        }
+
+        public IEnumerator IUpdateData()
+        {
+            yield return new WaitUntil(() => GameManager.Instance.userData.userEnvDatas != null);
             updateData();
         }
 

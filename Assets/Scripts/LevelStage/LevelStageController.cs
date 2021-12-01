@@ -44,7 +44,7 @@ namespace Aljava.Level
         LevelBase getLevelBase(int _index)
         {
             if (_index >= resCount) return null;
-            return ResourceManager.ListLevels[_index];
+            return ResourceManager.ListLevels.Find(val => val.level == (_index + 1));
         }
 
 

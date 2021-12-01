@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public struct BarMenu
 {
-    [Tooltip("1: Bitterness 2: Sweetness")]
+    [Tooltip("1: Bitterness 2: Sweetness 3: Acidity")]
     public int id;
     public int total;
 }

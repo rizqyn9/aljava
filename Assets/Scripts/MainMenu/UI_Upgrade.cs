@@ -30,7 +30,7 @@ namespace Aljava.MainMenu
         {
             userCoin = GameManager.Instance.userData.point;
             coins.text = userCoin.ToString();
-            listUpgradeItems.ForEach(val => val.updateData());
+            listUpgradeItems.ForEach(val => StartCoroutine(val.IUpdateData()));
         }
     }
 }
