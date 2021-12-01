@@ -21,7 +21,8 @@ namespace Aljava.MainMenu
 
         private void Start()
         {
-            noClickArea.SetActive(false);    
+            noClickArea.SetActive(false);
+            upgradeContainer.SetActive(false);
         }
 
         public void init()

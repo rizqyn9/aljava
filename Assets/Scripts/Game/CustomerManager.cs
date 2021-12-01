@@ -44,7 +44,10 @@ namespace Aljava.Game
         {
             spawnerState = SpawnerState.MAX_ORDER;
         }
-        public void OnGameFinish() { }
+        public void OnGameFinish()
+        {
+            spawnerState = SpawnerState.IDDLE;
+        }
         public void OnGameIddle() { }
         public void OnGamePause() { }
         #endregion
@@ -114,7 +117,7 @@ namespace Aljava.Game
         {
             spawnerState = SpawnerState.REACTIVE;
             yield return new WaitForSeconds(GameController.Instance.levelBase.delayPerCustomer);
-            //if (spawnerState != SpawnerState.REACTIVE) yield break;
+            if (spawnerState != SpawnerState.REACTIVE) yield break;
             spawnerState = SpawnerState.CAN_CREATE;
             yield break;
         }

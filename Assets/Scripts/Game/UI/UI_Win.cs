@@ -32,12 +32,21 @@ namespace Aljava.Game
             LeanTween.moveY(gameObject.GetComponent<RectTransform>(), 0,2f).setEaseInBounce().setOnComplete(() =>
             {
                 for (int i = 0; i < _total; i++)
-                    LeanTween.scale(stars[i].gameObject, new Vector2(1f, 1f), .7f).setDelay(.2f * i).setEaseInBounce();
+                    LeanTween.scale(stars[i].gameObject, new Vector2(1f, 1f), .7f)
+                        .setDelay(.2f * i)
+                        .setOnStart(() =>
+                        {
+                            SoundManager.PlaySound(getAudioClip(i));
+                        })
+                        .setEaseInBounce();
             }).setOnStart(() =>
             {
                 UIGameManager.Instance.noClickSetActive(true);
             });
         }
+
+        AudioClip getAudioClip(int i) => i == 0 ? SoundManager.Instance.Star1 :
+            i == 1 ? SoundManager.Instance.Star2 : SoundManager.Instance.Star3;
 
         public void Btn_Restart()
         {

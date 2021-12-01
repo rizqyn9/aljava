@@ -78,12 +78,13 @@ namespace Aljava.Game
         public void OnMenuServe(MenuListName _menu)
         {
             ItemMenu item = listItem.Find(val => val.menuListName == _menu);
-            listItem.Remove(item);
 
             item.go.LeanScale(new Vector2(1.2f, 1.2f), .2f).setTo(Vector2.zero).setOnStart(() =>
             {
-                if (listItem.Count < 1) closeBubble();
+                if (listItem.Count < 1 && !onClose) closeBubble();
             });
+
+            listItem.Remove(item);
         }
 
         public void failToServe()
@@ -92,7 +93,9 @@ namespace Aljava.Game
             LeanTween.scale(gameObject, Vector2.zero, .3f).setDelay(.5f).setOnComplete(buyerPrototype.customerHandler.walkOut);
         }
 
+        bool onClose = false;
         void closeBubble() =>
-            LeanTween.scale(gameObject, Vector2.zero, .3f);
+            LeanTween.scale(gameObject, Vector2.zero, .3f)
+            .setOnStart(() => onClose = true);
     }
 }
