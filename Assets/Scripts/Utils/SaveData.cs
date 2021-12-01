@@ -90,7 +90,14 @@ public class SaveData : MonoBehaviour
             // Set open on next level
             openNextLevel(_levelModel.level + 1);
         }
+
+        updatePoin();
         saveIntoJson();
+    }
+
+    private void updatePoin()
+    {
+        userData.point += GameController.RulesController.earnPointTotal;
     }
 
     private void openNextLevel(int _targetLevel)
