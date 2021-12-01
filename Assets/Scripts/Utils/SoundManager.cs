@@ -10,6 +10,7 @@ namespace Aljava
         public AudioMixer mixer;
 
         public AudioClip BGM;
+        public AudioClip Bell;
         public AudioClip ButtonSFX;
         public AudioClip Star1;
         public AudioClip Star2;

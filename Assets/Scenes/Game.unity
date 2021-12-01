@@ -768,12 +768,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d33a993d7b7455b85e0fe37de5f3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overcookDuration: 1
+  overcookDuration: 4
   delayToOverCook: 0.5
   repairDuration: 0.5
-  delayStart: 2
-  animMachineBeforeStart: 0.5
-  delayCustomerOnStart: 2
+  delayStart: 3
+  animMachineBeforeStart: 0.8
+  delayCustomerOnStart: 5
 --- !u!1 &233296352
 GameObject:
   m_ObjectHideFlags: 0

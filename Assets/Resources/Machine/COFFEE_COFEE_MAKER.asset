@@ -39,7 +39,7 @@ MonoBehaviour:
   isUseOverCook: 1
   isUseBarCapacity: 0
   isUpgradeable: 1
-  iconUpgradeable: {fileID: 21300000, guid: 4c58788e6a8b24ec88162f9a3db8811e, type: 3}
+  iconUpgradeable: {fileID: 21300000, guid: 8797922e4f9ff0a4695699f34bce9646, type: 3}
   isAutoRun: 0
   properties:
   - level: 1

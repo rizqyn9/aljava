@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDDOL: 0
+  mixer: {fileID: 24100000, guid: ba59eb5d1b85e244697b16349ab67fe5, type: 2}
   BGM: {fileID: 8300000, guid: 1b1b8d961a697a94289a5dc45ed99468, type: 3}
+  Bell: {fileID: 8300000, guid: 28e6767a8f1a44fb78e2f4bd47344976, type: 3}
   ButtonSFX: {fileID: 8300000, guid: 24ca69e6cf4139c49a981b3c56d3a147, type: 3}
   Star1: {fileID: 8300000, guid: d1648501073386441a53458fff6f1b06, type: 3}
   Star2: {fileID: 8300000, guid: a1dbaf63320f8b94183eb368b3e2971a, type: 3}

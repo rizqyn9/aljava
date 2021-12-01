@@ -58,6 +58,9 @@ namespace Aljava.Game
 
         public void runProcess()
         {
+            if(machine.machineBase.machineClass != MachineClass.LATTE)
+                SoundManager.PlaySound(SoundManager.Instance.MachineSoundSFX);
+
             updatePos();
             forceStop();                // Prevent double tweening in single process
             barType = BarType.PROCESS;
@@ -76,6 +79,8 @@ namespace Aljava.Game
         public void runRepair()
         {
             barType = BarType.REPAIR;
+            if (machine.machineBase.machineClass != MachineClass.LATTE) SoundManager.PlaySound(SoundManager.Instance.RepairSFX);
+
             float dur = GameController.GameProperties.repairDuration;
             simulateRepair(dur);
             runDefault(barOvercook, dur);
@@ -104,11 +109,13 @@ namespace Aljava.Game
             {
                 if (isUseCapacity) resetProcess();
                 spawnCheck(checkList);
+                if (machine.machineBase.machineClass != MachineClass.LATTE) SoundManager.PlaySound(SoundManager.Instance.MachineDoneSFX);
                 machine.OnProcessCompleted();
             } else if(barType == BarType.OVERCOOK)
             {
                 print("Overcook");
                 spawnCheck(checkRepair);
+                if (machine.machineBase.machineClass != MachineClass.LATTE) SoundManager.PlaySound(SoundManager.Instance.MachineOverheatSFX);
                 machine.OnProcessOvercookCompleted();
             } else if(barType == BarType.REPAIR)
             {

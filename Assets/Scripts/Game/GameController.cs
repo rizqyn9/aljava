@@ -64,6 +64,7 @@ namespace Aljava.Game
             GameState = GameState.BEFORE_START;
             yield return new WaitForSeconds(gameProperties.delayStart);
 
+            SoundManager.PlaySound(SoundManager.Instance.Bell);
             GameState = GameState.START;
         }
 
