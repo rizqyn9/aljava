@@ -394,6 +394,9 @@ MonoBehaviour:
   isInteractable: 0
   isOverlayResolve: 0
   isMiniGameSuccess: 0
+  btnDone: {fileID: 1333638252250142912}
+  btnResolve: {fileID: 6305151118159073513}
+  btnReject: {fileID: 1333638253459646342}
 --- !u!1 &1333638252250142914
 GameObject:
   m_ObjectHideFlags: 0

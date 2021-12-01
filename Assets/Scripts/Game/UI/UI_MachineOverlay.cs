@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Aljava.Game
 {
@@ -15,6 +16,7 @@ namespace Aljava.Game
         public bool isInteractable = false;
         public bool isOverlayResolve = false;
         public bool isMiniGameSuccess = false;
+        public Button btnDone, btnResolve, btnReject;
 
         private void OnEnable()
         {
@@ -68,17 +70,31 @@ namespace Aljava.Game
                 animator.Play("run");
                 StartCoroutine(IListen());
             }
+            if(machine.machineType == MachineIgrendient.COFEE_MAKER)
+            {
+                btnDone.GetComponent<Image>().color = new Color(0, .9f, 0, .5f);
+                btnDone.interactable = false;
+                btnResolve.interactable = true;
+            }
         }
 
         IEnumerator IListen()
         {
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("done"));
-            print("aniim done");
+            //print("aniim done");
+            //btnDone.gameObject.SetActive(true);
+            Btn_Resolve();
         }
 
         public void Btn_False()
         {
             isOverlayResolve = false;
+            if (machine.machineType == MachineIgrendient.COFEE_MAKER)
+            {
+                btnReject.GetComponent<Image>().color = new Color(.9f, 0, 0, .5f);
+                btnReject.interactable = false;
+                btnResolve.interactable = false;
+            }
         }
 
         public void Btn_Resolve()
