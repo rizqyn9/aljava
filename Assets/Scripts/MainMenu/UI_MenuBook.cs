@@ -54,13 +54,14 @@ namespace Aljava.MainMenu
 
         public void Btn_Left()
         {
+            SoundManager.PlayButtonSFX();
             render(listMenuBases[setStatePage(false)], listMenuBases[setStatePage(false)]);
         }
 
         public void Btn_Right()
         {
+            SoundManager.PlayButtonSFX();
             render(listMenuBases[setStatePage(true)], listMenuBases[setStatePage(true)]);
-
         }
     }
 }
