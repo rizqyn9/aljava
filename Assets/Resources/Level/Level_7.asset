@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31220ab451334ae0a99b3fa2db936b0, type: 3}
   m_Name: Level_7
   m_EditorClassIdentifier: 
-  isTutorialLevel: 0
-  tutorialScript: {fileID: 0}
   isLevelTest: 0
+  isTutorialLevel: 0
+  tutorialPrefabs: {fileID: 0}
   level: 7
-  gameMode: 2
   MenuClassifications: 000000000400000001000000
   MenuTypeUnlock: 020304050607
   BuyerTypeUnlock: 0000000001000000
-  delayPerCustomer: 6
-  healthTotal: 3
+  delayPerCustomer: 6.18
+  healthTotal: 7
+  gameMode: 2
   gameDuration: 270
   minPoint: 0
   minOrder: 40
   minBuyer: 99
+  message: Validate Message
